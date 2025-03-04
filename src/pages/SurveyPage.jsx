@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { districts } from '../data/districts';
+import '../styles/SurveyPage.css';
 
 function SurveyPage() {
   const [audioSamples] = useState([
@@ -219,7 +220,7 @@ function SurveyPage() {
   );
 }
 
-// Define all the same supporting components
+// Update RatingForm component for improved visual design
 function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay }) {
   const handleAudioEnded = () => {
     onListen();

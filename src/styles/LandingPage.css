@@ -1337,3 +1337,71 @@ audio {
     min-height: 55px;
   }
 }
+
+/* Add these responsive styles for the steps container */
+@media screen and (max-width: 768px) {
+  .steps-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .step {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .step-count {
+    top: -15px;
+    right: 10px;
+    font-size: 1.8rem;
+    position: absolute;
+  }
+
+  .step-connector {
+    width: 4px;
+    height: 30px;
+    transform: rotate(90deg);
+    margin: 0 auto;
+  }
+  
+  .step-connector svg {
+    height: 100%;
+    width: 4px;
+  }
+  
+  .step-connector line {
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+  
+  .step {
+    position: relative;
+    padding: 20px;
+  }
+  
+  .step p {
+    margin-bottom: 10px;
+  }
+}
+
+/* For even smaller screens */
+@media screen and (max-width: 480px) {
+  .step-count {
+    font-size: 1.5rem;
+    top: -10px;
+    right: 10px;
+  }
+  
+  .step {
+    padding: 15px;
+  }
+  
+  .step h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .step p {
+    font-size: 0.9rem;
+  }
+}
