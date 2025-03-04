@@ -3,9 +3,24 @@ import { districts } from '../data/districts';
 
 function SurveyPage() {
   const [audioSamples] = useState([
-    { id: 1, title: 'Audio Sample 1', file: './assets/wavs/street_scene_1.wav' },
-    { id: 2, title: 'Audio Sample 2', file: './assets/wavs/street_scene_113.wav' },
-    { id: 3, title: 'Audio Sample 3', file: './assets/wavs/street_scene_1.wav' },
+    { 
+      id: 1, 
+      title: 'Audio Sample 1', 
+      file: './assets/wavs/street_scene_1.wav',
+      transcription: 'यो नेपाली टेक्स्ट-टु-स्पीच प्रणालीको एक उदाहरण हो।'
+    },
+    { 
+      id: 2, 
+      title: 'Audio Sample 2', 
+      file: './assets/wavs/street_scene_113.wav',
+      transcription: 'आवाजको गुणस्तर कस्तो लाग्यो? कृपया मूल्यांकन गर्नुहोस्।'
+    },
+    { 
+      id: 3, 
+      title: 'Audio Sample 3', 
+      file: './assets/wavs/street_scene_1.wav',
+      transcription: 'तपाईंको प्रतिक्रिया हाम्रो प्रणालीलाई सुधार गर्न मद्दत गर्नेछ।'
+    },
     // { id: 4, title: 'Audio Sample 4', file: './assets/wavs/street_scene_1.wav' },
     // { id: 5, title: 'Audio Sample 5', file: './assets/wavs/street_scene_1.wav' },
   ]);
@@ -221,6 +236,13 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
           {listened && <span className="status-listened">Listened</span>}
         </div>
       </div>
+
+      {/* Add the Nepali transcription here */}
+      {sample.transcription && (
+        <div className="transcription-container">
+          <p className="transcription-text">{sample.transcription}</p>
+        </div>
+      )}
 
       <div className="audio-player">
         <audio controls id={`audio${sample.id}`} onEnded={handleAudioEnded}>

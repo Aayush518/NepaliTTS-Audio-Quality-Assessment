@@ -1250,3 +1250,90 @@
     height: 34px;
   }
 }
+
+/* Add responsive styles for the survey page */
+/* Survey Page Rating Buttons Responsive Styles */
+.rating-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.rating-btn {
+  flex: 0 0 calc(10% - 10px);
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  font-weight: bold;
+  border: 2px solid var(--primary-color);
+  background-color: white;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+.rating-btn.selected {
+  background-color: var(--primary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Audio player responsive styles */
+audio {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: auto;
+  min-height: 40px;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .rating-buttons {
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .rating-btn {
+    flex: 0 0 calc(18% - 8px);
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1rem;
+  }
+  
+  audio {
+    min-height: 50px;
+  }
+  
+  .rating-label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rating-buttons {
+    gap: 6px;
+  }
+  
+  .rating-btn {
+    flex: 0 0 calc(18% - 6px);
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 1.1rem;
+  }
+  
+  audio {
+    min-height: 55px;
+  }
+}
