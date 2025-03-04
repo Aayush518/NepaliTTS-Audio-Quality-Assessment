@@ -544,3 +544,28 @@ select {
   }
 }
 
+/* Add these new classes to your existing CSS file */
+
+/* Form validation styles - only applied after field interaction */
+.valid-field {
+  border-color: var(--success-color) !important;
+}
+
+.invalid-field {
+  border-color: var(--error-color) !important;
+}
+
+/* Override the existing required field styles to prevent them from showing initially */
+input:required,
+select:required {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Removing the existing validation styles that would show immediately */
+input:required:invalid,
+select:required:invalid,
+input:required:valid,
+select:required:valid {
+  border-color: inherit;
+}
+

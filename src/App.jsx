@@ -24,6 +24,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // Add a state to track which form fields have been touched/interacted with
+  const [touchedFields, setTouchedFields] = useState({
+    name: false,
+    age: false,
+    gender: false,
+    district: false,
+  });
+
   // Calculate progress when ratings or listenedTo changes
   useEffect(() => {
     const totalSteps = audioSamples.length * 2; // Listen + Rate for each sample
@@ -186,7 +194,12 @@ const submitToGoogleSheets = async () => {
             ))}
           </div>
 
-          <UserInfoForm userInfo={userInfo} onChange={handleUserInfoChange} />
+          <UserInfoForm 
+            userInfo={userInfo} 
+            onChange={handleUserInfoChange} 
+            touchedFields={touchedFields}
+            setTouchedFields={setTouchedFields}
+          />
 
           <SubmitSection isLoading={isLoading} error={error} />
         </form>
@@ -249,12 +262,16 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
   );
 }
 
-function UserInfoForm({ userInfo, onChange }) {
+function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
   // Handler for name field - allow only letters and spaces
   const handleNameChange = (e) => {
     const value = e.target.value.replace(/[^A-Za-z\s]/g, '');
     const event = { ...e, target: { ...e.target, name: 'name', value } };
     onChange(event);
+    // Mark this field as touched
+    if (!touchedFields.name) {
+      setTouchedFields(prev => ({ ...prev, name: true }));
+    }
   };
 
   // Handler for age field - enforce numeric constraints
@@ -263,6 +280,33 @@ function UserInfoForm({ userInfo, onChange }) {
     // Allow only numbers and enforce min/max through the input attributes
     const event = { ...e, target: { ...e.target, name: 'age', value } };
     onChange(event);
+    // Mark this field as touched
+    if (!touchedFields.age) {
+      setTouchedFields(prev => ({ ...prev, age: true }));
+    }
+  };
+  
+  // Mark field as touched when it loses focus (blur event)
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    if (!touchedFields[name]) {
+      setTouchedFields(prev => ({ ...prev, [name]: true }));
+    }
+  };
+  
+  // Handle select change and mark as touched
+  const handleSelectChange = (e) => {
+    onChange(e);
+    const { name } = e.target;
+    if (!touchedFields[name]) {
+      setTouchedFields(prev => ({ ...prev, [name]: true }));
+    }
+  };
+  
+  // Get validation styling class based on field touch state and value
+  const getFieldClass = (fieldName, value) => {
+    if (!touchedFields[fieldName]) return "";
+    return value ? "valid-field" : "invalid-field";
   };
 
   return (
@@ -280,9 +324,11 @@ function UserInfoForm({ userInfo, onChange }) {
             name="name"
             value={userInfo.name}
             onChange={handleNameChange}
+            onBlur={handleBlur}
             placeholder="Enter your full name"
             required
             autoComplete="name"
+            className={getFieldClass('name', userInfo.name)}
           />
           <small>Please enter alphabetic characters only</small>
         </div>
@@ -297,9 +343,11 @@ function UserInfoForm({ userInfo, onChange }) {
             max="100"
             value={userInfo.age}
             onChange={handleAgeChange}
+            onBlur={handleBlur}
             placeholder="18-100"
             required
             autoComplete="off"
+            className={getFieldClass('age', userInfo.age)}
           />
         </div>
       </div>
@@ -311,9 +359,10 @@ function UserInfoForm({ userInfo, onChange }) {
             id="gender"
             name="gender"
             value={userInfo.gender}
-            onChange={onChange}
+            onChange={handleSelectChange}
+            onBlur={handleBlur}
             required
-            className={userInfo.gender ? 'selected' : ''}
+            className={`${userInfo.gender ? 'selected' : ''} ${getFieldClass('gender', userInfo.gender)}`}
           >
             <option value="" disabled>Select Gender</option>
             <option value="male">Male</option>
@@ -329,9 +378,10 @@ function UserInfoForm({ userInfo, onChange }) {
             id="district"
             name="district"
             value={userInfo.district}
-            onChange={onChange}
+            onChange={handleSelectChange}
+            onBlur={handleBlur}
             required
-            className={userInfo.district ? 'selected' : ''}
+            className={`${userInfo.district ? 'selected' : ''} ${getFieldClass('district', userInfo.district)}`}
           >
             <option value="" disabled>Select District</option>
             {districts.map((district) => (
