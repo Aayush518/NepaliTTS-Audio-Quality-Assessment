@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400">
+  <rect width="500" height="400" fill="#f8f9fa"/>
+  <circle cx="250" cy="200" r="150" fill="#4361ee" opacity="0.1"/>
+  <text x="150" y="150" font-family="Arial" font-size="40" fill="#4361ee">क ख ग</text>
+  <text x="170" y="200" font-family="Arial" font-size="40" fill="#4361ee">घ ङ च</text>
+  <text x="190" y="250" font-family="Arial" font-size="40" fill="#4361ee">छ ज झ</text>
+  <text x="210" y="300" font-family="Arial" font-size="40" fill="#4361ee">ञ ट ठ</text>
+</svg>

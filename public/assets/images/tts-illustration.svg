@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="500" height="400">
+  <rect width="500" height="400" fill="#f8f9fa"/>
+  <circle cx="250" cy="200" r="100" fill="#4361ee" opacity="0.1"/>
+  <path d="M180 170c0-33.1 26.9-60 60-60s60 26.9 60 60v60c0 33.1-26.9 60-60 60s-60-26.9-60-60v-60z" stroke="#4361ee" stroke-width="8" fill="none"/>
+  <path d="M180 170h-30v60h30" stroke="#4361ee" stroke-width="8" fill="none"/>
+  <path d="M300 170h30v60h-30" stroke="#4361ee" stroke-width="8" fill="none"/>
+  <path d="M240 290v40" stroke="#4361ee" stroke-width="8" fill="none"/>
+  <path d="M210 330h60" stroke="#4361ee" stroke-width="8" fill="none"/>
+  <path d="M150 120c-20 20-30 40-30 70" stroke="#4361ee" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  <path d="M330 120c20 20 30 40 30 70" stroke="#4361ee" stroke-width="2" stroke-dasharray="5,5" fill="none"/>
+  <path d="M220 120l10-30l10 30" stroke="#4361ee" stroke-width="2" fill="none"/>
+  <path d="M250 120l10-30l10 30" stroke="#4361ee" stroke-width="2" fill="none"/>
+  <path d="M280 120l10-30l10 30" stroke="#4361ee" stroke-width="2" fill="none"/>
+  <text x="250" y="195" font-family="Arial" font-size="24" text-anchor="middle" fill="#4361ee">TTS</text>
+</svg>

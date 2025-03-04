@@ -18,6 +18,20 @@
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Text Selection Styling */
+::selection {
+  background-color: #4cc9f0;
+  color: white;
+  text-shadow: none;
+}
+
+/* For Firefox */
+::-moz-selection {
+  background-color: #4cc9f0;
+  color: white;
+  text-shadow: none;
+}
+
 body {
   margin: 0;
   padding: 0;
