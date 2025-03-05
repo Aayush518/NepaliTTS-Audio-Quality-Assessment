@@ -165,7 +165,7 @@ h1 {
 /* Audio Player */
 .audio-player {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .audio-player audio {
@@ -181,21 +181,22 @@ h1 {
 .rating-container {
   display: flex;
   flex-direction: column;
-  padding: 15px 0;
+  padding: 0px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.05);
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .rating-label {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 0px;
   font-weight: 500;
 }
 
 .rating-label span {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .rating-buttons {

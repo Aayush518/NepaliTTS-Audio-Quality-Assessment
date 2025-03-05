@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { districts } from '../data/districts';
 import '../styles/SurveyPage.css';
 
+
 function SurveyPage() {
   const [audioSamples] = useState([
     { 
@@ -28,7 +29,23 @@ function SurveyPage() {
       file: './assets/wavs/audio5.wav',
       transcription: 'विश्वव्यापी अन्तर्विरोधात्मक संघर्षहरूको बहुआयामिक पुनर्निर्माणले संवेदनशील राजनीतिक परिवर्तनको जटिल प्रक्रियालाई अन्तर्निहित गर्दछ।'
     },
-    
+    { 
+      id: 5, 
+      title: 'Audio Sample 5', 
+      isComparison: true,
+      groundTruthFile: './assets/wavs/groundTruth.mp3',
+      generatedFile: './assets/wavs/generated.mp3',
+      transcription: 'जनताको अधिकार र स्वतन्त्रता सुनिश्चित गर्नका लागि प्रभावकारी कानुनी संरचनाहरूको विकास आवश्यक छ, जसले जनतामा विश्वास र सरकारप्रतिको सकारात्मक धारणा स्थापना गर्न सहयोग गर्नेछ।',
+      comparisonQuestion: 'How similar is the generated audio to original audio in terms of voice, tone, and style of the speaker?'
+    },
+    // for fun test
+     {
+      id: 6,
+      title: 'Audio Sample 6',
+      file: './assets/wavs/forfun.wav',
+      isDistortionCheck: true,
+      transcription: 'तीनवटै तहका सरकारमा रहेको कांग्रेसले चार दिनसम्म बसेको केन्द्रीय कार्यसमिति बैठकमा सदस्यहरुले राखेका धारणाका आधारमा मुलुकको आर्थिक अवस्था कमजोर रहेका बेला सरकारले फजुल खर्च कम गर्नुपर्ने र आर्थिक मितव्ययिता अपनाउनुपर्ने विषय आफ्ना जनप्रतिनिधिहरुलाई स्मरण गराएको हो ।'
+     }
   ]);
 
   const [ratings, setRatings] = useState({});
@@ -71,6 +88,20 @@ function SurveyPage() {
 
   const handleListened = (sampleId) => {
     setListenedTo((prev) => ({ ...prev, [sampleId]: true }));
+  };
+
+  // Modified to handle ground truth and generated audio
+  const handleComparisonListened = (sampleId, type) => {
+    setListenedTo((prev) => {
+      // If both audios have been listened to, mark the sample as listened
+      if (type === 'groundTruth' && prev[`${sampleId}-generated`]) {
+        return { ...prev, [sampleId]: true, [`${sampleId}-${type}`]: true };
+      } else if (type === 'generated' && prev[`${sampleId}-groundTruth`]) {
+        return { ...prev, [sampleId]: true, [`${sampleId}-${type}`]: true };
+      } else {
+        return { ...prev, [`${sampleId}-${type}`]: true };
+      }
+    });
   };
 
   const handleUserInfoChange = (e) => {
@@ -118,6 +149,7 @@ function SurveyPage() {
           sample3: ratings[3] || '',
           sample4: ratings[4] || '',
           sample5: ratings[5] || '',
+          sample6: ratings[6] || '',
         },
         userInfo: {
           name: userInfo.name.trim(),
@@ -185,6 +217,7 @@ function SurveyPage() {
         <p className="intro">
           Welcome! We are developing a <strong>Nepali text-to-speech (TTS) </strong>system, and your feedback is crucial in making it sound more natural and expressive.  
           <br></br>Please listen to each audio sample carefully and rate its quality on a scale from 1 to 10, where 1 means poor and unnatural, and 10 means highly natural and excellent.  
+          For the comparison sample, please rate how similar the generated audio is to the original human speech.
           Your input will help us refine and enhance the speech synthesis technology for better user experience. Thank you for your time and support!
         </p>
       </header>
@@ -195,15 +228,29 @@ function SurveyPage() {
         <form onSubmit={handleSubmit}>
           <div id="audioSamples">
             {audioSamples.map((sample, index) => (
-              <RatingForm
-                key={sample.id}
-                sample={sample}
-                rating={ratings[sample.id]}
-                listened={listenedTo[sample.id]}
-                onRate={(value) => handleRating(sample.id, value)}
-                onListen={() => handleListened(sample.id)}
-                animationDelay={index * 0.1} // Add staggered animation delay
-              />
+              sample.isComparison ? (
+                <ComparisonRatingForm
+                  key={sample.id}
+                  sample={sample}
+                  rating={ratings[sample.id]}
+                  listened={listenedTo[sample.id]}
+                  onRate={(value) => handleRating(sample.id, value)}
+                  onListen={(type) => handleComparisonListened(sample.id, type)}
+                  groundTruthListened={listenedTo[`${sample.id}-groundTruth`]}
+                  generatedListened={listenedTo[`${sample.id}-generated`]}
+                  animationDelay={index * 0.1}
+                />
+              ) : (
+                <RatingForm
+                  key={sample.id}
+                  sample={sample}
+                  rating={ratings[sample.id]}
+                  listened={listenedTo[sample.id]}
+                  onRate={(value) => handleRating(sample.id, value)}
+                  onListen={() => handleListened(sample.id)}
+                  animationDelay={index * 0.1}
+                />
+              )
             ))}
           </div>
 
@@ -258,9 +305,134 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
       </div>
 
       <div className="rating-container">
+      {
+        sample.isDistortionCheck? // for fun test
+        <h3 className="rating-question">Do you hear any distortions or artifacts? If yes, select how many words sounded incorrect or unclear?</h3>
+        :
+        <h3 className="rating-question"> How natural and human-like does this audio sound to you?</h3>
+      }
+
+        {/* <h3 className="rating-question"> How natural and human-like does this audio sound to you?</h3> */}
+
+          {
+            sample.isDistortionCheck? // for fun test
+            <div className="rating-label">
+              <span>No Distortions</span>
+              <span>10+ Distortions</span>
+            </div>
+            :
+            <div className="rating-label">
+              <span>Robotic</span>
+              <span>Natural</span>
+            </div>
+          }
+
+        {/* <div className="rating-label">
+          <span>Robotic</span>
+          <span>Natural</span>
+        </div> */}
+
+        <div className="rating-buttons">
+          {
+            sample.isDistortionCheck? // for fun test
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+              <button
+                key={value}
+                type="button"
+                className={`rating-btn ${rating === value ? 'selected' : ''}`}
+                onClick={() => onRate(value)}
+              >
+                {value}
+              </button>
+            ))
+            :
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+              <button
+                key={value}
+                type="button"
+                className={`rating-btn ${rating === value ? 'selected' : ''}`}
+                onClick={() => onRate(value)}
+              >
+                {value}
+              </button>
+            ))
+          }
+
+          {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+            <button
+              key={value}
+              type="button"
+              className={`rating-btn ${rating === value ? 'selected' : ''}`}
+              onClick={() => onRate(value)}
+            >
+              {value}
+            </button>
+          ))} */}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// New component for the comparison rating
+function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, groundTruthListened, generatedListened, animationDelay }) {
+  const handleGroundTruthEnded = () => {
+    onListen('groundTruth');
+  };
+
+  const handleGeneratedEnded = () => {
+    onListen('generated');
+  };
+
+  const cardStyle = animationDelay ? 
+    { animationDelay: `${animationDelay}s` } : {};
+
+  return (
+    <div className="audio-sample comparison-sample" style={cardStyle}>
+      <div className="sample-header">
+        <div className="sample-title">{sample.title}</div>
+        <div className="sample-status">
+          {listened && <span className="status-listened">Both Listened</span>}
+        </div>
+      </div>
+
+      {/* Add the transcription if available */}
+      {sample.transcription && (
+        <div className="transcription-container">
+          <p className="transcription-text">{sample.transcription}</p>
+        </div>
+      )}
+
+      <div className="comparison-audio-container">
+        <div className="audio-comparison-section">
+          <h4>Original Human Voice (Ground Truth)</h4>
+          <div className="audio-player">
+            <audio controls id={`groundTruth-${sample.id}`} onEnded={handleGroundTruthEnded}>
+              <source src={sample.groundTruthFile} type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+            {groundTruthListened && <span className="audio-listened-badge">✓ Listened</span>}
+          </div>
+        </div>
+
+        <div className="audio-comparison-section">
+          <h4>AI-Generated Voice</h4>
+          <div className="audio-player">
+            <audio controls id={`generated-${sample.id}`} onEnded={handleGeneratedEnded}>
+              <source src={sample.generatedFile} type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
+            {generatedListened && <span className="audio-listened-badge">✓ Listened</span>}
+          </div>
+        </div>
+      </div>
+
+      <div className="rating-container">
+        <h3 className="rating-question">{sample.comparisonQuestion}</h3>
+        
         <div className="rating-label">
-          <span>Poor quality</span>
-          <span>Excellent quality</span>
+          <span>Very Different</span>
+          <span>Identical</span>
         </div>
 
         <div className="rating-buttons">
