@@ -116,8 +116,8 @@ function SurveyPage() {
           sample1: ratings[1] || '',
           sample2: ratings[2] || '',
           sample3: ratings[3] || '',
-          // sample4: ratings[4] || '',
-          // sample5: ratings[5] || '',
+          sample4: ratings[4] || '',
+          sample5: ratings[5] || '',
         },
         userInfo: {
           name: userInfo.name.trim(),
