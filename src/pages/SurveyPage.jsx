@@ -7,23 +7,28 @@ function SurveyPage() {
     { 
       id: 1, 
       title: 'Audio Sample 1', 
-      file: './assets/wavs/street_scene_1.wav',
-      transcription: 'यो नेपाली टेक्स्ट-टु-स्पीच प्रणालीको एक उदाहरण हो।'
+      file: './assets/wavs/audio6.wav',
+      transcription: 'स्वास्थ्य र चिकित्सा क्षेत्रमा सरकारी नीतिहरूको प्रभावकारिता र दीर्घकालिक लाभहरूको मूल्याङ्कन गर्न अभियान्त्रिक पद्धति आवश्यक छ।'
     },
     { 
-      id: 2, 
+      id: 2,
       title: 'Audio Sample 2', 
-      file: './assets/wavs/street_scene_113.wav',
-      transcription: 'आवाजको गुणस्तर कस्तो लाग्यो? कृपया मूल्यांकन गर्नुहोस्।'
+      file: './assets/wavs/audio3.wav',
+      transcription: 'सार्वजनिक नीति र सामाजिक विकासका पक्षमा प्रभावकारी योजनाहरूको आवश्यकता अझै महत्त्वपूर्ण बनेको छ।'
     },
     { 
       id: 3, 
       title: 'Audio Sample 3', 
-      file: './assets/wavs/street_scene_1.wav',
-      transcription: 'तपाईंको प्रतिक्रिया हाम्रो प्रणालीलाई सुधार गर्न मद्दत गर्नेछ।'
+      file: './assets/wavs/audio4.wav',
+      transcription: 'राष्ट्रिय परीक्षा बोर्डका कर्मचारीले विद्यालय शिक्षा सम्बन्धी विधेयकमा व्यवस्थामा असन्तुष्टि जनाउँदै आन्दोलन सुरु गरेका छन् ।'
     },
-    // { id: 4, title: 'Audio Sample 4', file: './assets/wavs/street_scene_1.wav' },
-    // { id: 5, title: 'Audio Sample 5', file: './assets/wavs/street_scene_1.wav' },
+    { 
+      id: 4, 
+      title: 'Audio Sample 4', 
+      file: './assets/wavs/audio5.wav',
+      transcription: 'विश्वव्यापी अन्तर्विरोधात्मक संघर्षहरूको बहुआयामिक पुनर्निर्माणले संवेदनशील राजनीतिक परिवर्तनको जटिल प्रक्रियालाई अन्तर्निहित गर्दछ।'
+    },
+    
   ]);
 
   const [ratings, setRatings] = useState({});
