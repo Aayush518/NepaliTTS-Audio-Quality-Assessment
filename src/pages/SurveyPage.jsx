@@ -282,12 +282,24 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
   const cardStyle = animationDelay ? 
     { animationDelay: `${animationDelay}s` } : {};
 
+  const selectedButtonStyle = {
+    backgroundColor: 'var(--nepali-red)',
+    color: 'white',
+    borderColor: 'var(--nepali-red)'
+  };
+
+  const normalButtonStyle = {
+    borderColor: 'var(--nepali-red)',
+    color: 'var(--nepali-red)',
+    backgroundColor: 'white'
+  };
+
   return (
     <div className="audio-sample" style={cardStyle}>
       <div className="sample-header">
         <div className="sample-title">{sample.title}</div>
         <div className="sample-status">
-          {listened && <span className="status-listened">Listened</span>}
+          {listened && <span className="status-listened" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>Listened</span>}
         </div>
       </div>
 
@@ -298,8 +310,13 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
         </div>
       )}
 
-      <div className="audio-player">
-        <audio controls id={`audio${sample.id}`} onEnded={handleAudioEnded}>
+      <div className="audio-player" style={{ color: 'var(--nepali-red)' }}>
+        <audio 
+          controls 
+          id={`audio${sample.id}`} 
+          onEnded={handleAudioEnded} 
+          style={{ accentColor: 'var(--nepali-red)' }}
+        >
           <source src={sample.file} type="audio/wav" />
           Your browser does not support the audio element.
         </audio>
@@ -342,6 +359,7 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
                 type="button"
                 className={`rating-btn ${rating === value ? 'selected' : ''}`}
                 onClick={() => onRate(value)}
+                style={rating === value ? selectedButtonStyle : normalButtonStyle}
               >
                 {value}
               </button>
@@ -353,6 +371,7 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
                 type="button"
                 className={`rating-btn ${rating === value ? 'selected' : ''}`}
                 onClick={() => onRate(value)}
+                style={rating === value ? selectedButtonStyle : normalButtonStyle}
               >
                 {value}
               </button>
@@ -388,12 +407,24 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
   const cardStyle = animationDelay ? 
     { animationDelay: `${animationDelay}s` } : {};
 
+  const selectedButtonStyle = {
+    backgroundColor: 'var(--nepali-red)',
+    color: 'white',
+    borderColor: 'var(--nepali-red)'
+  };
+
+  const normalButtonStyle = {
+    borderColor: 'var(--nepali-red)',
+    color: 'var(--nepali-red)',
+    backgroundColor: 'white'
+  };
+
   return (
     <div className="audio-sample comparison-sample" style={cardStyle}>
       <div className="sample-header">
         <div className="sample-title">{sample.title}</div>
         <div className="sample-status">
-          {listened && <span className="status-listened">Both Listened</span>}
+          {listened && <span className="status-listened" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>Both Listened</span>}
         </div>
       </div>
 
@@ -412,7 +443,7 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
               <source src={sample.groundTruthFile} type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
-            {groundTruthListened && <span className="audio-listened-badge">✓ Listened</span>}
+            {groundTruthListened && <span className="audio-listened-badge" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>✓ Listened</span>}
           </div>
         </div>
 
@@ -423,7 +454,7 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
               <source src={sample.generatedFile} type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
-            {generatedListened && <span className="audio-listened-badge">✓ Listened</span>}
+            {generatedListened && <span className="audio-listened-badge" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>✓ Listened</span>}
           </div>
         </div>
       </div>
@@ -443,6 +474,7 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
               type="button"
               className={`rating-btn ${rating === value ? 'selected' : ''}`}
               onClick={() => onRate(value)}
+              style={rating === value ? selectedButtonStyle : normalButtonStyle}
             >
               {value}
             </button>
@@ -502,9 +534,9 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
 
   return (
     <div className="user-info">
-      <h2>Personal Information</h2>
-      <p>Please provide your details to help us with our research.</p>
-      <p>*Your details won't be shared with anyone!</p>
+      <h2 className="user-info-title" style={{ color: 'var(--nepali-red)' }}>Personal Information</h2>
+      <p className="user-info-description">Please provide your details to help us with our research.</p>
+      <p className="user-info-note">*Your details won't be shared with anyone!</p>
 
       <div className="form-row">
         <div className="form-group">
@@ -590,7 +622,10 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
 function ProgressBar({ progress }) {
   return (
     <div className="progress-bar">
-      <div className="progress" style={{ width: `${progress}%` }}></div>
+      <div className="progress" style={{ 
+        width: `${progress}%`, 
+        background: `linear-gradient(to right, var(--nepali-red), var(--nepali-maroon))` 
+      }}></div>
     </div>
   );
 }
@@ -598,7 +633,15 @@ function ProgressBar({ progress }) {
 function SubmitSection({ isLoading, error }) {
   return (
     <div className="submit-container">
-      <button type="submit" className="btn btn-primary" disabled={isLoading}>
+      <button 
+        type="submit" 
+        className="btn btn-primary" 
+        disabled={isLoading} 
+        style={{
+          background: `linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon))`,
+          borderColor: 'var(--nepali-red)'
+        }}
+      >
         {isLoading ? 'Submitting...' : 'Submit Feedback'}
       </button>
 
@@ -609,8 +652,6 @@ function SubmitSection({ isLoading, error }) {
 
 function ThankYou() {
   return (
-   
-
     <div className="container thank-you-container">
       <div className="thank-you-card">
         <h1 className="thank-you-title">Thank You!</h1>
@@ -618,12 +659,10 @@ function ThankYou() {
         {/* Animated SVG checkmark */}
         <div className="thank-you-svg">
           <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-            <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none" style={{ stroke: 'var(--nepali-red)' }}/>
+            <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" style={{ stroke: 'var(--nepali-red)' }}/>
           </svg>
         </div>
-        
-       
         
         <div className="">
           <p className="message-text">Your feedback has been successfully recorded.</p>
@@ -633,9 +672,9 @@ function ThankYou() {
         
         {/* Decorative elements */}
         <div className="decorative-elements">
-          <div className="decoration decoration-1"></div>
-          <div className="decoration decoration-2"></div>
-          <div className="decoration decoration-3"></div>
+          <div className="decoration decoration-1" style={{ background: 'var(--nepali-red)' }}></div>
+          <div className="decoration decoration-2" style={{ background: 'var(--nepali-blue)' }}></div>
+          <div className="decoration decoration-3" style={{ background: 'var(--nepali-saffron)' }}></div>
         </div>
       </div>
     </div>

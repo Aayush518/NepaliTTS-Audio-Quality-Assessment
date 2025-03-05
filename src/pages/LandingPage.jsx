@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/LandingPage.css';
+import { useDynamicSVGColors } from '../components/NepaliThemeHelper';
 
 // Import icons
 import ListenIcon from '../assets/icons/listen.svg';
@@ -8,6 +9,9 @@ import RateIcon from '../assets/icons/rate.svg';
 import SubmitIcon from '../assets/icons/submit.svg';
 
 function LandingPage() {
+  // Use the dynamic SVG color helper
+  useDynamicSVGColors();
+  
   // Refs for animations
   const heroRef = useRef(null);
   const stepsRef = useRef(null);
@@ -121,7 +125,7 @@ function LandingPage() {
       {/* Navigation */}
       <nav className="landing-nav">
         <div className="nav-logo">
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="#4361ee">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
             <path d="M13 18h-2v-5H9v-2h2V9h2v2h2v2h-2z"/>
             <path d="M12 1a9 9 0 0 1 9 9v7a3 3 0 0 1-3 3h-3a3 3 0 0 1-3-3v-4a3 3 0 0 1 3-3h4V9a7 7 0 1 0-14 0v1h4a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a9 9 0 0 1 9-9z"/>
           </svg>
@@ -131,6 +135,7 @@ function LandingPage() {
           <a href="#overview">Overview</a>
           <a href="#how-it-works">Process</a>
           <a href="#benefits">Benefits</a>
+          <a href="#project-info">About Us</a>
         </div>
         <Link to="/survey" className="nav-cta">
           Start Survey
@@ -140,7 +145,6 @@ function LandingPage() {
       {/* Hero Section with dynamic animations */}
       <header className="landing-hero" ref={heroRef}>
         <div className="hero-content">
-          {/* <div className="glowing-badge">New Research Project</div> */}
           <h1 className="hero-title">
             <span className="text-gradient">Nepali</span> Text-to-Speech
             <br />Quality Assessment
@@ -153,7 +157,7 @@ function LandingPage() {
           </p>
           <div className="hero-cta-group">
             <Link to="/survey" className="cta-button primary-gradient">
-              <span>Enter Survey</span>
+              <span>Start Survey</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -162,34 +166,17 @@ function LandingPage() {
               <span>Learn More</span>
             </a>
           </div>
-          
-          <div className="hero-stats">
-            <div className="stat">
-              <div className="stat-number">45M+</div>
-              <div className="stat-label">Nepali Speakers</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">3+</div>
-              <div className="stat-label">Voice Models</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">4500+</div>
-              <div className="stat-label">Audio Samples</div>
-            </div>
-          </div>
         </div>
         
         <div className="hero-image">
-          
           <div className="main-illustration">
-          <div className="sound-waves">
+            <div className="sound-waves">
               <div className="wave wave1"></div>
               <div className="wave wave2"></div>
               <div className="wave wave3"></div>
             </div>
             
             <img src="/assets/images/tts-illustration.svg" alt="TTS Illustration" className="pulse-animation" />
-            
           </div>
 
           <div className="floating-elements">
@@ -199,80 +186,94 @@ function LandingPage() {
             <div className="floating-element f4">घ</div>
             <div className="floating-element f5">ङ</div>
           </div>
-
-
         </div>
       </header>
 
-      {/* Project Overview Section */}
-      <section id="overview" className="landing-section project-overview animate-on-scroll">
+      {/* Project Description Section */}
+      <section id="project-info" className="landing-section animate-on-scroll">
         <div className="section-header">
-          <h2>Project <span className="text-gradient">Overview</span></h2>
-          <p className="section-subtitle">Building the future of Nepali voice technology</p>
+          <h2>About Our <span className="text-gradient">Final Year Project</span></h2>
+          <p className="section-subtitle">Advancing Nepali speech technology through research and innovation</p>
         </div>
         
-        <div className="overview-content">
-          <div className="overview-text">
-            <div className="feature-item">
-              <div className="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#4361ee">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                </svg>
-              </div>
-              <div>
-                <h3>Global Impact</h3>
-                <p>
-                  With over 45 million Nepali speakers worldwide, a reliable TTS system 
-                  can improve accessibility, assist in education, and contribute to technological 
-                  advancement in Nepal and beyond.
-                </p>
-              </div>
-            </div>
-            
-            <div className="feature-item">
-              <div className="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#4361ee">
-                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
-                </svg>
-              </div>
-              <div>
-                <h3>AI-Powered Voice Technology</h3>
-                <p>
-                  Our system uses state-of-the-art neural networks to generate human-like speech 
-                  in Nepali. Your feedback helps train these models to sound more natural and expressive.
-                </p>
+        <div className="project-description">
+          <div className="overview-content">
+            {/* Left side: Character sphere with more space */}
+            <div className="char-sphere-wrapper">
+              <div className="char-sphere-container">
+                <div className="char-sphere" ref={sphereRef}>
+                  {nepaliChars.map((char, index) => (
+                    <div 
+                      key={index} 
+                      className="nepali-char"
+                    >
+                      {char}
+                    </div>
+                  ))}
+                </div>
+                <div className="glow-effect"></div>
               </div>
             </div>
             
-            <div className="feature-item">
-              <div className="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#4361ee">
-                  <path d="M18 2h-8L4 8v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 15h-2v-2h2v2zm0-4h-2V8h2v5z" />
-                </svg>
+            {/* Right side: Project information */}
+            <div className="project-info-content">
+              <p className="project-intro">
+                This Nepali Text-to-Speech (TTS) Audio Quality Assessment platform represents just one component of our comprehensive final year project at the Institute of Engineering, Western Regional Campus, Pokhara.
+              </p>
+              
+              <div className="project-timeline">
+                <div className="timeline-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
+                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/>
+                  </svg>
+                </div>
+                <div className="timeline-text">
+                  <h4>Our Research Journey</h4>
+                  <p>Throughout this year-long project, we've meticulously explored various TTS approaches, experimented with different models, developed custom phoneme sets, and created our own comprehensive Nepali speech dataset.</p>
+                </div>
               </div>
-              <div>
-                <h3>Research & Development</h3>
-                <p>
-                  This project represents years of research and development in speech synthesis 
-                  and natural language processing. Your participation helps push the boundaries of what's possible.
-                </p>
-              </div>
+              
+              <p>After extensive testing and refinement, we've developed several TTS models that are now ready for evaluation.</p>
             </div>
           </div>
           
-          <div className="overview-image">
-            <div className="char-sphere-container">
-              <div className="char-sphere" ref={sphereRef}>
-                {nepaliChars.map((char, index) => (
-                  <div 
-                    key={index} 
-                    className="nepali-char"
-                  >
-                    {char}
-                  </div>
-                ))}
-              </div>
-              <div className="glow-effect"></div>
+          <div className="team-members">
+            <h3>Our Team</h3>
+            <div className="team-member">
+              <h4>Aayush Adhikari</h4>
+              <p>IOE WRC, Pokhara</p>
+              <a href="https://linkedin.com/in/aayushadhikari" className="social-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+            </div>
+            <div className="team-member">
+              <h4>Shishir Sharma Rijal</h4>
+              <p>IOE WRC, Pokhara</p>
+              <a href="https://linkedin.com/in/shishirrijal" className="social-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+            </div>
+            <div className="team-member">
+              <h4>Roshan Tiwari</h4>
+              <p>IOE WRC, Pokhara</p>
+              <a href="https://linkedin.com/in/roshanttiwari" className="social-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+            </div>
+            <div className="team-member">
+              <h4>Sudip Acharya</h4>
+              <p>IOE WRC, Pokhara</p>
+              <a href="https://linkedin.com/in/sudip-acharya-506737195" className="social-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -284,59 +285,60 @@ function LandingPage() {
           <h2>How It <span className="text-gradient">Works</span></h2>
           <p className="section-subtitle">Three simple steps to help improve our TTS system</p>
         </div>
-        
         <div className="steps-container">
           <div className="step">
             <div className="step-icon">
               <div className="icon-background"></div>
-              <img src={ListenIcon} alt="Listen Icon" />
+              <img 
+                src={ListenIcon} 
+                alt="Listen Icon" 
+                className="step-icon-image"
+                style={{ filter: "none", fill: "var(--nepali-red)" }} 
+              />
             </div>
             <div className="step-count">01</div>
             <h3>Listen</h3>
             <p>Play the audio samples and listen carefully to the synthetic speech. Pay attention to pronunciation, rhythm, and naturalness.</p>
           </div>
-          
           <div className="step-connector">
             <svg width="100%" height="4" viewBox="0 0 100 4">
-              <line x1="0" y1="2" x2="100%" y2="2" stroke="#4361ee" strokeWidth="2" strokeDasharray="6 6" />
+              <line x1="0" y1="2" x2="100%" y2="2" stroke={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')} strokeWidth="2" strokeDasharray="6 6" />
             </svg>
           </div>
-          
           <div className="step">
             <div className="step-icon">
               <div className="icon-background"></div>
-              <img src={RateIcon} alt="Rate Icon" />
+              <img 
+                src={RateIcon} 
+                alt="Rate Icon" 
+                className="step-icon-image"
+                style={{ filter: "none", fill: "var(--nepali-red)" }} 
+              />
             </div>
             <div className="step-count">02</div>
             <h3>Rate</h3>
             <p>Rate each sample from 1 to 10 based on its naturalness, clarity, and quality. Be honest with your assessments for the most accurate results.</p>
           </div>
-          
           <div className="step-connector">
             <svg width="100%" height="4" viewBox="0 0 100 4">
-              <line x1="0" y1="2" x2="100%" y2="2" stroke="#4361ee" strokeWidth="2" strokeDasharray="6 6" />
+              <line x1="0" y1="2" x2="100%" y2="2" stroke={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')} strokeWidth="2" strokeDasharray="6 6" />
             </svg>
           </div>
-          
           <div className="step">
             <div className="step-icon">
               <div className="icon-background"></div>
-              <img src={SubmitIcon} alt="Submit Icon" />
+              <img 
+                src={SubmitIcon} 
+                alt="Submit Icon" 
+                className="step-icon-image"
+                style={{ filter: "none", fill: "var(--nepali-red)" }} 
+              />
             </div>
-            <div class="step-count">03</div>
+            <div className="step-count">03</div>
             <h3>Submit</h3>
             <p>Submit your ratings and feedback to help us improve the system. Your input directly influences how we train and refine our voice models.</p>
           </div>
         </div>
-        
-        {/* <div className="steps-cta">
-          <Link to="/survey" className="cta-button primary-gradient">
-            <span>Start Rating Now</span>
-            <svg width="20" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </Link>
-        </div> */}
       </section>
 
       {/* Why Your Feedback Matters Section */}
@@ -345,12 +347,11 @@ function LandingPage() {
           <h2>Why Your <span className="text-gradient">Feedback Matters</span></h2>
           <p className="section-subtitle">Your input shapes the future of voice technology in Nepal</p>
         </div>
-        
         <div className="benefits-container">
           <div className="benefit-card">
             <div className="benefit-icon">
               <svg viewBox="0 0 24 24" width="40" height="40">
-                <path fill="#4361ee" d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                <path fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')} d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5-1.95 0-4.05.4-5.5 1.5v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
               </svg>
             </div>
             <h3>Education</h3>
@@ -362,11 +363,10 @@ function LandingPage() {
               <div className="tech-dots"></div>
             </div>
           </div>
-          
           <div className="benefit-card">
             <div className="benefit-icon">
               <svg viewBox="0 0 24 24" width="40" height="40">
-                <path fill="#4361ee" d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
+                <path fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')} d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/>
               </svg>
             </div>
             <h3>Accessibility</h3>
@@ -378,11 +378,10 @@ function LandingPage() {
               <div className="tech-dots"></div>
             </div>
           </div>
-          
           <div className="benefit-card">
             <div className="benefit-icon">
               <svg viewBox="0 0 24 24" width="40" height="40">
-                <path fill="#4361ee" d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                <path fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')} d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
               </svg>
             </div>
             <h3>Innovation</h3>
@@ -397,66 +396,19 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials Section with animated cards
-      <section className="landing-section testimonials animate-on-scroll">
-        <div className="section-header">
-          <h2>What <span className="text-gradient">Others Say</span></h2>
-          <p className="section-subtitle">Feedback from our community of evaluators</p>
-        </div>
-        
-        <div className="testimonials-container">
-          <div className="testimonial">
-            <div className="quote-mark">"</div>
-            <p>I'm impressed by how natural the Nepali TTS system sounds. The voice flows just like a native speaker with proper intonation and rhythm. It's getting better with each update!</p>
-            <div className="testimonial-footer">
-              <div className="testimonial-avatar">
-                <div className="avatar-placeholder">RS</div>
-              </div>
-              <div className="testimonial-author">
-                <strong>Ramesh Sharma</strong>
-                <span>Beta Tester</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="testimonial">
-            <div className="quote-mark">"</div>
-            <p>This project is a significant step forward for Nepali language technology. As someone who studies linguistics, I can see how these voices are becoming increasingly natural and expressive.</p>
-            <div className="testimonial-footer">
-              <div className="testimonial-avatar">
-                <div className="avatar-placeholder">SP</div>
-              </div>
-              <div className="testimonial-author">
-                <strong>Dr. Sita Poudel</strong>
-                <span>Linguistics Professor</span>
-              </div>
-            </div>
-          </div>
-          
-          <div className="testimonial">
-            <div className="quote-mark">"</div>
-            <p>As a visually impaired person, this TTS system has opened up new digital opportunities for me. I can now access Nepali content online that was previously inaccessible. Thank you for this amazing work!</p>
-            <div className="testimonial-footer">
-              <div className="testimonial-avatar">
-                <div className="avatar-placeholder">AT</div>
-              </div>
-              <div className="testimonial-author">
-                <strong>Anup Tamang</strong>
-                <span>User</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* Call to Action Section */}
+      {/* Call to Action Section - Combined and simplified */}
       <section className="landing-section final-cta animate-on-scroll">
         <div className="cta-card">
           <div className="cta-content">
-            <h2>Ready to Help Improve Nepali TTS?</h2>
-            <p>Your feedback is valuable and will help shape the future of this technology.</p>
-            <Link to="/survey" className="cta-button large">
-              <span>Start the Survey Now</span>
+            <h2 style={{ color: 'white' }}>Your Participation Is Invaluable</h2>
+            <p>After a year of dedicated work, we now need your help for this crucial subjective evaluation phase. Your feedback will help us refine our approach to Nepali speech synthesis technology.</p>
+            <Link to="/survey" className="cta-button large" style={{ 
+              display: 'inline-flex', 
+              width: 'auto', 
+              color: 'var(--nepali-red) !important',
+              backgroundColor: 'white'
+            }}>
+              <span>Begin Assessment</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -466,23 +418,14 @@ function LandingPage() {
             <div className="tech-circle c1"></div>
             <div className="tech-circle c2"></div>
             <div className="tech-circle c3"></div>
-            
           </div>
         </div>
       </section>
 
       {/* Footer with modern styling - simplified */}
       <footer className="landing-footer">
-        
-      {/* <div className="footer-logo">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="#4361ee">
-                <path d="M13 18h-2v-5H9v-2h2V9h2v2h2v2h-2z"/>
-                <path d="M12 1a9 9 0 0 1 9 9v7a3 3 0 0 1-3 3h-3a3 3 0 0 1-3-3v-4a3 3 0 0 1 3-3h4V9a7 7 0 1 0-14 0v1h4a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a9 9 0 0 1 9-9z"/>
-              </svg>
-              <span>Nepali TTS</span>
-            </div> */}
         <div className="footer-bottom">
-          <p className="copyright">© {new Date().getFullYear()} Nepali TTS Project</p>
+          <p className="copyright">© {new Date().getFullYear()} Nepali TTS Project | Aayush Adhikari, Shishir Sharma Rijal, Roshan Tiwari, Sudip Acharya | IOE WRC, Pokhara</p>
         </div>
       </footer>
     </div>

@@ -1,6 +1,37 @@
 /* Landing Page Styles - Enhanced Modern Design */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Nepali Theme Color Palette */
+:root {
+  /* Primary Nepali colors */
+  --nepali-red: #c8102e; /* Nepali flag red */
+  --nepali-blue: #003893; /* Nepali flag blue */
+  
+  /* Extended Nepali cultural palette */
+  --nepali-saffron: #ff9933; /* Saffron/orange from regional textiles */
+  --nepali-crimson: #dc143c; /* Deep red from traditional clothing */
+  --nepali-maroon: #800000; /* Dark red from Nepali temples */
+  --nepali-gold: #d4af37; /* Gold from temple decorations */
+  --nepali-yellow: #ffdb58; /* Yellow from marigold flowers */
+  --nepali-mountain: #6c757d; /* Himalayan mountain gray */
+  --nepali-sky: #87ceeb; /* Clear mountain sky */
+  --nepali-forest: #228b22; /* Nepal's forested regions */
+  --nepali-earth: #cd853f; /* Clay/earth tones of rural Nepal */
+  
+  /* Accent and neutral colors */
+  --nepali-accent: #c8102e; /* Default accent using Nepali red */
+  --nepali-light: #f8f9fa; /* Light background */
+  --nepali-dark: #212529; /* Dark text color */
+  
+  /* Original system colors - keep for reference */
+  --primary-color: var(--nepali-blue);
+  --primary-light: rgba(0, 56, 147, 0.1);
+  --secondary-color: var(--nepali-red);
+  --accent-color: var(--nepali-saffron);
+  --success-color: var(--nepali-forest);
+  --error-color: var(--nepali-crimson);
+}
+
 /* Base Styles */
 .landing-container {
   font-family: 'Inter', sans-serif;
@@ -30,7 +61,7 @@
 }
 
 .shape1 {
-  background: linear-gradient(135deg, #4361ee, #4cc9f0);
+  background: linear-gradient(135deg, var(--nepali-blue), var(--nepali-sky));
   width: 600px;
   height: 600px;
   top: -100px;
@@ -39,7 +70,7 @@
 }
 
 .shape2 {
-  background: linear-gradient(135deg, #3a0ca3, #4361ee);
+  background: linear-gradient(135deg, var(--nepali-maroon), var(--nepali-red));
   width: 500px;
   height: 500px;
   top: 50%;
@@ -48,7 +79,7 @@
 }
 
 .shape3 {
-  background: linear-gradient(135deg, #4cc9f0, #4361ee);
+  background: linear-gradient(135deg, var(--nepali-saffron), var(--nepali-gold));
   width: 400px;
   height: 400px;
   bottom: -100px;
@@ -85,12 +116,12 @@
   gap: 8px;
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .nav-logo svg {
   border-radius: 8px;
-  background-color: rgba(67, 97, 238, 0.1);
+  background-color: rgba(200, 16, 46, 0.1);
   padding: 5px;
 }
 
@@ -108,7 +139,7 @@
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .nav-links a::after {
@@ -118,7 +149,7 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--primary-color);
+  background-color: var(--nepali-red);
   transition: width 0.3s;
 }
 
@@ -127,21 +158,21 @@
 }
 
 .nav-cta {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  color: white;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  color: white !important; /* Important to override any other color settings */
   padding: 10px 20px;
   border-radius: 50px;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .nav-cta:hover {
-  /* transform: translateY(-2px); */
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
-  color: white;
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
+  color: white !important; /* Ensure text stays white on hover */
+  text-decoration: none !important; /* Remove underline on hover */
 }
 
 /* Hero Section */
@@ -163,49 +194,50 @@
 
 .glowing-badge {
   display: inline-block;
-  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-crimson));
   color: white;
   padding: 8px 16px;
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 24px;
-  box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4);
+    box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(67, 97, 238, 0);
+    box-shadow: 0 0 0 10px rgba(200, 16, 46, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+    box-shadow: 0 0 0 0 rgba(200, 16, 46, 0);
   }
 }
 
 .hero-title {
   font-size: 3.5rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 24px;
-  font-weight: 800;
   color: var(--text-primary);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-saffron));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   display: inline-block;
 }
 
 .tagline {
   font-size: 1.5rem;
   color: var(--text-primary);
-  margin-bottom: 20px;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .hero-description {
@@ -231,36 +263,48 @@
   text-decoration: none;
   transition: all 0.3s;
   font-size: 1.1rem;
-
+  color: white !important;  /* For primary buttons */
+  text-decoration: none !important;
 }
 
 .primary-gradient {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
   color: white;
-  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
 }
 
 .primary-gradient:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
-  color: white;
-
+  box-shadow: 0 8px 25px rgba(200, 16, 46, 0.4);
+  color: white !important;
 }
 
 .secondary {
   background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  color: var(--nepali-red) !important; /* Force red color */
+  border: 2px solid var(--nepali-red);
 }
 
 .secondary:hover {
-  background-color: var(--primary-light);
+  background-color: rgba(200, 16, 46, 0.1);
   transform: translateY(-3px);
+  color: var(--nepali-red) !important; /* Keep text red on hover */
+}
+
+.cta-button.secondary {
+  color: var(--nepali-red) !important; /* Override any white color setting */
+}
+
+.cta-button.secondary:hover {
+  color: var(--nepali-red) !important; /* Maintain red color on hover */
+  text-decoration: none !important;
 }
 
 .large {
   padding: 18px 36px;
   font-size: 1.2rem;
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .hero-stats {
@@ -275,7 +319,7 @@
 .stat-number {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   margin-bottom: 5px;
 }
 
@@ -332,13 +376,13 @@
 .floating-element {
   position: absolute;
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   opacity: 0.8;
   font-weight: bold;
   padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(67, 97, 238, 0.2);
+  box-shadow: 0 4px 20px rgba(200, 16, 46, 0.2);
 }
 
 .f1 {
@@ -390,7 +434,7 @@
 
 .wave {
   position: absolute;
-  border: 2px solid rgba(67, 97, 238, 0.3);
+  border: 2px solid rgba(200, 16, 46, 0.3);
   border-radius: 50%;
   opacity: 0;
   top: 50%;
@@ -505,7 +549,7 @@
 .feature-icon {
   width: 50px;
   height: 50px;
-  background-color: var(--primary-light);
+  background-color: rgba(200, 16, 46, 0.1);
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -517,7 +561,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .feature-item p {
@@ -559,11 +603,13 @@
   position: absolute;
   width: 80%;
   height: 80%;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(40px);
   opacity: 0.15;
-  z-index: 0;
+  z-index: -1;
+  transform: translateZ(0);
+  will-change: opacity;
 }
 
 /* How it Works Section */
@@ -602,7 +648,7 @@
   right: -15px;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   color: white;
   border-radius: 50%;
   display: flex;
@@ -610,7 +656,7 @@
   align-items: center;
   font-weight: 700;
   font-size: 1.1rem;
-  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 10px rgba(200, 16, 46, 0.3);
 }
 
 .step-icon {
@@ -627,7 +673,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: var(--primary-light);
+  background: rgba(200, 16, 46, 0.1);
   border-radius: 20px;
   transform: rotate(10deg);
   transition: transform 0.3s;
@@ -642,12 +688,14 @@
   width: 60%;
   height: auto;
   z-index: 1;
+  fill: var(--nepali-red);
+  color: var(--nepali-red);
 }
 
 .step h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   margin-bottom: 15px;
 }
 
@@ -662,6 +710,10 @@
   margin-top: -20px;
   display: flex;
   align-items: center;
+}
+
+.step-connector svg line {
+  stroke: var(--nepali-red);
 }
 
 .steps-cta {
@@ -704,7 +756,7 @@
 
 .benefit-icon {
   margin-bottom: 20px;
-  background: var(--primary-light);
+  background: rgba(200, 16, 46, 0.1);
   width: 70px;
   height: 70px;
   border-radius: 15px;
@@ -716,7 +768,7 @@
 .benefit-card h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   margin-bottom: 15px;
 }
 
@@ -740,7 +792,7 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  background-image: radial-gradient(circle, var(--primary-color) 2px, transparent 2px);
+  background-image: radial-gradient(circle, var(--nepali-red) 2px, transparent 2px);
   background-size: 15px 15px;
   transform: rotate(30deg);
 }
@@ -781,7 +833,7 @@
   left: 20px;
   font-size: 4rem;
   font-family: Georgia, serif;
-  color: var(--primary-light);
+  color: rgba(200, 16, 46, 0.1);
   line-height: 1;
   opacity: 0.5;
 }
@@ -806,7 +858,7 @@
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--primary-light);
+  background: rgba(200, 16, 46, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -814,7 +866,7 @@
 
 .avatar-placeholder {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .testimonial-author {
@@ -824,7 +876,7 @@
 
 .testimonial-author strong {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .testimonial-author span {
@@ -838,7 +890,7 @@
 }
 
 .cta-card {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   border-radius: 30px;
   padding: 60px 40px;
   color: white;
@@ -859,26 +911,37 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: white;
+  color: white !important; /* Force white color with !important */
 }
 
 .cta-card p {
   font-size: 1.2rem;
   margin-bottom: 30px;
   opacity: 0.9;
+  color: white; /* Ensure text is white */
 }
 
+/* Fix for the Begin Assessment button */
 .cta-card .cta-button {
   background-color: white;
-  color: var(--primary-color);
+  color: var(--nepali-red) !important; /* Force red text with !important */
   border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-card .cta-button span {
+  color: var(--nepali-red) !important; /* Ensure the text inside the span is red */
+}
+
+.cta-card .cta-button svg {
+  stroke: var(--nepali-red) !important; /* Make the SVG icon red too */
 }
 
 .cta-card .cta-button:hover {
   background-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: var(--nepali-red) !important; /* Keep the text red on hover */
 }
 
 .cta-decoration {
@@ -952,7 +1015,7 @@
 .footer-logo span {
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .footer-nav {
@@ -980,13 +1043,11 @@
 }
 
 .footer-links a:hover {
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .footer-bottom {
   text-align: center;
-  /* padding-top: 20px; */
-  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
 }
 
 .copyright {
@@ -1196,19 +1257,19 @@
 
 /* Optimize color variations - reduce number of classes */
 .nepali-char:nth-child(even) {
-  color: #4361ee;
-  background: rgba(67, 97, 238, 0.1);
+  color: var(--nepali-red);
+  background: rgba(200, 16, 46, 0.1);
 }
 
 .nepali-char:nth-child(odd) {
-  color: #4cc9f0;
-  background: rgba(76, 201, 240, 0.1);
+  color: var(--nepali-blue);
+  background: rgba(0, 56, 147, 0.1);
 }
 
 .nepali-char:hover {
   transform: translate(-50%, -50%) scale(1.3) !important;
   z-index: 1000 !important;
-  box-shadow: 0 4px 16px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 16px rgba(200, 16, 46, 0.3);
 }
 
 /* Optimize glow effect */
@@ -1216,7 +1277,7 @@
   position: absolute;
   width: 80%;
   height: 80%;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   border-radius: 50%;
   filter: blur(40px); /* Reduced blur for better performance */
   opacity: 0.15;
@@ -1266,9 +1327,9 @@
   aspect-ratio: 1/1;
   border-radius: 50%;
   font-weight: bold;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--nepali-red);
   background-color: white;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -1280,7 +1341,7 @@
 }
 
 .rating-btn.selected {
-  background-color: var(--primary-color);
+  background-color: var(--nepali-red);
   color: white;
   transform: scale(1.1);
 }
@@ -1404,4 +1465,317 @@ audio {
   .step p {
     font-size: 0.9rem;
   }
+}
+
+/* Project Description Section */
+.project-description {
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: var(--shadow-lg);
+  margin: 30px 3%;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-description h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--nepali-red);
+  position: relative;
+}
+
+.project-description p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.project-timeline {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  background-color: rgba(200, 16, 46, 0.1);
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+.timeline-icon {
+  margin-right: 20px;
+  background-color: rgba(200, 16, 46, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.timeline-text {
+  flex: 1;
+}
+
+.timeline-text h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--nepali-red);
+}
+
+.team-section {
+  margin-top: 40px;
+}
+
+.team-section h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--nepali-red);
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.team-member {
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: rgba(200, 16, 46, 0.05);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  background-color: rgba(200, 16, 46, 0.1);
+}
+
+.team-member h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 15px 0 5px;
+  color: var(--nepali-red);
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.team-member .social-link {
+  font-size: 0.9rem;
+  color: var(--nepali-red);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.team-member .social-link:hover {
+  text-decoration: underline;
+}
+
+.evaluation-cta {
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, rgba(200, 16, 46, 0.1), rgba(200, 16, 46, 0.05));
+  border: 1px dashed var(--nepali-red);
+  text-align: center;
+}
+
+.evaluation-cta h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--nepali-red);
+}
+
+.evaluation-cta p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 25px;
+}
+
+/* Responsive styles for project description */
+@media (max-width: 768px) {
+  .project-description {
+    padding: 30px 20px;
+  }
+  
+  .project-description h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .project-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timeline-icon {
+    margin-bottom: 10px;
+  }
+  
+  .team-members {
+    gap: 15px;
+  }
+  
+  .team-member {
+    min-width: 160px;
+  }
+}
+
+/* Adjust SVG fill colors for icons */
+svg[fill="#4361ee"] {
+  fill: var(--nepali-red);
+}
+
+/* Nepali Color Palette Showcase */
+.color-palette-container {
+  padding: 40px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+  margin: 40px 0;
+}
+
+.color-palette-container h2 {
+  color: var(--nepali-red);
+  margin-bottom: 10px;
+}
+
+.color-swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.color-swatch {
+  width: 120px;
+}
+
+.color-sample {
+  height: 80px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.color-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.color-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.color-hex {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.gradient-samples {
+  margin-top: 40px;
+}
+
+.gradient-samples h3 {
+  margin-bottom: 20px;
+  color: var(--nepali-red);
+}
+
+.gradient-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gradient-sample {
+  flex: 1;
+  min-width: 200px;
+  height: 100px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: flex-end;
+  padding: 15px;
+}
+
+.gradient-sample span {
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .color-swatches {
+    gap: 10px;
+  }
+  
+  .color-swatch {
+    width: calc(33.33% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .color-swatch {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  a:hover {
+    color: var(--nepali-red);
+  }
+}
+
+/* Icon styling for step icons */
+.step-icon-image {
+  position: relative;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: block;
+  fill: var(--nepali-red) !important;
+  color: var(--nepali-red) !important;
+}
+
+.step-icon img {
+  position: relative;
+  width: 60%;
+  height: auto;
+  z-index: 1;
+  fill: var(--nepali-red);
+  color: var(--nepali-red);
+}
+
+/* Fix for SVG icons to ensure they use the correct color */
+svg[fill="#4361ee"],
+svg[fill="#003893"],
+svg[fill="#87ceeb"],
+svg[fill="#747bff"],
+svg[fill="#646cff"],
+svg[fill="#000000"] {
+  fill: var(--nepali-red) !important;
+}
+
+/* Ensure all SVG icons have the correct color */
+.step-icon svg, 
+.step-icon img {
+  fill: var(--nepali-red);
+  color: var(--nepali-red);
+  stroke: var(--nepali-red);
 }

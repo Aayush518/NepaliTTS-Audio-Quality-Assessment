@@ -1,8 +1,467 @@
+/* Survey Page Styles with Nepali Theme */
+
+:root {
+  /* Import Nepali colors if not already defined */
+  --nepali-red: #c8102e; /* Nepali flag red */
+  --nepali-blue: #003893; /* Nepali flag blue */
+  --nepali-maroon: #800000; /* Dark red from Nepali temples */
+  --nepali-saffron: #ff9933; /* Saffron/orange from regional textiles */
+}
+
+/* Header styling */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--nepali-red);
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.intro strong {
+  color: var(--nepali-red);
+  font-weight: 600;
+}
+
+/* Progress bar styling */
+.progress-bar {
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+/* Card styling */
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Audio sample styling - updated with stronger color emphasis */
+.audio-sample {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease forwards;
+  border: 1px solid #eee;
+  border-top: 3px solid var(--nepali-red);
+}
+
+.sample-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(200, 16, 46, 0.1);
+}
+
+.sample-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--nepali-red) !important; /* Force consistent color */
+  position: relative;
+  padding-left: 12px;
+}
+
+.sample-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 4px;
+  background-color: var(--nepali-red);
+  border-radius: 2px;
+}
+
+.sample-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-listened {
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--nepali-red);
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 30px;
+  font-weight: 600;
+  border: 1px solid rgba(200, 16, 46, 0.2);
+}
+
+/* Transcription container */
+.transcription-container {
+  background-color: rgba(200, 16, 46, 0.05);
+  border-left: 3px solid var(--nepali-red);
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin: 15px 0;
+}
+
+.transcription-text {
+  font-family: 'Noto Sans Devanagari', 'Mukta', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  text-align: left;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .transcription-text {
+    font-size: 1rem;
+  }
+}
+
+/* Audio player styling */
+.audio-player {
+  margin: 1rem 0;
+}
+
+audio {
+  width: 100%;
+  height: 40px;
+  border-radius: 30px;
+  outline: none;
+}
+
+audio:focus {
+  outline: none;
+}
+
+/* Comparison audio styling */
+.comparison-audio-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.audio-comparison-section {
+  background-color: rgba(248, 249, 250, 0.7);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.audio-comparison-section h4 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--nepali-red);
+  font-weight: 600;
+}
+
+.audio-listened-badge {
+  display: inline-block;
+  background-color: rgba(200, 16, 46, 0.1);
+  color: var(--nepali-red);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  border: 1px solid rgba(200, 16, 46, 0.2);
+}
+
+/* Rating styling */
+.rating-container {
+  background-color: #f9f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.rating-question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--nepali-red);
+  margin-bottom: 1rem;
+  text-align: start;
+}
+
+.rating-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.rating-label span:first-child {
+  color: #777;
+}
+
+.rating-label span:last-child {
+  color: var(--nepali-red);
+  font-weight: 500;
+}
+
+.rating-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Fix the rating button styles to ensure consistent Nepali red colors */
+.rating-btn {
+  flex: 0 0 calc(10% - 8px);
+  aspect-ratio: 1/1;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--nepali-red);
+  background-color: white;
+  color: var(--nepali-red);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rating-btn:hover {
+  background-color: rgba(200, 16, 46, 0.1);
+}
+
+.rating-btn.selected {
+  background-color: var(--nepali-red) !important;
+  color: white !important;
+  transform: scale(1.1);
+}
+
+/* Remove any blue colors from rating buttons */
+.rating-btn:focus,
+.rating-btn:active,
+.rating-btn.active,
+.rating-btn.selected {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(200, 16, 46, 0.3) !important;
+  border-color: var(--nepali-red) !important;
+}
+
+/* Additional fixes for any remaining blue colors in rating elements */
+.rating-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(200, 16, 46, 0.3);
+}
+
+/* Fix any blue focus states on rating elements */
+.rating-container *:focus {
+  outline-color: var(--nepali-red) !important;
+  border-color: var(--nepali-red) !important;
+}
+
+/* User info section styling - enhanced */
+.user-info {
+  background-color: #f9f9fa;
+  padding: 1.8rem;
+  border-radius: 10px;
+  margin-top: 2.5rem;
+  border: 1px solid #eee;
+  border-top: 3px solid var(--nepali-red);
+}
+
+.user-info-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nepali-red);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.user-info-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--nepali-red), transparent);
+}
+
+.user-info-description {
+  color: #444;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.user-info-note {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--nepali-red);
+  box-shadow: 0 0 0 2px rgba(200, 16, 46, 0.1);
+}
+
+.form-group small {
+  display: block;
+  color: #777;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.valid-field {
+  border-color: var(--nepali-red) !important;
+}
+
+.invalid-field {
+  border-color: var(--nepali-red) !important;
+}
+
+/* Submit section */
+.submit-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.btn-primary {
+  color: white;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.error {
+  background-color: rgba(200, 16, 46, 0.1);
+  border: 1px solid rgba(200, 16, 46, 0.3);
+  color: var(--nepali-red);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .comparison-audio-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .audio-sample {
+    padding: 1rem;
+  }
+  
+  .rating-buttons {
+    gap: 5px;
+  }
+  
+  .rating-btn {
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
 /* Add these styles to your existing CSS file */
 
 .transcription-container {
-  background-color: rgba(67, 97, 238, 0.05);
-  border-left: 3px solid var(--primary-color, #4361ee);
+  background-color: rgba(200, 16, 46, 0.05); /* Nepali red with opacity */
+  border-left: 3px solid var(--nepali-red, #c8102e);
   border-radius: 4px;
   padding: 12px 15px;
   margin: 15px 0;
@@ -29,11 +488,367 @@
   color: #333;
   margin-bottom: 12px;
   text-align: start;
-  color: red;
+  color: var(--nepali-red, #c8102e);
 }
 
 @media (max-width: 768px) {
   .rating-question {
     font-size: 1rem;
   }
+}
+
+/* Additional Survey Page Components with Nepali theme */
+.survey-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.survey-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.survey-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--nepali-red);
+  margin-bottom: 10px;
+}
+
+.survey-description {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.question-block {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.audio-player-container {
+  background: linear-gradient(135deg, rgba(200, 16, 46, 0.05), rgba(200, 16, 46, 0.02));
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.audio-player-container audio {
+  width: 100%;
+  border-radius: 30px;
+  outline: none;
+}
+
+/* Rating scale styles with Nepali theme colors */
+.rating-label {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.rating-label span:first-child {
+  color: var(--nepali-red, #c8102e);
+  font-weight: 600;
+}
+
+.rating-label span:last-child {
+  color: var(--nepali-red);
+  font-weight: 600;
+}
+
+.slider-container {
+  margin: 20px 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(to right, var(--nepali-red), var(--nepali-maroon));
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--nepali-red, #c8102e);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: var(--nepali-red, #c8102e);
+}
+
+/* Form button styles with Nepali theme */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.survey-button {
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.primary-button {
+  background: linear-gradient(90deg, var(--nepali-red, #c8102e), var(--nepali-maroon, #800000));
+  color: white;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(200, 16, 46, 0.4);
+}
+
+.secondary-button {
+  background: transparent;
+  color: var(--nepali-red, #c8102e);
+  border: 2px solid var(--nepali-red, #c8102e);
+}
+
+.secondary-button:hover {
+  background: rgba(200, 16, 46, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Survey completion message */
+.completion-message {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.completion-message h2 {
+  color: var(--nepali-red, #c8102e);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.completion-message p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.pulse-icon {
+  font-size: 3rem;
+  color: var(--nepali-red, #c8102e);
+  animation: pulse 2s infinite;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Fix for nepali-char color in the app */
+.nepali-char:nth-child(odd) {
+  color: var(--nepali-red);
+  background: rgba(200, 16, 46, 0.1);
+}
+
+/* Fix for survey-title color */
+.survey-title {
+  color: var(--nepali-red);
+}
+
+/* Override any remaining blue colors in rating circles */
+.rating-btn {
+  border: 2px solid var(--nepali-red);
+  color: var(--nepali-red);
+}
+
+.rating-btn.selected {
+  background-color: var(--nepali-red);
+}
+
+/* Fix audio player controls color */
+audio::-webkit-media-controls-panel {
+  background-color: rgba(200, 16, 46, 0.05);
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-timeline {
+  color: var(--nepali-red);
+}
+
+/* Fix focus styles for elements */
+*:focus {
+  outline-color: var(--nepali-red);
+}
+
+/* Ensure all links are Nepali red color instead of blue */
+a {
+  color: var(--nepali-red);
+}
+
+a:hover {
+  color: var(--nepali-maroon);
+}
+
+/* Fix any blue background gradients that might be left */
+.gradient-sample,
+.audio-player-container,
+.tech-circle,
+.wave {
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon)) !important;
+}
+
+/* Fix SVG colors that might have been missed */
+svg, svg path, svg line, svg circle {
+  stroke: var(--nepali-red);
+}
+
+/* Fix button focus color */
+button:focus, 
+.btn:focus,
+input:focus, 
+select:focus, 
+textarea:focus {
+  outline-color: var(--nepali-red);
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.2);
+}
+
+/* Ensure form elements have consistent red focus states */
+select:focus {
+  border-color: var(--nepali-red);
+}
+
+/* Override any browser default blue focus rings */
+:focus {
+  outline-color: var(--nepali-red) !important;
+}
+
+/* Ensure all sample titles are properly colored with Nepali red */
+.sample-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--nepali-red) !important; /* Force consistent color */
+  position: relative;
+  padding-left: 12px;
+}
+
+/* Fix for nepali-char color in the app - overriding both odd and even to be red */
+.nepali-char {
+  color: var(--nepali-red) !important;
+  background: rgba(200, 16, 46, 0.1);
+}
+
+/* Override any remaining blue colors in input focus, buttons, etc */
+input:focus, 
+select:focus, 
+textarea:focus,
+button:focus {
+  border-color: var(--nepali-red) !important;
+  outline-color: var(--nepali-red) !important;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1) !important;
+}
+
+/* Fix any SVG fill colors that might still be blue */
+svg {
+  fill: currentColor;
+}
+
+svg[fill="#003893"],
+svg[fill="#4361ee"],
+svg[fill="#87ceeb"],
+svg[fill="#747bff"],
+svg[fill="#646cff"] {
+  fill: var(--nepali-red) !important;
+}
+
+/* Fix for any blue text in buttons on red backgrounds */
+.btn-primary,
+.primary-button,
+button[type="submit"],
+.nav-cta,
+.cta-button.primary-gradient {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Override any hover states that might change text back to blue */
+.btn-primary:hover,
+.primary-button:hover,
+button[type="submit"]:hover,
+.nav-cta:hover,
+.cta-button.primary-gradient:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Additional audio control styling */
+audio::-webkit-media-controls-panel {
+  background-color: rgba(200, 16, 46, 0.05) !important;
+}
+
+/* Fix consistency between listened indicators */
+.status-listened,
+.audio-listened-badge {
+  background: rgba(200, 16, 46, 0.1);
+  color: var(--nepali-red);
+  font-size: 0.8rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 30px;
+  font-weight: 600;
+  border: 1px solid rgba(200, 16, 46, 0.2);
+  display: inline-block;
+}
+
+/* Ensure consistent styling for the audio listened badge */
+.audio-listened-badge {
+  margin-top: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Remove any green colors that might be used for listened indicators */
+.audio-listened-badge,
+.status-listened {
+  background-color: rgba(200, 16, 46, 0.1) !important;
+  color: var(--nepali-red) !important;
+  border-color: rgba(200, 16, 46, 0.2) !important;
+}
+
+/* Override any potential success colors with Nepali red */
+.valid-field {
+  border-color: var(--nepali-red) !important;
+}
+
+/* Fix SVG checkmark in "listened" badge if any */
+.listened-checkmark {
+  fill: var(--nepali-red);
+  stroke: var(--nepali-red);
 }

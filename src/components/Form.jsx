@@ -59,7 +59,7 @@ export default function Form() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-red focus:border-nepali-red"
         />
       </div>
       
@@ -72,7 +72,7 @@ export default function Form() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-red focus:border-nepali-red"
         />
       </div>
       
@@ -85,16 +85,32 @@ export default function Form() {
           onChange={handleChange}
           rows="4"
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-red focus:border-nepali-red"
         ></textarea>
       </div>
       
-      {/* Submit button */}
+      {/* Style any rating elements here if they exist */}
+      {/* For example, if there are any rating inputs: */}
+      <div className="rating-input-container">
+        {/* Apply Nepali red styling to any rating elements */}
+        <style jsx>{`
+          .rating-input button {
+            border-color: var(--nepali-red);
+            color: var(--nepali-red);
+          }
+          .rating-input button.selected {
+            background-color: var(--nepali-red);
+            color: white;
+          }
+        `}</style>
+      </div>
+      
       <div>
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-nepali-red hover:bg-nepali-maroon focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nepali-red disabled:opacity-50"
+          style={{ backgroundColor: 'var(--nepali-red)' }}
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
@@ -102,7 +118,7 @@ export default function Form() {
       
       {/* Status message */}
       {submitStatus && (
-        <div className={`mt-4 p-3 rounded ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+        <div className={`mt-4 p-3 rounded ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-nepali-red bg-opacity-10 text-nepali-red'}`}>
           {submitStatus.message}
         </div>
       )}
