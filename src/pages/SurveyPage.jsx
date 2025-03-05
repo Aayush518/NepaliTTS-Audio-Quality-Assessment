@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { districts } from '../data/districts';
 import '../styles/SurveyPage.css';
+import '../styles/ThankYou.css';
 
 
 function SurveyPage() {
@@ -182,7 +183,7 @@ function SurveyPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    // if (!validateForm()) return;
 
     setIsLoading(true);
 
@@ -608,14 +609,34 @@ function SubmitSection({ isLoading, error }) {
 
 function ThankYou() {
   return (
-    <div className="container">
+   
+
+    <div className="container thank-you-container">
       <div className="thank-you-card">
-        <h1>Thank You!</h1>
-        <div className="thank-you-icon">✓</div>
-        <p>Your feedback has been successfully recorded.</p>
-        <p>
-          Your participation helps us improve our text-to-speech technology.
-        </p>
+        <h1 className="thank-you-title">Thank You!</h1>
+        
+        {/* Animated SVG checkmark */}
+        <div className="thank-you-svg">
+          <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+        
+       
+        
+        <div className="">
+          <p className="message-text">Your feedback has been successfully recorded.</p>
+          <p className="message-text">Your participation helps us improve our Nepali text-to-speech technology.</p>
+          <p className="message-text nepali-thanks">धन्यवाद!</p>
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="decorative-elements">
+          <div className="decoration decoration-1"></div>
+          <div className="decoration decoration-2"></div>
+          <div className="decoration decoration-3"></div>
+        </div>
       </div>
     </div>
   );

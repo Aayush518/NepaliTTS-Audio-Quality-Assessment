@@ -1,0 +1,168 @@
+/* Styles for the Thank You page */
+.thank-you-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem;
+}
+
+.thank-you-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  animation: cardAppear 0.7s ease-out forwards;
+}
+
+.thank-you-title {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  /* opacity: 0; */
+  transform: translateY(-20px);
+  transition: all 0.6s ease;
+}
+
+.thank-you-title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.thank-you-svg {
+  width: 100px;
+  height: 100px;
+  margin: 1.5rem auto;
+}
+
+.checkmark {
+  width: 100%;
+  height: 100%;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #4bb71b;
+  fill: none;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.65, 0, 0.45, 1);
+}
+
+.checkmark-circle.animate {
+  stroke-dashoffset: 0;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke: #4bb71b;
+  stroke-width: 3;
+  stroke-linecap: round;
+  animation: checkmark 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.7s forwards;
+}
+
+.thank-you-messages {
+  margin: 2rem 0;
+  color: var(--primary-color);
+}
+
+.message-text {
+  font-size: 1.1rem;
+  margin: 0.8rem 0;
+  /* opacity: 0; */
+  transform: translateY(15px);
+  transition: all 0.5s ease;
+}
+
+.message-text.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nepali-thanks {
+  font-size: 1.8rem;
+  color: #3498db;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.decorative-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.decoration {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.decoration-1 {
+  background-color: #3498db;
+  width: 150px;
+  height: 150px;
+  top: -50px;
+  right: -50px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.decoration-2 {
+  background-color: #2ecc71;
+  width: 100px;
+  height: 100px;
+  bottom: -30px;
+  left: -30px;
+  animation: float 6s ease-in-out infinite 1s;
+}
+
+.decoration-3 {
+  background-color: #f39c12;
+  width: 70px;
+  height: 70px;
+  bottom: 40px;
+  right: 40px;
+  animation: float 7s ease-in-out infinite 0.5s;
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 48;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
