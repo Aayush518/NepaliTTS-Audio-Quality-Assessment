@@ -163,7 +163,7 @@ function SurveyPage() {
       console.log('Submitting data to Google Sheets:', formData);
       
       // Make a POST request to Google Sheets API or App Script endpoint
-      await fetch('https://script.google.com/macros/s/AKfycbwiW8RHvUQpEdTGmHb0d2NKNfY_eZOVkFYdei8hac8CCrBNA7B7PuGpBXlFCD7ApdWz_A/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbw4UAWrPCCiA3nCwPmeVaNQ2zqinc_Aapf5FlLKWeF_PjsDmKOJgb1fqL0Ae3qDaU2f2A/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -183,7 +183,7 @@ function SurveyPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (!validateForm()) return;
+    if (!validateForm()) return;
 
     setIsLoading(true);
 
