@@ -267,13 +267,13 @@ function SurveyPage() {
       </div>
 
       <footer className="footer">
-      <p className="copyright">© {new Date().getFullYear()} Nepali TTS Project</p>
+        <p className="copyright">© {new Date().getFullYear()} Nepali TTS Project</p>
       </footer>
     </div>
   );
 }
 
-// Update RatingForm component for improved visual design
+// Update RatingForm component - REMOVE ALL INLINE STYLES
 function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay }) {
   const handleAudioEnded = () => {
     onListen();
@@ -282,40 +282,26 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
   const cardStyle = animationDelay ? 
     { animationDelay: `${animationDelay}s` } : {};
 
-  const selectedButtonStyle = {
-    backgroundColor: 'var(--nepali-red)',
-    color: 'white',
-    borderColor: 'var(--nepali-red)'
-  };
-
-  const normalButtonStyle = {
-    borderColor: 'var(--nepali-red)',
-    color: 'var(--nepali-red)',
-    backgroundColor: 'white'
-  };
-
   return (
-    <div className="audio-sample" style={cardStyle}>
+    <div className={`audio-sample ${sample.isDistortionCheck ? 'distortion-sample' : ''}`} style={cardStyle}>
       <div className="sample-header">
         <div className="sample-title">{sample.title}</div>
         <div className="sample-status">
-          {listened && <span className="status-listened" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>Listened</span>}
+          {listened && <span className="status-listened">Listened</span>}
         </div>
       </div>
 
-      {/* Add the Nepali transcription here */}
       {sample.transcription && (
         <div className="transcription-container">
           <p className="transcription-text">{sample.transcription}</p>
         </div>
       )}
 
-      <div className="audio-player" style={{ color: 'var(--nepali-red)' }}>
+      <div className="audio-player">
         <audio 
           controls 
           id={`audio${sample.id}`} 
-          onEnded={handleAudioEnded} 
-          style={{ accentColor: 'var(--nepali-red)' }}
+          onEnded={handleAudioEnded}
         >
           <source src={sample.file} type="audio/wav" />
           Your browser does not support the audio element.
@@ -323,43 +309,35 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
       </div>
 
       <div className="rating-container">
-      {
-        sample.isDistortionCheck? // for fun test
-        <h3 className="rating-question">Do you hear any distortions or artifacts? If yes, select how many words sounded incorrect or unclear?</h3>
-        :
-        <h3 className="rating-question"> How natural and human-like does this audio sound to you?</h3>
-      }
+        {
+          sample.isDistortionCheck ?
+          <h3 className="rating-question">Do you hear any distortions or artifacts? If yes, select how many words sounded incorrect or unclear?</h3>
+          :
+          <h3 className="rating-question">How natural and human-like does this audio sound to you?</h3>
+        }
 
-        {/* <h3 className="rating-question"> How natural and human-like does this audio sound to you?</h3> */}
-
-          {
-            sample.isDistortionCheck? // for fun test
-            <div className="rating-label">
-              <span>No Distortions</span>
-              <span>10+ Distortions</span>
-            </div>
-            :
-            <div className="rating-label">
-              <span>Robotic</span>
-              <span>Natural</span>
-            </div>
-          }
-
-        {/* <div className="rating-label">
-          <span>Robotic</span>
-          <span>Natural</span>
-        </div> */}
+        {
+          sample.isDistortionCheck ?
+          <div className="rating-label">
+            <span>No Distortions</span>
+            <span>10+ Distortions</span>
+          </div>
+          :
+          <div className="rating-label">
+            <span>Robotic</span>
+            <span>Natural</span>
+          </div>
+        }
 
         <div className="rating-buttons">
           {
-            sample.isDistortionCheck? // for fun test
+            sample.isDistortionCheck ?
             [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
               <button
                 key={value}
                 type="button"
                 className={`rating-btn ${rating === value ? 'selected' : ''}`}
                 onClick={() => onRate(value)}
-                style={rating === value ? selectedButtonStyle : normalButtonStyle}
               >
                 {value}
               </button>
@@ -371,30 +349,18 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
                 type="button"
                 className={`rating-btn ${rating === value ? 'selected' : ''}`}
                 onClick={() => onRate(value)}
-                style={rating === value ? selectedButtonStyle : normalButtonStyle}
               >
                 {value}
               </button>
             ))
           }
-
-          {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-            <button
-              key={value}
-              type="button"
-              className={`rating-btn ${rating === value ? 'selected' : ''}`}
-              onClick={() => onRate(value)}
-            >
-              {value}
-            </button>
-          ))} */}
         </div>
       </div>
     </div>
   );
 }
 
-// New component for the comparison rating
+// New component for the comparison rating - REMOVE ALL INLINE STYLES
 function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, groundTruthListened, generatedListened, animationDelay }) {
   const handleGroundTruthEnded = () => {
     onListen('groundTruth');
@@ -407,28 +373,15 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
   const cardStyle = animationDelay ? 
     { animationDelay: `${animationDelay}s` } : {};
 
-  const selectedButtonStyle = {
-    backgroundColor: 'var(--nepali-red)',
-    color: 'white',
-    borderColor: 'var(--nepali-red)'
-  };
-
-  const normalButtonStyle = {
-    borderColor: 'var(--nepali-red)',
-    color: 'var(--nepali-red)',
-    backgroundColor: 'white'
-  };
-
   return (
     <div className="audio-sample comparison-sample" style={cardStyle}>
       <div className="sample-header">
         <div className="sample-title">{sample.title}</div>
         <div className="sample-status">
-          {listened && <span className="status-listened" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>Both Listened</span>}
+          {listened && <span className="status-listened">Both Listened</span>}
         </div>
       </div>
 
-      {/* Add the transcription if available */}
       {sample.transcription && (
         <div className="transcription-container">
           <p className="transcription-text">{sample.transcription}</p>
@@ -443,7 +396,7 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
               <source src={sample.groundTruthFile} type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
-            {groundTruthListened && <span className="audio-listened-badge" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>✓ Listened</span>}
+            {groundTruthListened && <span className="audio-listened-badge">✓ Listened</span>}
           </div>
         </div>
 
@@ -454,7 +407,7 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
               <source src={sample.generatedFile} type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
-            {generatedListened && <span className="audio-listened-badge" style={{ color: 'var(--nepali-red)', backgroundColor: 'rgba(200, 16, 46, 0.1)', borderColor: 'rgba(200, 16, 46, 0.2)' }}>✓ Listened</span>}
+            {generatedListened && <span className="audio-listened-badge">✓ Listened</span>}
           </div>
         </div>
       </div>
@@ -474,7 +427,6 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
               type="button"
               className={`rating-btn ${rating === value ? 'selected' : ''}`}
               onClick={() => onRate(value)}
-              style={rating === value ? selectedButtonStyle : normalButtonStyle}
             >
               {value}
             </button>
@@ -485,6 +437,7 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
   );
 }
 
+// Update UserInfoForm - REMOVE INLINE STYLES
 function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
   // Handler for name field - allow only letters and spaces
   const handleNameChange = (e) => {
@@ -534,7 +487,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
 
   return (
     <div className="user-info">
-      <h2 className="user-info-title" style={{ color: 'var(--nepali-red)' }}>Personal Information</h2>
+      <h2 className="user-info-title">Personal Information</h2>
       <p className="user-info-description">Please provide your details to help us with our research.</p>
       <p className="user-info-note">*Your details won't be shared with anyone!</p>
 
@@ -590,8 +543,6 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
             <option value="" disabled>Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            {/* <option value="other">Other</option>
-            <option value="prefer-not-to-say">Prefer not to say</option> */}
           </select>
         </div>
 
@@ -619,30 +570,25 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
   );
 }
 
+// Update ProgressBar - REMOVE INLINE STYLES
 function ProgressBar({ progress }) {
   return (
     <div className="progress-bar">
-      <div className="progress" style={{ 
-        width: `${progress}%`, 
-        background: `linear-gradient(to right, var(--nepali-red), var(--nepali-maroon))` 
-      }}></div>
+      <div className="progress" style={{ width: `${progress}%` }}></div>
     </div>
   );
 }
 
+// Update SubmitSection - Enhanced red submit button
 function SubmitSection({ isLoading, error }) {
   return (
     <div className="submit-container">
       <button 
         type="submit" 
-        className="btn btn-primary" 
-        disabled={isLoading} 
-        style={{
-          background: `linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon))`,
-          borderColor: 'var(--nepali-red)'
-        }}
+        className="btn btn-primary red-button" 
+        disabled={isLoading}
       >
-        {isLoading ? 'Submitting...' : 'Submit Feedback'}
+        {isLoading ? 'Submitting...' : 'Submit Evaluation'}
       </button>
 
       {error && <div className="form-status error">{error}</div>}
@@ -650,31 +596,30 @@ function SubmitSection({ isLoading, error }) {
   );
 }
 
+// Update ThankYou - Enhanced thank you page
 function ThankYou() {
   return (
     <div className="container thank-you-container">
       <div className="thank-you-card">
         <h1 className="thank-you-title">Thank You!</h1>
         
-        {/* Animated SVG checkmark */}
         <div className="thank-you-svg">
           <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none" style={{ stroke: 'var(--nepali-red)' }}/>
-            <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" style={{ stroke: 'var(--nepali-red)' }}/>
+            <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
           </svg>
         </div>
         
-        <div className="">
+        <div className="thank-you-message">
           <p className="message-text">Your feedback has been successfully recorded.</p>
           <p className="message-text">Your participation helps us improve our Nepali text-to-speech technology.</p>
           <p className="message-text nepali-thanks">धन्यवाद!</p>
         </div>
         
-        {/* Decorative elements */}
         <div className="decorative-elements">
-          <div className="decoration decoration-1" style={{ background: 'var(--nepali-red)' }}></div>
-          <div className="decoration decoration-2" style={{ background: 'var(--nepali-blue)' }}></div>
-          <div className="decoration decoration-3" style={{ background: 'var(--nepali-saffron)' }}></div>
+          <div className="decoration decoration-1"></div>
+          <div className="decoration decoration-2"></div>
+          <div className="decoration decoration-3"></div>
         </div>
       </div>
     </div>

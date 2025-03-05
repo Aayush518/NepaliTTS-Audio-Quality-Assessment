@@ -1,0 +1,82 @@
+/* Global Colors - Comprehensive Nepali-inspired Color Palette */
+
+:root {
+  /* Core Nepali Colors */
+  --nepali-red: #c8102e; /* Primary Nepali flag red */
+  --nepali-blue: #003893; /* Primary Nepali flag blue */
+  
+  /* Red Palette */
+  --nepali-crimson: #990f23; /* Darker red variant */
+  --nepali-ruby: #ab1429; /* Mid-tone red */
+  --nepali-coral: #e63946; /* Brighter red with slight pink undertone */
+  --nepali-maroon: #800000; /* Dark red from Nepali temples */
+  --nepali-cherry: #d81b60; /* Brighter cherry red */
+  --nepali-burgundy: #6a0f16; /* Very dark red */
+  --nepali-salmon: #ff5e62; /* Lighter reddish tone */
+
+  /* Blue Palette */
+  --nepali-navy: #002766; /* Darker blue */
+  --nepali-azure: #0074d9; /* Brighter blue */
+  --nepali-sky: #4a9ff5; /* Light blue */
+  --nepali-royal: #1a237e; /* Deep royal blue */
+  --nepali-teal: #008080; /* Teal/blue-green */
+  --nepali-indigo: #3f51b5; /* Indigo blue */
+  
+  /* Earth/Mountain Tones */
+  --nepali-slate: #708090; /* Mountain slate */
+  --nepali-stone: #a39a92; /* Stone color */
+  --nepali-moss: #606c38; /* Forest moss */
+  --nepali-earth: #bb9457; /* Earth tone */
+  --nepali-sand: #f2d2a9; /* Light sand/beige */
+  
+  /* Gold/Warm Accents */
+  --nepali-saffron: #ff9933; /* Saffron/orange */
+  --nepali-gold: #d4af37; /* Gold accent */
+  --nepali-mustard: #e4b429; /* Mustard yellow */
+  --nepali-amber: #ffbf00; /* Amber yellow-orange */
+  
+  /* Neutral Grays */
+  --gray-lightest: #f9f9f9;
+  --gray-light: #eaeaea;
+  --gray-medium: #c4c4c4;
+  --gray-dark: #707070;
+  --gray-darkest: #333333;
+  
+  /* UI Colors */
+  --text-primary: #303030;
+  --text-secondary: #6c757d;
+  --success-color: #198754;
+  --warning-color: var(--nepali-amber);
+  --error-color: var(--nepali-coral);
+  --background-color: #f8f9fa;
+}
+
+/* Gradients */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--nepali-ruby), var(--nepali-crimson));
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, var(--nepali-blue), var(--nepali-navy));
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--nepali-saffron), var(--nepali-gold));
+}
+
+.gradient-earth {
+  background: linear-gradient(135deg, var(--nepali-earth), var(--nepali-sand));
+}
+
+/* Special Elements */
+.card-primary {
+  border-top: 3px solid var(--nepali-blue);
+}
+
+.card-secondary {
+  border-top: 3px solid var(--nepali-ruby);
+}
+
+.card-accent {
+  border-top: 3px solid var(--nepali-saffron);
+}

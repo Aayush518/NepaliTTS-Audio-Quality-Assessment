@@ -51,7 +51,7 @@ export default function Form() {
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Form fields */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+        <label htmlFor="name" className="block text-sm font-medium text-nepali-blue">Name</label>
         <input
           type="text"
           id="name"
@@ -59,12 +59,12 @@ export default function Form() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-red focus:border-nepali-red"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-blue focus:border-nepali-blue"
         />
       </div>
       
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+        <label htmlFor="email" className="block text-sm font-medium text-nepali-teal">Email</label>
         <input
           type="email"
           id="email"
@@ -72,12 +72,12 @@ export default function Form() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-red focus:border-nepali-red"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-teal focus:border-nepali-teal"
         />
       </div>
       
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+        <label htmlFor="message" className="block text-sm font-medium text-nepali-gold">Message</label>
         <textarea
           id="message"
           name="message"
@@ -85,21 +85,40 @@ export default function Form() {
           onChange={handleChange}
           rows="4"
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-red focus:border-nepali-red"
+          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-gold focus:border-nepali-gold"
         ></textarea>
       </div>
       
       {/* Style any rating elements here if they exist */}
-      {/* For example, if there are any rating inputs: */}
       <div className="rating-input-container">
-        {/* Apply Nepali red styling to any rating elements */}
+        {/* Apply varied Nepali color styling to any rating elements */}
         <style jsx>{`
-          .rating-input button {
-            border-color: var(--nepali-red);
-            color: var(--nepali-red);
+          .rating-input button:nth-of-type(6n+1) {
+            border-color: var(--nepali-blue);
+            color: var(--nepali-blue);
+          }
+          .rating-input button:nth-of-type(6n+2) {
+            border-color: var(--nepali-teal);
+            color: var(--nepali-teal);
+          }
+          .rating-input button:nth-of-type(6n+3) {
+            border-color: var(--nepali-forest);
+            color: var(--nepali-forest);
+          }
+          .rating-input button:nth-of-type(6n+4) {
+            border-color: var(--nepali-slate);
+            color: var(--nepali-slate);
+          }
+          .rating-input button:nth-of-type(6n+5) {
+            border-color: var(--nepali-gold);
+            color: var(--nepali-gold);
+          }
+          .rating-input button:nth-of-type(6n+6) {
+            border-color: var(--nepali-saffron);
+            color: var(--nepali-saffron);
           }
           .rating-input button.selected {
-            background-color: var(--nepali-red);
+            background-color: currentColor;
             color: white;
           }
         `}</style>
@@ -109,8 +128,11 @@ export default function Form() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-nepali-red hover:bg-nepali-maroon focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nepali-red disabled:opacity-50"
-          style={{ backgroundColor: 'var(--nepali-red)' }}
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white disabled:opacity-50 transition-all hover:-translate-y-1"
+          style={{ 
+            background: "linear-gradient(90deg, var(--nepali-blue), var(--nepali-teal), var(--nepali-forest))",
+            boxShadow: "0 4px 6px rgba(0, 56, 147, 0.25)"
+          }}
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
@@ -118,7 +140,11 @@ export default function Form() {
       
       {/* Status message */}
       {submitStatus && (
-        <div className={`mt-4 p-3 rounded ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-nepali-red bg-opacity-10 text-nepali-red'}`}>
+        <div className={`mt-4 p-3 rounded ${
+          submitStatus.type === 'success' 
+            ? 'bg-nepali-teal bg-opacity-10 text-nepali-teal border border-nepali-teal border-opacity-20' 
+            : 'bg-nepali-red bg-opacity-10 text-nepali-red border border-nepali-red border-opacity-20'
+        }`}>
           {submitStatus.message}
         </div>
       )}
