@@ -48,7 +48,7 @@ function CustomAudioPlayer({ src, onEnded, id }) {
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
-        backgroundColor: 'rgba(200, 16, 46, 0.05)',
+        backgroundColor: 'var(--nepali-red-light)',
         padding: '10px',
         borderRadius: '30px'
       }}>
@@ -81,7 +81,7 @@ function CustomAudioPlayer({ src, onEnded, id }) {
         <div className="progress-bar" style={{
           flex: '1',
           height: '6px',
-          backgroundColor: 'rgba(200, 16, 46, 0.1)',
+          backgroundColor: 'var(--nepali-red-light)',
           borderRadius: '3px',
           overflow: 'hidden',
           position: 'relative'

@@ -7,7 +7,6 @@ export default function Form() {
     name: '',
     email: '',
     message: '',
-    // Add other fields as needed
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,17 +26,12 @@ export default function Form() {
     setSubmitStatus(null);
     
     try {
-      // Submit to Google Sheet
       await submitToGoogleSheet(formData);
-      
-      // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
         message: '',
-        // Reset other fields as needed
       });
-      
       setSubmitStatus({ type: 'success', message: 'Thank you! Your response has been recorded.' });
     } catch (error) {
       console.error('Submission error:', error);
@@ -48,10 +42,9 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Form fields */}
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-nepali-blue">Name</label>
+    <form onSubmit={handleSubmit} className="form-section p-6 space-y-6">
+      <div className="form-field-group">
+        <label htmlFor="name" className="form-field-label text-survey-primary-dark">Full Name</label>
         <input
           type="text"
           id="name"
@@ -59,12 +52,12 @@ export default function Form() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-blue focus:border-nepali-blue"
+          className="form-field-input"
         />
       </div>
       
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-nepali-teal">Email</label>
+      <div className="form-field-group">
+        <label htmlFor="email" className="form-field-label text-survey-primary-dark">Email</label>
         <input
           type="email"
           id="email"
@@ -72,12 +65,12 @@ export default function Form() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-teal focus:border-nepali-teal"
+          className="form-field-input"
         />
       </div>
       
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-nepali-gold">Message</label>
+      <div className="form-field-group">
+        <label htmlFor="message" className="form-field-label text-survey-primary-dark">Message</label>
         <textarea
           id="message"
           name="message"
@@ -85,66 +78,24 @@ export default function Form() {
           onChange={handleChange}
           rows="4"
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-nepali-gold focus:border-nepali-gold"
+          className="form-field-input min-h-[120px] resize-y"
         ></textarea>
       </div>
       
-      {/* Style any rating elements here if they exist */}
-      <div className="rating-input-container">
-        {/* Apply varied Nepali color styling to any rating elements */}
-        <style jsx>{`
-          .rating-input button:nth-of-type(6n+1) {
-            border-color: var(--nepali-blue);
-            color: var(--nepali-blue);
-          }
-          .rating-input button:nth-of-type(6n+2) {
-            border-color: var(--nepali-teal);
-            color: var(--nepali-teal);
-          }
-          .rating-input button:nth-of-type(6n+3) {
-            border-color: var(--nepali-forest);
-            color: var(--nepali-forest);
-          }
-          .rating-input button:nth-of-type(6n+4) {
-            border-color: var(--nepali-slate);
-            color: var(--nepali-slate);
-          }
-          .rating-input button:nth-of-type(6n+5) {
-            border-color: var(--nepali-gold);
-            color: var(--nepali-gold);
-          }
-          .rating-input button:nth-of-type(6n+6) {
-            border-color: var(--nepali-saffron);
-            color: var(--nepali-saffron);
-          }
-          .rating-input button.selected {
-            background-color: currentColor;
-            color: white;
-          }
-        `}</style>
-      </div>
-      
-      <div>
+      <div className="form-actions">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white disabled:opacity-50 transition-all hover:-translate-y-1"
-          style={{ 
-            background: "linear-gradient(90deg, var(--nepali-blue), var(--nepali-teal), var(--nepali-forest))",
-            boxShadow: "0 4px 6px rgba(0, 56, 147, 0.25)"
-          }}
+          className="form-submit-button"
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
       
-      {/* Status message */}
       {submitStatus && (
-        <div className={`mt-4 p-3 rounded ${
-          submitStatus.type === 'success' 
-            ? 'bg-nepali-teal bg-opacity-10 text-nepali-teal border border-nepali-teal border-opacity-20' 
-            : 'bg-nepali-red bg-opacity-10 text-nepali-red border border-nepali-red border-opacity-20'
-        }`}>
+        <div 
+          className={`form-status ${submitStatus.type === 'success' ? 'success' : 'error'}`}
+        >
           {submitStatus.message}
         </div>
       )}

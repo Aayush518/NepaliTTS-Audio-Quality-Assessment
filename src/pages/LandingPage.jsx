@@ -197,83 +197,87 @@ function LandingPage() {
         </div>
         
         <div className="project-description">
-          <div className="overview-content">
-            {/* Left side: Character sphere with more space */}
-            <div className="char-sphere-wrapper">
-              <div className="char-sphere-container">
-                <div className="char-sphere" ref={sphereRef}>
-                  {nepaliChars.map((char, index) => (
-                    <div 
-                      key={index} 
-                      className="nepali-char"
-                    >
-                      {char}
-                    </div>
-                  ))}
-                </div>
-                <div className="glow-effect"></div>
+          <div className="project-card">
+            <h3 className="project-card-title">Project Overview</h3>
+            <p className="project-card-text">
+              Our research focuses on developing a robust Grapheme-to-Phoneme (G2P) conversion system
+              and state-of-the-art Text-to-Speech technology for the Nepali language. Through this work,
+              we aim to bridge the gap in speech technology for Nepal and create more accessible digital solutions.
+            </p>
+          </div>
+          
+          <div className="project-timeline">
+            <div className="timeline-card">
+              <div className="timeline-icon">
+                <span className="timeline-number">1</span>
               </div>
+              <h4>G2P Development</h4>
+              <p>Creating accurate phoneme conversion for Nepali text</p>
             </div>
-            
-            {/* Right side: Project information */}
-            <div className="project-info-content">
-              <p className="project-intro">
-                This Nepali Text-to-Speech (TTS) Audio Quality Assessment platform represents just one component of our comprehensive final year project at the Institute of Engineering, Western Regional Campus, Pokhara.
-              </p>
-              
-              <div className="project-timeline">
-                <div className="timeline-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
-                    <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-4.5-2.7V7z"/>
-                  </svg>
-                </div>
-                <div className="timeline-text">
-                  <h4>Our Research Journey</h4>
-                  <p>Throughout this year-long project, we've meticulously explored various TTS approaches, experimented with different models, developed custom phoneme sets, and created our own comprehensive Nepali speech dataset.</p>
-                </div>
+          
+            <div className="timeline-card">
+              <div className="timeline-icon">
+                <span className="timeline-number">2</span>
               </div>
-              
-              <p>After extensive testing and refinement, we've developed several TTS models that are now ready for evaluation.</p>
+              <h4>TTS Implementation</h4>
+              <p>Building and training the voice synthesis model</p>
+            </div>
+          
+            <div className="timeline-card">
+              <div className="timeline-icon">
+                <span className="timeline-number">3</span>
+              </div>
+              <h4>Quality Assessment</h4>
+              <p>Evaluating and refining the voice output</p>
             </div>
           </div>
           
-          <div className="team-members">
-            <h3>Our Team</h3>
-            <div className="team-member">
-              <h4>Aayush Adhikari</h4>
-              <p>IOE WRC, Pokhara</p>
-              <a href="https://linkedin.com/in/aayushadhikari" className="social-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-              </a>
-            </div>
-            <div className="team-member">
-              <h4>Shishir Sharma Rijal</h4>
-              <p>IOE WRC, Pokhara</p>
-              <a href="https://linkedin.com/in/shishirrijal" className="social-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-              </a>
-            </div>
-            <div className="team-member">
-              <h4>Roshan Tiwari</h4>
-              <p>IOE WRC, Pokhara</p>
-              <a href="https://linkedin.com/in/roshanttiwari" className="social-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-              </a>
-            </div>
-            <div className="team-member">
-              <h4>Sudip Acharya</h4>
-              <p>IOE WRC, Pokhara</p>
-              <a href="https://linkedin.com/in/sudip-acharya-506737195" className="social-link" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill={getComputedStyle(document.documentElement).getPropertyValue('--nepali-red')}>
-                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-              </a>
+          <div className="team-section">
+            <h3 className="team-section-title">Team Members</h3>
+            <div className="team-members">
+              <div className="team-member-card glass-effect">
+                <div className="member-info">
+                  <h4 className="member-name">Aayush Adhikari</h4>
+                  <a href="https://linkedin.com/in/aayushadhikari" target="_blank" rel="noopener noreferrer" className="member-social">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--nepali-red)">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+          
+              <div className="team-member-card glass-effect">
+                <div className="member-info">
+                  <h4 className="member-name">Shishir Sharma Rijal</h4>
+                  <a href="https://linkedin.com/in/shishirrijal" target="_blank" rel="noopener noreferrer" className="member-social">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--nepali-red)">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+          
+              <div className="team-member-card glass-effect">
+                <div className="member-info">
+                  <h4 className="member-name">Roshan Tiwari</h4>
+                  <a href="https://linkedin.com/in/roshanttiwari" target="_blank" rel="noopener noreferrer" className="member-social">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--nepali-red)">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+          
+              <div className="team-member-card glass-effect">
+                <div className="member-info">
+                  <h4 className="member-name">Sudip Acharya</h4>
+                  <a href="https://linkedin.com/in/sudip-acharya-506737195" target="_blank" rel="noopener noreferrer" className="member-social">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--nepali-red)">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -400,7 +404,7 @@ function LandingPage() {
       <section className="landing-section final-cta animate-on-scroll">
         <div className="cta-card">
           <div className="cta-content">
-            <h2 style={{ color: 'white' }}>Your Participation Is Invaluable</h2>
+            <h2 style={{ color: 'var(--card-color)' }}>Your Participation Is Invaluable</h2>
             <p>After a year of dedicated work, we now need your help for this crucial subjective evaluation phase. Your feedback will help us refine our approach to Nepali speech synthesis technology.</p>
             <Link to="/survey" className="cta-button large" style={{ 
               display: 'inline-flex', 

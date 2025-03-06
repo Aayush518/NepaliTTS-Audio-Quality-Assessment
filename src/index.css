@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+@import './styles/global-colors.css';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -7,33 +8,13 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-primary);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* Primary Nepali colors */
-  --nepali-red: #c8102e; /* Nepali flag red */
-  --nepali-blue: #003893; /* Nepali flag blue */
-  
-  /* Extended Nepali cultural palette */
-  --nepali-saffron: #ff9933; /* Saffron/orange from regional textiles */
-  --nepali-crimson: #dc143c; /* Deep red from traditional clothing */
-  --nepali-maroon: #800000; /* Dark red from Nepali temples */
-  --nepali-gold: #d4af37; /* Gold from temple decorations */
-  
-  /* Text colors */
-  --text-primary: #212529;
-  --text-secondary: #495057;
-  
-  /* Other UI colors */
-  --background-color: #f8f9fa;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -44,10 +25,12 @@
 
 a {
   font-weight: 500;
-  color: var(--nepali-red);
+  color: var(--primary-color);
   text-decoration: none;
 }
+
 a:hover {
+  color: var(--primary-color-dark);
   text-decoration: underline;
 }
 
@@ -67,50 +50,42 @@ body {
   line-height: 1.5;
 }
 
-h1 {
-  font-size: 2.5rem;
+h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  color: var(--nepali-red);
+  color: var(--nepali-dark);
   font-weight: 700;
 }
 
-h2 {
-  font-size: 2rem;
-  line-height: 1.2;
-  color: var(--nepali-red);
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.5rem;
-  line-height: 1.2;
-  color: var(--nepali-red);
-  font-weight: 700;
-}
-
-h4, h5, h6 {
-  line-height: 1.2;
-  color: var(--nepali-red);
-  font-weight: 700;
-}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary-color);
+  color: var(--card-color);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all var(--transition-speed);
+  box-shadow: var(--shadow-sm);
 }
+
 button:hover {
-  border-color: var(--nepali-red);
+  background-color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+  color: var(--card-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
 }
 
 .container {
@@ -132,7 +107,7 @@ button:focus, .btn:focus {
 
 /* Global selection color */
 ::selection {
-  background-color: rgba(200, 16, 46, 0.2);
+  background-color: var(--primary-color-light);
   color: var(--text-primary);
 }
 
@@ -141,158 +116,73 @@ button:focus, .btn:focus {
   font-family: 'Noto Sans Devanagari', sans-serif;
 }
 
-/* Tailwind-like utility classes with Nepali theme */
-.bg-nepali-red {
-  background-color: var(--nepali-red);
-}
-
-.text-nepali-red {
-  color: var(--nepali-red);
-}
-
-.border-nepali-red {
-  border-color: var(--nepali-red);
-}
-
-.bg-nepali-blue {
-  background-color: var(--nepali-blue);
-}
-
-.text-nepali-blue {
-  color: var(--nepali-blue);
-}
-
-.border-nepali-blue {
-  border-color: var(--nepali-blue);
-}
-
 input, select, textarea {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 10px 12px;
-  font-size: 1rem;
+  border: 2px solid var(--nepali-red-light);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
   width: 100%;
-  transition: all 0.3s ease;
+  transition: all var(--transition-speed);
+  background-color: var(--card-color);
+  color: var(--nepali-dark);
 }
 
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: var(--nepali-red);
-  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-color-light);
 }
 
 /* Globally style the audio element */
 audio {
-  accent-color: var(--nepali-red);
-}
-
-/* Force/override link colors */
-a, a:link, a:visited {
-  color: var(--nepali-red);
-}
-
-a:hover, a:active, a:focus {
-  color: var(--nepali-maroon);
+  accent-color: var(--primary-color);
 }
 
 /* Override focus styles for all interactive elements */
 :focus-visible {
-  outline: 2px solid var(--nepali-red) !important;
+  outline: 2px solid var(--primary-color) !important;
   outline-offset: 2px;
-}
-
-/* Style ::selection color */
-::-moz-selection {
-  background-color: rgba(200, 16, 46, 0.2);
-  color: var(--text-primary);
-}
-
-::selection {
-  background-color: rgba(200, 16, 46, 0.2);
-  color: var(--text-primary);
 }
 
 /* Default focus styles */
 *:focus {
-  outline-color: var(--nepali-red);
-}
-
-/* Override default button styling */
-button {
-  border: 1px solid transparent;
-}
-
-button:hover {
-  border-color: var(--nepali-red);
+  outline-color: var(--primary-color);
 }
 
 /* Global fixes for text colors */
 .text-gradient {
-  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-saffron));
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   display: inline-block;
 }
 
-/* Ensure all links are consistently colored */
-a, a:link, a:visited {
-  color: var(--nepali-red);
-}
-
-/* Override for button text inside colored buttons */
-a.btn, 
-a.cta-button, 
-a.nav-cta,
-button.btn-primary,
-.primary-gradient,
-.cta-button.large {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-a.btn:hover, 
-a.cta-button:hover, 
-a.nav-cta:hover,
-button.btn-primary:hover,
-.primary-gradient:hover,
-.cta-button.large:hover {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-/* Override button text color based on button type */
-.cta-button.primary-gradient, 
+/* Button text color overrides */
 .btn-primary,
+.cta-button.primary-gradient,
 a.nav-cta {
-  color: white !important;
+  color: var(--card-color) !important;
   text-decoration: none !important;
+  background-color: var(--primary-color);
 }
 
-.cta-button.secondary, 
 .btn-secondary,
 button.secondary {
-  color: var(--nepali-red) !important; /* Always keep secondary buttons with red text */
-  text-decoration: none !important;
+  color: var(--primary-color) !important;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
 }
 
-/* Make sure all headings including user-info-title are consistently red */
-h1, h2, h3, h4, h5, h6, 
-.user-info-title, 
-.section-title, 
-.sample-title {
-  color: var(--nepali-red) !important;
-}
-
+/* Media query for light mode */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--text-primary);
+    background-color: var(--card-color);
   }
-  a:hover {
-    color: var(--nepali-red);
-  }
+  
   button {
-    background-color: #f9f9f9;
+    background-color: var(--gray-light);
+    color: var(--text-primary);
   }
 }

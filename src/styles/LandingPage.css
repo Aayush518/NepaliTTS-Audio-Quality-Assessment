@@ -1,6 +1,13 @@
 /* Landing Page Styles - Enhanced Modern Design */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--nepali-red);
+}
+
 /* Nepali Theme Color Palette */
 :root {
   /* Primary Nepali colors */
@@ -61,7 +68,7 @@
 }
 
 .shape1 {
-  background: linear-gradient(135deg, var(--nepali-blue), var(--nepali-sky));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-red-light));
   width: 600px;
   height: 600px;
   top: -100px;
@@ -1262,8 +1269,8 @@
 }
 
 .nepali-char:nth-child(odd) {
-  color: var(--nepali-blue);
-  background: rgba(0, 56, 147, 0.1);
+  color: var(--nepali-red);
+  background: rgba(200, 16, 46, 0.1);
 }
 
 .nepali-char:hover {
@@ -1317,14 +1324,17 @@
 .rating-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
   margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rating-btn {
-  flex: 0 0 calc(10% - 10px);
-  aspect-ratio: 1/1;
+  flex: 0 0 48px;
+  height: 48px;
   border-radius: 50%;
   font-weight: bold;
   border: 2px solid var(--nepali-red);
@@ -1336,8 +1346,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  min-width: 36px;
-  min-height: 36px;
+  margin: 0 4px;
 }
 
 .rating-btn.selected {
@@ -1360,25 +1369,44 @@ audio {
   .rating-buttons {
     gap: 8px;
     justify-content: center;
+    padding: 0.5rem;
   }
-  
+
   .rating-btn {
-    flex: 0 0 calc(18% - 8px);
-    min-width: 40px;
-    min-height: 40px;
+    flex: 0 0 calc(16% - 8px);
+    min-width: 42px;
+    min-height: 42px;
     font-size: 1rem;
   }
-  
-  audio {
-    min-height: 50px;
-  }
-  
+
   .rating-label {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem 1.1rem;
+    font-size: 1rem;
+  }
+
+  .audio-player {
+    margin: 1rem 0;
+  }
+
+  audio {
+    height: 44px;
   }
 }
 
@@ -1386,16 +1414,23 @@ audio {
   .rating-buttons {
     gap: 6px;
   }
-  
+
   .rating-btn {
     flex: 0 0 calc(18% - 6px);
-    min-width: 44px;
-    min-height: 44px;
-    font-size: 1.1rem;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 0.9rem;
   }
-  
-  audio {
-    min-height: 55px;
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .rating-label {
+    font-size: 0.9rem;
   }
 }
 
@@ -1469,313 +1504,231 @@ audio {
 
 /* Project Description Section */
 .project-description {
-  background-color: white;
-  border-radius: 30px;
-  box-shadow: var(--shadow-lg);
-  margin: 30px 3%;
+  /* Project Section Styles */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.project-card {
+  background: linear-gradient(145deg, white, var(--nepali-light));
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(200, 16, 46, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.project-card-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--nepali-dark);
+}
+
+/* Timeline Styles */
+.project-timeline {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 4rem 0;
+  flex-wrap: wrap;
+}
+
+.timeline-card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(200, 16, 46, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.2);
+}
+
+.timeline-number {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.timeline-card h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 0.8rem;
+}
+
+.timeline-card p {
+  color: var(--nepali-dark);
+  line-height: 1.6;
+}
+
+/* Team Section Styles */
+.team-section {
+  margin-top: 5rem;
+}
+
+.team-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--nepali-maroon);
+  position: relative;
+}
+
+.team-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  border-radius: 2px;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(200, 16, 46, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.project-description h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 25px;
-  color: var(--nepali-red);
-  position: relative;
+.team-member-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
 }
 
-.project-description p {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 20px;
-}
-
-.project-timeline {
-  display: flex;
-  align-items: center;
-  margin: 30px 0;
-  background-color: rgba(200, 16, 46, 0.1);
-  padding: 15px 25px;
-  border-radius: 15px;
-}
-
-.timeline-icon {
-  margin-right: 20px;
-  background-color: rgba(200, 16, 46, 0.2);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.timeline-text {
-  flex: 1;
-}
-
-.timeline-text h4 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: var(--nepali-red);
-}
-
-.team-section {
-  margin-top: 40px;
-}
-
-.team-section h3 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--nepali-red);
-}
-
-.team-members {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.team-member {
-  flex: 1;
-  min-width: 200px;
-  max-width: 250px;
-  text-align: center;
-  padding: 15px;
-  border-radius: 15px;
-  background-color: rgba(200, 16, 46, 0.05);
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-.team-member:hover {
+.team-member-card:hover {
   transform: translateY(-5px);
-  background-color: rgba(200, 16, 46, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 }
 
-.team-member h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 15px 0 5px;
-  color: var(--nepali-red);
+.member-info {
+  position: relative;
+  z-index: 1;
 }
 
-.team-member p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
-}
-
-.team-member .social-link {
-  font-size: 0.9rem;
-  color: var(--nepali-red);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.team-member .social-link:hover {
-  text-decoration: underline;
-}
-
-.evaluation-cta {
-  margin-top: 40px;
-  padding: 30px;
-  border-radius: 15px;
-  background: linear-gradient(135deg, rgba(200, 16, 46, 0.1), rgba(200, 16, 46, 0.05));
-  border: 1px dashed var(--nepali-red);
-  text-align: center;
-}
-
-.evaluation-cta h3 {
+.member-name {
   font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--nepali-red);
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.evaluation-cta p {
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin: 0 auto 25px;
+.member-role {
+  font-size: 1rem;
+  color: var(--nepali-dark);
+  opacity: 0.8;
 }
 
-/* Responsive styles for project description */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .project-description {
-    padding: 30px 20px;
+    padding: 20px;
   }
-  
-  .project-description h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-  }
-  
+
   .project-timeline {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 1.5rem;
   }
-  
-  .timeline-icon {
-    margin-bottom: 10px;
+
+  .timeline-card {
+    min-width: 100%;
   }
-  
+
   .team-members {
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
   }
-  
-  .team-member {
-    min-width: 160px;
+
+  .team-member-card {
+    padding: 1.5rem;
   }
-}
 
-/* Adjust SVG fill colors for icons */
-svg[fill="#4361ee"] {
-  fill: var(--nepali-red);
-}
-
-/* Nepali Color Palette Showcase */
-.color-palette-container {
-  padding: 40px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: var(--shadow-md);
-  margin: 40px 0;
-}
-
-.color-palette-container h2 {
-  color: var(--nepali-red);
-  margin-bottom: 10px;
-}
-
-.color-swatches {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.color-swatch {
-  width: 120px;
-}
-
-.color-sample {
-  height: 80px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.color-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.color-name {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.color-hex {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-}
-
-.gradient-samples {
-  margin-top: 40px;
-}
-
-.gradient-samples h3 {
-  margin-bottom: 20px;
-  color: var(--nepali-red);
-}
-
-.gradient-row {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.gradient-sample {
-  flex: 1;
-  min-width: 200px;
-  height: 100px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  display: flex;
-  align-items: flex-end;
-  padding: 15px;
-}
-
-.gradient-sample span {
-  color: white;
-  font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-@media (max-width: 768px) {
-  .color-swatches {
-    gap: 10px;
+  .member-name {
+    font-size: 1.2rem;
   }
-  
-  .color-swatch {
-    width: calc(33.33% - 10px);
+
+  .member-role {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
-  .color-swatch {
-    width: calc(50% - 10px);
+  .project-card-title {
+    font-size: 1.5rem;
+  }
+
+  .project-card-text {
+    font-size: 1rem;
+  }
+
+  .team-members {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (prefers-color-scheme: light) {
-  a:hover {
-    color: var(--nepali-red);
-  }
-}
 
-/* Icon styling for step icons */
-.step-icon-image {
-  position: relative;
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  display: block;
-  fill: var(--nepali-red) !important;
-  color: var(--nepali-red) !important;
-}
-
-.step-icon img {
-  position: relative;
-  width: 60%;
-  height: auto;
-  z-index: 1;
-  fill: var(--nepali-red);
-  color: var(--nepali-red);
-}
-
-/* Fix for SVG icons to ensure they use the correct color */
-svg[fill="#4361ee"],
-svg[fill="#003893"],
-svg[fill="#87ceeb"],
-svg[fill="#747bff"],
-svg[fill="#646cff"],
-svg[fill="#000000"] {
-  fill: var(--nepali-red) !important;
-}
-
-/* Ensure all SVG icons have the correct color */
-.step-icon svg, 
-.step-icon img {
-  fill: var(--nepali-red);
-  color: var(--nepali-red);
-  stroke: var(--nepali-red);
-}

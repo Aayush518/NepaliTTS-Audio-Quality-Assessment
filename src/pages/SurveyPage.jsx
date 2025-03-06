@@ -493,7 +493,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
 
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="name">Full Name</label>
+          <label htmlFor="name" className="form-label">Full Name</label>
           <input
             type="text"
             id="name"
@@ -510,7 +510,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="age">Age</label>
+          <label htmlFor="age" className="form-label">Age</label>
           <input
             type="number"
             id="age"
@@ -530,7 +530,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
 
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="gender">Gender</label>
+          <label htmlFor="gender" className="form-label">Gender</label>
           <select
             id="gender"
             name="gender"
@@ -547,7 +547,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="district">District</label>
+          <label htmlFor="district" className="form-label">District</label>
           <select
             id="district"
             name="district"
@@ -596,7 +596,7 @@ function SubmitSection({ isLoading, error }) {
   );
 }
 
-// Update ThankYou - Enhanced thank you page
+// Update ThankYou - Enhanced thank you page with proper gradient definitions for SVG
 function ThankYou() {
   return (
     <div className="container thank-you-container">
@@ -605,6 +605,12 @@ function ThankYou() {
         
         <div className="thank-you-svg">
           <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="var(--nepali-blue)" />
+                <stop offset="100%" stopColor="var(--nepali-red)" />
+              </linearGradient>
+            </defs>
             <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
             <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
           </svg>

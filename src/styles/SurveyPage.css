@@ -1,689 +1,165 @@
 /* Survey Page Styles with Enhanced Nepali Theme */
 
 :root {
-  /* Use Nepali red as the primary color */
-  --nepali-red: #c8102e; /* Nepali flag red */
-  --nepali-maroon: #800000; /* Dark red from Nepali temples */
-  /* We'll keep the other colors in the variables but primarily use red */
-  --nepali-blue: #003893;
-  --nepali-saffron: #ff9933;
-  --nepali-teal: #008080;
-  --nepali-gold: #d4af37;
-  --nepali-forest: #228b22;
-  --nepali-slate: #708090;
-  
-  /* Neutral tones */
-  --neutral-light: #f8f9fa;
-  --neutral-medium: #e9ecef;
-  --neutral-dark: #343a40;
-  
-  /* Text colors */
-  --text-primary: #222222; /* Darker text for better readability */
-  --text-secondary: #666666;
-  --text-light: #999999;
-  
-  /* Set primary action color to red */
-  --primary-color: #d60c2c; /* Brighter Nepali flag red for better visibility */
-  --primary-color-dark: #a90000; /* Darker red for hover states */
-  --primary-color-light: #fff0f0; /* Light red for backgrounds */
-}
-
-/* Improve contrast for red elements and enhance visual emphasis */
-
-/* Make the red color more vibrant for better contrast */
-:root {
-  --primary-color: #d60c2c; /* Brighter Nepali flag red for better visibility */
-  --primary-color-dark: #a90000; /* Darker red for hover states */
-  --primary-color-light: #fff0f0; /* Light red for backgrounds */
+  --mixed-gradient: var(--survey-mixed-gradient);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --survey-focus-ring: rgba(200, 16, 46, 0.2);
+  --header-gradient: linear-gradient(165deg, white, var(--survey-bg-primary-light));
 }
 
 /* Header styling */
 .header {
   text-align: center;
-  margin-bottom: 2.5rem;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-top: 4px solid var(--primary-color);
+  margin: 2rem auto 3.5rem;
+  padding: 3.5rem;
+  max-width: 1200px;
+  background: var(--header-gradient);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--nepali-red);
+  position: relative;
+  overflow: hidden;
 }
 
 .header h1 {
-  font-size: 2.2rem;
+  font-size: 3.2rem;
   font-weight: 800;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+  color: var(--nepali-maroon);
+  margin-bottom: 1.8rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.header h1::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: var(--nepali-red);
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(200, 16, 46, 0.25);
 }
 
 .intro {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--text-primary);
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--nepali-maroon);
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  padding: 0 1.8rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
 .intro strong {
-  color: var(--primary-color);
-  font-weight: 600;
+  color: var(--nepali-red);
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 /* Progress bar styling */
 .progress-bar {
-  height: 10px;
-  background-color: #eee;
-  border-radius: 5px;
-  margin: 1.5rem 0;
+  height: 12px;
+  background-color: var(--survey-bg-primary-light);
+  border-radius: 6px;
+  margin: 2rem 0;
   overflow: hidden;
+  border: 1px solid var(--survey-border-primary);
 }
 
 .progress {
   height: 100%;
-  transition: width 0.3s ease;
-  background: linear-gradient(to right, var(--primary-color), var(--primary-color-dark)) !important;
-  border-radius: 5px;
+  transition: width 0.4s ease;
+  background: var(--survey-primary-gradient) !important;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(200, 16, 46, 0.2);
 }
 
 /* Card styling */
 .card {
   background: linear-gradient(145deg, 
     white 60%,
-    rgba(214, 12, 44, 0.05) 100%
+    var(--survey-bg-primary-light) 100%
   );
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* Audio sample styling - updated with color variety */
-.audio-sample {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
-  animation: fadeIn 0.5s ease forwards;
-  border: 1px solid rgba(214, 12, 44, 0.1);
-  border-top: 4px solid var(--primary-color);
+  border: 1px solid var(--survey-border-primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Standardize all samples to use the same color */
-.audio-sample:nth-child(odd),
-.audio-sample:nth-child(even),
-.audio-sample:nth-child(3),
-.audio-sample:nth-child(4),
-.audio-sample:nth-child(5),
-.audio-sample:nth-child(6),
-.comparison-sample,
-.distortion-sample {
-  border-top-color: var(--primary-color) !important;
-}
-
-.sample-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.sample-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-primary) !important;
-  position: relative;
-  padding-left: 12px;
-}
-
-.sample-title::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 70%;
-  width: 4px;
-  background-color: var(--primary-color);
-  border-radius: 2px;
-}
-
-/* Standardize all title indicators to use red */
-.audio-sample:nth-child(1) .sample-title::before,
-.audio-sample:nth-child(2) .sample-title::before,
-.audio-sample:nth-child(3) .sample-title::before,
-.audio-sample:nth-child(4) .sample-title::before,
-.audio-sample:nth-child(5) .sample-title::before,
-.audio-sample:nth-child(6) .sample-title::before {
-  background-color: var(--primary-color);
-}
-
-.sample-status {
-  display: flex;
-  align-items: center;
-}
-
-/* Standardize all status badges to use red */
-.status-listened,
-.audio-listened-badge {
-  background: rgba(214, 12, 44, 0.15) !important;
-  color: var(--primary-color) !important;
-  border: 1px solid var(--primary-color) !important;
-  font-weight: 700 !important;
-  text-shadow: 0 0 1px rgba(255, 255, 255, 0.8); /* Stronger text shadow for readability */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Stronger drop shadow */
-}
-
-/* Enhance the listened badge with an icon */
-.status-listened::before {
-  content: "✓ ";
-  font-weight: bold;
-}
-
-/* Transcription container */
-.audio-sample:nth-child(1) .transcription-container {
-  border-left-color: var(--primary-color);
-  background-color: var(--primary-color-light);
-}
-
-.audio-sample:nth-child(2) .transcription-container {
-  border-left-color: var(--primary-color);
-  background-color: var(--primary-color-light);
-}
-
-.audio-sample:nth-child(3) .transcription-container {
-  border-left-color: var(--primary-color);
-  background-color: var(--primary-color-light);
-}
-
-.audio-sample:nth-child(4) .transcription-container {
-  border-left-color: var(--primary-color);
-  background-color: var(--primary-color-light);
-}
-
-.audio-sample:nth-child(5) .transcription-container {
-  border-left-color: var(--primary-color);
-  background-color: var(--primary-color-light);
-}
-
-.audio-sample:nth-child(6) .transcription-container {
-  border-left-color: var(--primary-color);
-  background-color: var(--primary-color-light);
-}
-
-.transcription-container {
-  border-radius: 4px;
-  padding: 15px;
-  margin: 20px 0;
-  border-left: 4px solid;
-}
-
-.transcription-text {
-  font-family: 'Noto Sans Devanagari', 'Mukta', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-primary);
-  text-align: left;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* Audio comparison styling */
-.audio-comparison-section {
-  background-color: rgba(200, 16, 46, 0.03);
-  border: 1px solid rgba(200, 16, 46, 0.2);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.audio-comparison-section h4 {
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.audio-sample:nth-child(5) .audio-listened-badge {
-  background-color: rgba(200, 16, 46, 0.1);
-  color: var(--primary-color);
-  border-color: rgba(200, 16, 46, 0.2);
-  font-size: 0.8rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  border: 1px solid;
-  display: inline-block;
-}
-
-/* Rating styling - using specific colors for each sample */
-.audio-sample:nth-child(1) .rating-container {
-  background-color: rgba(200, 16, 46, 0.05);
-}
-
-.audio-sample:nth-child(2) .rating-container {
-  background-color: rgba(200, 16, 46, 0.05);
-}
-
-.audio-sample:nth-child(3) .rating-container {
-  background-color: rgba(200, 16, 46, 0.05);
-}
-
-.audio-sample:nth-child(4) .rating-container {
-  background-color: rgba(200, 16, 46, 0.05);
-}
-
-.audio-sample:nth-child(5) .rating-container {
-  background-color: rgba(200, 16, 46, 0.05);
-}
-
-.audio-sample:nth-child(6) .rating-container {
-  background-color: rgba(200, 16, 46, 0.05);
-}
-
-.rating-container {
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-}
-
-/* Make all rating questions red */
-.audio-sample:nth-child(1) .rating-question {
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(2) .rating-question {
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(3) .rating-question {
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(4) .rating-question {
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(5) .rating-question {
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(6) .rating-question {
-  color: var(--primary-color);
-}
-
-.rating-question {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-align: start;
-}
-
-.rating-label {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-/* Make all rating labels use red for emphasis */
-.audio-sample:nth-child(1) .rating-label span:last-child {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.audio-sample:nth-child(2) .rating-label span:last-child {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.audio-sample:nth-child(3) .rating-label span:last-child {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.audio-sample:nth-child(4) .rating-label span:last-child {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.audio-sample:nth-child(5) .rating-label span:last-child {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.audio-sample:nth-child(6) .rating-label span:last-child {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-/* Make all rating buttons use red */
-.audio-sample:nth-child(1) .rating-btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(2) .rating-btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(3) .rating-btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(4) .rating-btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(5) .rating-btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-.audio-sample:nth-child(6) .rating-btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-/* Selected states for rating buttons */
-.audio-sample:nth-child(1) .rating-btn.selected {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-}
-
-.audio-sample:nth-child(2) .rating-btn.selected {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-}
-
-.audio-sample:nth-child(3) .rating-btn.selected {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-}
-
-.audio-sample:nth-child(4) .rating-btn.selected {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-}
-
-.audio-sample:nth-child(5) .rating-btn.selected {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-}
-
-.audio-sample:nth-child(6) .rating-btn.selected {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-}
-
-/* User info section styling */
-.user-info {
-  background: linear-gradient(to right bottom, rgba(200, 16, 46, 0.03), rgba(200, 16, 46, 0.05));
-  padding: 1.8rem;
-  border-radius: 10px;
-  margin-top: 2.5rem;
-  border: 1px solid #eee;
-  border-top: 3px solid var(--primary-color);
-}
-
-.user-info-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-
-.user-info-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60%;
-  height: 3px;
-  background: var(--primary-color);
-}
-
-/* Submit section */
-.btn-primary {
-  color: white;
-  background: linear-gradient(90deg, var(--nepali-blue), var(--nepali-teal), var(--nepali-forest)) !important;
-  border: none !important;
-  box-shadow: 0 4px 15px rgba(0, 56, 147, 0.2);
-}
-
-.btn-primary:hover {
+.card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Add a specific class for the red submit button */
-.red-button {
-  color: white !important;
-  background: var(--primary-color) !important;
-  border: none !important;
-  box-shadow: 0 5px 15px rgba(214, 12, 44, 0.4) !important;
-  font-weight: 700 !important;
-  font-size: 1.2rem !important;
-  padding: 1rem 2.5rem !important;
-  border-radius: 30px !important;
-  transition: all 0.3s ease !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* Audio sample styling */
+.audio-sample {
+  background: linear-gradient(145deg, white, var(--survey-bg-secondary-light));
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--survey-border-secondary);
+  animation: fadeIn 0.5s ease forwards;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.red-button:hover {
-  background: var(--primary-color-dark) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 7px 20px rgba(214, 12, 44, 0.5) !important;
+.audio-sample:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
 }
 
-.red-button:active {
-  transform: translateY(1px);
-}
-
-.red-button:disabled {
-  opacity: 0.7;
-  background: #aaa !important;
-  transform: none;
-  box-shadow: none !important;
-}
-
-/* Thank you page */
-.thank-you-card {
-  background: linear-gradient(to right bottom, white, rgba(200, 16, 46, 0.03));
-  box-shadow: 0 15px 40px rgba(214, 12, 44, 0.2) !important;
-}
-
-.thank-you-svg .checkmark-circle {
-  stroke: var(--primary-color) !important;
-}
-
-.thank-you-svg .checkmark-check {
-  stroke: var(--primary-color) !important;
-}
-
-.thank-you-title {
-  color: var(--primary-color) !important;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-}
-
-/* Enhance Thank You page for more impact */
-.thank-you-card {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 3rem !important;
-  text-align: center;
-  background: white !important;
-  box-shadow: 0 10px 30px rgba(200, 16, 46, 0.15) !important;
-  border-radius: 15px !important;
-  border-top: 5px solid var(--primary-color) !important;
-}
-
-.thank-you-title {
-  color: var(--primary-color) !important;
-  font-size: 2.5rem !important;
-  margin-bottom: 1.5rem !important;
-  font-weight: 800 !important;
-}
-
-/* Enhance the checkmark animation */
-.thank-you-svg {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 2rem;
-}
-
-.checkmark-circle {
-  stroke-width: 3;
-  stroke: var(--primary-color) !important;
-  stroke-dasharray: 166;
-  stroke-dashoffset: 166;
-  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-}
-
-.checkmark-check {
-  stroke-width: 3;
-  stroke: var(--primary-color) !important;
-  stroke-dasharray: 48;
-  stroke-dashoffset: 48;
-  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
-}
-
-@keyframes stroke {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-.message-text {
-  color: var(--text-primary);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
-}
-
-.nepali-thanks {
-  color: var(--primary-color) !important;
-  font-size: 1.8rem !important;
-  font-weight: 700;
-  margin-top: 1.5rem !important;
-  background: linear-gradient(to right, var(--primary-color), var(--primary-color-dark));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: none;
-}
-
-/* Make decorative elements more visible */
-.decorative-elements {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-}
-
-.decoration {
-  height: 6px;
-  width: 40px;
-  border-radius: 3px;
-}
-
-.decoration-1 {
-  background: var(--primary-color) !important;
-  transform: translateY(-4px);
-}
-
-.decoration-2 {
-  background: var(--primary-color) !important;
-  opacity: 0.7;
-}
-
-.decoration-3 {
-  background: var(--primary-color) !important;
-  opacity: 0.4;
-  transform: translateY(4px);
-}
-
-/* Reset some of the conflicting styles that were added at the end of the file */
-/* Override any remaining color settings that need to be fixed */
-
-/* Fix focus styles for elements to use the appropriate colors */
-*:focus {
-  outline-color: var(--primary-color);
-}
-
-a {
-  color: var(--primary-color);
-}
-
-a:hover {
-  color: var(--primary-color-dark);
-}
-
-/* Remove overrides that force red colors */
-input:focus, 
-select:focus, 
-textarea:focus,
-button:focus {
-  border-color: var(--primary-color) !important; 
-  outline-color: var(--primary-color) !important;
-  box-shadow: 0 0 0 3px rgba(214, 12, 44, 0.2) !important;
-}
-
-/* Reset SVG fill colors */
-svg[fill="#003893"],
-svg[fill="#4361ee"],
-svg[fill="#87ceeb"],
-svg[fill="#747bff"],
-svg[fill="#646cff"] {
-  fill: currentColor !important;
-}
-
-/* Rating buttons base style */
-.rating-btn {
-  flex: 0 0 calc(10% - 8px);
-  aspect-ratio: 1/1;
-  min-width: 36px;
-  min-height: 36px;
-  border-radius: 50%;
-  border: 2px solid var(--primary-color) !important;
-  color: var(--primary-color) !important;
-  background-color: white !important;
+/* Button styling */
+button {
+  background: var(--survey-primary-gradient);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.2);
 }
 
-.rating-btn:hover {
-  opacity: 0.85;
-  transform: translateY(-3px);
-  background-color: var(--primary-color-light) !important;
-  box-shadow: 0 3px 10px rgba(214, 12, 44, 0.3) !important;
-  border-color: var(--primary-color) !important;
-  color: var(--primary-color) !important;
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
 }
 
-.rating-btn.selected {
-  background-color: var(--primary-color) !important;
-  color: white !important;
-  border-color: var(--primary-color) !important;
-  transform: scale(1.08);
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(200, 16, 46, 0.2);
 }
 
-/* Remove any custom styles that were added inline to the rating buttons */
-.rating-btn:focus,
-.rating-btn:active,
-.rating-btn.active {
-  outline: none !important;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1) !important;
+/* Form elements */
+input[type="text"],
+input[type="email"],
+textarea {
+  border: 2px solid var(--survey-border-primary);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: white;
 }
 
-/* Animations */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--survey-primary);
+  box-shadow: 0 0 0 3px var(--survey-focus-ring);
+}
+
+/* Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -695,7 +171,7 @@ svg[fill="#646cff"] {
   }
 }
 
-/* Responsive styles - keep these at the end */
+/* Responsive styles */
 @media (max-width: 768px) {
   .transcription-text {
     font-size: 1rem;
@@ -729,576 +205,640 @@ svg[fill="#646cff"] {
   }
 }
 
-/* Add these styles to the file - these will help fix any remaining color inconsistencies */
-
-/* Audio player styling for different samples */
-.audio-sample:nth-child(1) .audio-player audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08) !important;
+/* Audio player styling */
+.audio-player audio::-webkit-media-controls-panel {
+  background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
-.audio-sample:nth-child(2) .audio-player audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08) !important;
-}
-
-.audio-sample:nth-child(3) .audio-player audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08) !important;
-}
-
-.audio-sample:nth-child(4) .audio-player audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08) !important;
-}
-
-.audio-sample:nth-child(5) .audio-player audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08) !important;
-}
-
-.audio-sample:nth-child(6) .audio-player audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08) !important;
-}
-
-/* Better styling for audio comparison section */
-.audio-comparison-section {
-  background-color: rgba(200, 16, 46, 0.03);
-  border: 1px solid rgba(200, 16, 46, 0.2);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.audio-sample:nth-child(5) .audio-comparison-section h4 {
-  color: var(--primary-color);
-}
-
-/* Fancy gradient background for the card to add visual interest */
-.card {
-  background: linear-gradient(145deg, 
-    white 60%,
-    rgba(214, 12, 44, 0.05) 100%
-  );
-}
-
-/* Add border highlight on hover for rating buttons */
-.rating-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Improve transition effects */
-.rating-btn {
-  transition: all 0.2s ease-in-out;
-}
-
-.rating-btn.selected {
-  transform: scale(1.08);
-}
-
-/* Fix any remaining focus borders in the user info form */
-.form-group input:focus,
-.form-group select:focus {
-  border-width: 2px;
-  box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.1);
-}
-
-/* Add subtle color to the form group labels */
-.form-group label {
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-/* Improve submit button hover effect */
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Enhance the footer */
-.footer {
-  background: linear-gradient(to right, rgba(0, 56, 147, 0.05), rgba(0, 128, 128, 0.05));
-  padding: 1rem;
-  border-radius: 10px;
-  margin-top: 2rem;
-}
-
-.copyright {
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-/* Override any remaining !important declarations for color */
-.status-listened,
-.audio-listened-badge {
-  background-color: inherit !important;
-  color: inherit !important;
-  border-color: inherit !important;
-}
-
-/* Add these additional styles to fix any remaining color inconsistencies */
-
-/* Make sure the distortion sample (sample 6) has consistent colors */
-.distortion-sample {
-  border-top-color: var(--primary-color) !important;
-}
-
-/* Fix the audio listened badges for all samples */
-.audio-sample:nth-child(1) .audio-listened-badge {
-  background-color: rgba(214, 12, 44, 0.15) !important;
-  color: var(--primary-color) !important;
-  border: 1px solid var(--primary-color) !important;
-}
-
-.audio-sample:nth-child(2) .audio-listened-badge {
-  background-color: rgba(214, 12, 44, 0.15) !important;
-  color: var(--primary-color) !important;
-  border: 1px solid var(--primary-color) !important;
-}
-
-.audio-sample:nth-child(3) .audio-listened-badge {
-  background-color: rgba(214, 12, 44, 0.15) !important;
-  color: var(--primary-color) !important;
-  border: 1px solid var(--primary-color) !important;
-}
-
-.audio-sample:nth-child(4) .audio-listened-badge {
-  background-color: rgba(214, 12, 44, 0.15) !important;
-  color: var(--primary-color) !important;
-  border: 1px solid var(--primary-color) !important;
-}
-
-.audio-sample:nth-child(5) .audio-listened-badge {
-  background-color: rgba(214, 12, 44, 0.15) !important;
-  color: var(--primary-color) !important;
-  border: 1px solid var(--primary-color) !important;
-}
-
-.audio-sample:nth-child(6) .audio-listened-badge {
-  background-color: rgba(214, 12, 44, 0.15) !important;
-  color: var(--primary-color) !important;
-  border: 1px solid var(--primary-color) !important;
-}
-
-/* Fix layout for audio comparison sections */
+/* Audio comparison layout */
 .comparison-audio-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  gap: 2rem;
   margin: 1.5rem 0;
+  align-items: start;
 }
 
-.audio-sample:nth-child(5) .audio-comparison-section h4 {
-  color: var(--primary-color) !important;
-}
-
-.comparison-sample .audio-comparison-section {
-  border-color: rgba(200, 16, 46, 0.2) !important;
-}
-
-/* Fix any specificity issues for the form fields */
-.form-group input,
-.form-group select {
-  border-color: #ddd;
-}
-
-/* Ensure user info form has consistent styling */
-.user-info .form-group label {
-  color: var(--primary-color);
-}
-
-.user-info .form-group:nth-child(odd) label {
-  color: var(--primary-color);
-}
-
-.user-info .form-group:nth-child(even) label {
-  color: var(--primary-color);
-}
-
-/* Make sure the rating buttons don't get overridden by inline styles */
-.rating-btn {
-  border-width: 2px;
-  border-style: solid;
-  transition: all 0.2s ease-in-out;
-}
-
-/* Explicitly style audio elements for each sample */
-.audio-sample:nth-child(1) audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08);
-}
-
-.audio-sample:nth-child(2) audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08);
-}
-
-.audio-sample:nth-child(3) audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08);
-}
-
-.audio-sample:nth-child(4) audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08);
-}
-
-.audio-sample:nth-child(5) audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08);
-}
-
-.audio-sample:nth-child(6) audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08);
-}
-
-/* Fix thank you page decorative elements */
-.thank-you-svg .checkmark-circle {
-  stroke: var(--primary-color);
-}
-
-.thank-you-svg .checkmark-check {
-  stroke: var(--primary-color);
-}
-
-.decorative-elements .decoration-1 {
-  background: var(--primary-color);
-}
-
-.decorative-elements .decoration-2 {
-  background: var(--primary-color);
-}
-
-.decorative-elements .decoration-3 {
-  background: var(--primary-color);
-}
-
-/* Override remaining nested selectors that might cause issues */
-.audio-listened-badge, 
-.status-listened {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-width: 1px;
-  border-style: solid;
-}
-
-.status-listened {
-  padding: 0.3rem 0.6rem;
-  border-radius: 30px;
-}
-
-.audio-listened-badge {
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-}
-
-/* Fix the progress bar color */
-.progress-bar .progress {
-  background: linear-gradient(to right, var(--primary-color), var(--primary-color-dark)) !important;
-}
-
-/* Ensure form validation styles are consistent */
-.valid-field {
-  border-color: var(--primary-color-dark) !important;
-}
-
-.invalid-field {
-  border-color: var(--primary-color) !important;
-}
-
-/* Fix focus styles */
-input:focus, 
-select:focus, 
-textarea:focus,
-button:focus {
-  outline-color: currentColor !important;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* Fix any remaining 'red' color that might be left */
-.form-status.error {
-  color: var(--primary-color);
-  background-color: rgba(214, 12, 44, 0.1);
-  border: 1px solid rgba(214, 12, 44, 0.3);
-}
-
-/* Additional fixes for color synchronization */
-
-/* Fix button color on hover */
-.audio-sample:nth-child(1) .rating-btn:hover {
-  box-shadow: 0 3px 10px rgba(214, 12, 44, 0.2);
-}
-
-.audio-sample:nth-child(2) .rating-btn:hover {
-  box-shadow: 0 3px 10px rgba(214, 12, 44, 0.2);
-}
-
-.audio-sample:nth-child(3) .rating-btn:hover {
-  box-shadow: 0 3px 10px rgba(214, 12, 44, 0.2);
-}
-
-.audio-sample:nth-child(4) .rating-btn:hover {
-  box-shadow: 0 3px 10px rgba(214, 12, 44, 0.2);
-}
-
-.audio-sample:nth-child(5) .rating-btn:hover {
-  box-shadow: 0 3px 10px rgba(214, 12, 44, 0.2);
-}
-
-.audio-sample:nth-child(6) .rating-btn:hover {
-  box-shadow: 0 3px 10px rgba(214, 12, 44, 0.2);
-}
-
-/* Ensure audio comparison sections have correct color */
-.comparison-sample .audio-comparison-section:first-child h4 {
-  color: var(--primary-color);
-}
-
-.comparison-sample .audio-comparison-section:last-child h4 {
-  color: var(--primary-color);
-}
-
-/* Fix extra borders and outlines on form inputs */
-.form-group input:focus,
-.form-group select:focus {
-  border-color: var(--primary-color);
-  outline-color: var(--primary-color);
-}
-
-/* Fix any remaining style conflicts */
-.status-listened,
-.audio-listened-badge {
-  border-style: solid;
-}
-
-/* Add appropriate border color on hover for the form fields */
-.form-group input:hover,
-.form-group select:hover {
-  border-color: rgba(214, 12, 44, 0.5);
-}
-
-/* Ensure all audio controls have proper colors */
-audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08);
-}
-
-.comparison-sample audio::-webkit-media-controls-panel {
-  background-color: rgba(214, 12, 44, 0.08) !important;
-}
-
-/* Fix form validation styles */
-.valid-field {
-  border-color: var(--primary-color-dark) !important;
-}
-
-.invalid-field {
-  border-color: var(--primary-color) !important;
-}
-
-/* Make sure the header has the right color */
-.header h1 {
-  color: var(--primary-color);
-}
-
-/* Make sure the progress bar is correctly colored */
-.progress-bar .progress {
-  background: linear-gradient(to right, var(--primary-color), var(--primary-color-dark)) !important;
-}
-
-/* Ensure the submit button has the right gradient */
-.btn-primary {
-  background: linear-gradient(90deg, var(--nepali-blue), var(--nepali-teal), var(--nepali-forest)) !important;
-}
-
-/* Add final fixes for color synchronization */
-
-/* Fix the rating-btn color discrepancy in the third sample */
-.audio-sample:nth-child(3) .rating-btn {
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
-}
-
-/* Ensure all audio-listened-badge elements have consistent styles */
-.audio-listened-badge {
-  display: inline-block;
-  font-size: 0.8rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  margin-top: 0.5rem;
-  border: 1px solid;
-  font-weight: 600;
-}
-
-/* Ensure all status-listened elements have consistent styles */
-.status-listened {
-  display: inline-block;
-  font-size: 0.8rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 30px;
-  font-weight: 600;
-  border: 1px solid;
-}
-
-/* Reset any conflicting !important styles */
-.audio-sample:nth-child(1) .status-listened,
-.audio-sample:nth-child(2) .status-listened,
-.audio-sample:nth-child(3) .status-listened,
-.audio-sample:nth-child(4) .status-listened,
-.audio-sample:nth-child(5) .status-listened,
-.audio-sample:nth-child(6) .status-listened,
-.audio-sample:nth-child(1) .audio-listened-badge,
-.audio-sample:nth-child(2) .audio-listened-badge,
-.audio-sample:nth-child(3) .audio-listened-badge,
-.audio-sample:nth-child(4) .audio-listened-badge,
-.audio-sample:nth-child(5) .audio-listened-badge,
-.audio-sample:nth-child(6) .audio-listened-badge {
-  background-color: inherit;
-  color: inherit;
-  border-color: inherit;
-}
-
-/* Fix inconsistent styling in comparison section headers */
-.comparison-sample .audio-comparison-section h4 {
-  color: var(--primary-color);
-}
-
-/* Ensure no more red colors are used */
-.form-status.error {
-  color: var(--primary-color);
-  background-color: rgba(214, 12, 44, 0.1);
-  border-color: rgba(214, 12, 44, 0.3);
-}
-
-/* Fix any lingering issues with selected buttons */
-.rating-btn.selected {
-  color: white;
-  transform: scale(1.08);
-}
-
-/* Make sure distortion sample has saffron colors */
-.distortion-sample .rating-label span:last-child,
-.distortion-sample .rating-question,
-.distortion-sample .rating-btn {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.distortion-sample .rating-btn.selected {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-/* Ensure comparison sample has gold colors */
-.comparison-sample .rating-label span:last-child,
-.comparison-sample .rating-question,
-.comparison-sample .rating-btn {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.comparison-sample .rating-btn.selected {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-/* Ensure user info form is visually cohesive */
-.user-info-title {
-  color: var(--primary-color);
-}
-
-/* Fix any remaining issues with button focus states */
-.rating-btn:focus {
-  outline: none;
-}
-
-/* Improve submit button styling */
-.submit-container {
-  margin-top: 2.5rem;
-  text-align: center;
-}
-
-.btn-primary {
-  color: white;
-  background: linear-gradient(90deg, var(--nepali-blue), var(--nepali-teal)) !important;
-  border: none !important;
-  box-shadow: 0 4px 15px rgba(0, 56, 147, 0.1);
-  font-size: 1.1rem;
-  font-weight: 600;
-  padding: 0.75rem 2.5rem;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 56, 147, 0.15);
-}
-
-.btn-primary:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: 0 4px 15px rgba(0, 56, 147, 0.05);
-}
-
-/* Fix consistency in all components to use the same color scheme */
-
-/* Fix color consistency in the rating buttons */
-.rating-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-/* Fix the form validation styles */
+/* Form group styling */
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  font-size: 1.15rem;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0.02em;
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: all 0.2s;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-  border: 2px solid #ddd;
+  padding: 1.2rem 1.4rem;
+  border: 2px solid var(--survey-border-primary);
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: var(--nepali-dark);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .form-group input:focus,
-.form-group select:focus {
-  border-color: var(--primary-color) !important;
-  box-shadow: 0 0 0 3px rgba(214, 12, 44, 0.2) !important;
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--nepali-red);
+  box-shadow: 0 0 0 4px var(--survey-focus-ring);
+  transform: translateY(-1px);
 }
 
-/* Override !important styles for validation state */
-.valid-field {
-  border-color: var(--primary-color-dark) !important;
+/* Audio player section enhancement */
+.audio-sample {
+  background: linear-gradient(145deg, white, var(--survey-bg-secondary-light));
+  border-radius: 15px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--nepali-red);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.invalid-field {
-  border-color: var(--primary-color) !important;
+.audio-sample:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Make the user info title consistent */
-.user-info-title {
-  color: var(--primary-color) !important;
+.audio-player {
+  margin: 1.5rem 0;
 }
 
-/* Ensure the thank you page has consistent colors */
-.thank-you-title {
-  color: var(--primary-color) !important;
+.audio-player audio {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--survey-bg-primary-light);
 }
 
-/* Fix any remaining discrepancies */
-.audio-listened-badge, 
-.status-listened {
-  border-style: solid;
-  font-size: 0.8rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 30px;
+.audio-player audio::-webkit-media-controls-panel {
+  background: linear-gradient(145deg, var(--survey-bg-primary-light), white);
+  border-radius: 8px;
+}
+
+.audio-player audio::-webkit-media-controls-play-button,
+.audio-player audio::-webkit-media-controls-mute-button {
+  background-color: var(--nepali-red);
+  border-radius: 50%;
+  color: white;
+}
+
+/* Form Label Enhancement */
+.form-field-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--nepali-red);
+  transition: color 0.3s ease;
+}
+
+.form-field-group:hover .form-field-label {
+  color: var(--survey-primary);
+}
+
+/* Form Status Messages */
+.form-status {
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-status.success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: rgb(21, 128, 61);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-status.error {
+  background-color: rgba(200, 16, 46, 0.1);
+  color: var(--survey-primary);
+  border: 1px solid rgba(200, 16, 46, 0.2);
+}
+
+@media (max-width: 768px) {
+  .form-section {
+    padding: 2rem;
+  }
+
+  .form-section-title {
+    font-size: 1.75rem;
+  }
+
+  .form-fields-container {
+    gap: 2rem;
+  }
+
+  .form-field-group {
+    padding: 1.5rem;
+  }
+}
+
+/* Form validation feedback */
+.form-field-feedback {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-field-feedback.error {
+  color: var(--survey-primary);
+}
+
+.form-field-feedback.success {
+  color: var(--survey-accent-gold);
+}
+
+/* Form actions */
+.form-actions {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.form-submit-button {
+  background: var(--survey-primary-gradient);
+  color: white;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
   font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.2);
 }
+
+.form-submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(200, 16, 46, 0.3);
+}
+
+.form-submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(200, 16, 46, 0.2);
+}
+
+/* Form status messages */
+.form-status {
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+  background: var(--survey-bg-primary-light);
+  border: 1px solid var(--survey-border-primary);
+}
+
+.form-status.success {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: rgb(21, 128, 61);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-status.error {
+  background-color: rgba(200, 16, 46, 0.1);
+  color: var(--survey-primary);
+  border: 1px solid rgba(200, 16, 46, 0.2);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: var(--nepali-red);
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  text
+/* Text animation effects */
+.highlight-text {
+  animation: textFloat 3s ease-in-out infinite;
+}
+
+@keyframes textFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.timeline-item-title {
+  animation: slideIn 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.intro strong {
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Team Members Section */
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.team-member-card {
+  background: linear-gradient(145deg, white, var(--survey-bg-secondary-light));
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  border: 2px solid var(--nepali-red);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.team-member-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 0.5rem;
+}
+
+.team-member-position {
+  font-size: 1.1rem;
+  color: var(--nepali-dark);
+  margin-bottom: 1rem;
+}
+
+.team-member-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--survey-primary-gradient);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-member-linkedin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(200, 16, 46, 0.2);
+}
+
+/* Timeline Styles */
+.timeline-container {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--nepali-red);
+  border-radius: 2px;
+}
+
+.timeline-item-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 1rem;
+}
+
+.timeline-item-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--nepali-dark);
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -12px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--nepali-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+}
+
+/* Project Overview Styles */
+.project-overview {
+  background: linear-gradient(145deg, white, var(--survey-bg-primary-light));
+  border-radius: 24px;
+  padding: 3rem;
+  margin: 3rem 0;
+  border: 2px solid var(--nepali-red);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlight-text {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: var(--nepali-maroon);
+  margin-bottom: 2.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  text-align: justify;
+}
+
+.research-focus {
+  font-weight: 600;
+  color: var(--nepali-red);
+}
+
+.methodology-highlight {
+  background: linear-gradient(120deg, var(--survey-bg-primary-light) 0%, transparent 100%);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.pipeline-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(145deg, white, var(--survey-bg-secondary-light));
+  border-radius: 15px;
+  border: 2px solid var(--nepali-red);
+  box-shadow: var(--shadow-lg);
+}
+
+.pipeline-stage {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--survey-border-primary);
+  transition: transform 0.3s ease;
+}
+
+.pipeline-stage:hover {
+  transform: translateX(10px);
+}
+
+.stage-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 0.8rem;
+}
+
+.stage-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--nepali-dark);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 2rem;
+    margin: 1rem auto 2rem;
+  }
+
+  .header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .intro {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    margin: 1.5rem auto 0;
+  }
+
+  .project-overview {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .highlight-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pipeline-stages {
+    padding: 1rem;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .pipeline-stage {
+    padding: 1rem;
+  }
+
+  .stage-title {
+    font-size: 1.1rem;
+  }
+
+  .stage-description {
+    font-size: 1rem;
+  }
+
+  .team-members-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .team-member-card {
+    padding: 1.5rem;
+  }
+
+  .team-member-name {
+    font-size: 1.3rem;
+  }
+
+  .team-member-position {
+    font-size: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem 1.1rem;
+    font-size: 1rem;
+  }
+
+  .audio-sample {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .audio-player audio {
+    height: 40px;
+  }
+
+  .comparison-audio-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem 1rem;
+  }
+
+  .audio-sample {
+    padding: 1rem;
+  }
+
+  .team-member-card {
+    padding: 1.2rem;
+  }
+
+  .pipeline-stage {
+    padding: 0.8rem;
+  }
+}
+} /* End of media query */
+} /* End of stylesheet */
+
+.rating-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  margin: 1.5rem auto;
+  padding: 0;
+  max-width: 600px;
+  width: 100%;
+}
+
+.rating-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-weight: bold;
+  border: 2px solid var(--nepali-red);
+  background-color: white;
+  color: var(--nepali-red);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .comparison-audio-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .rating-buttons {
+    gap: 0px;
+    padding: 0;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rating-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 0.95rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .rating-buttons {
+    gap: 0px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .rating-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
+} /* End of media query */
+} /* End of stylesheet */
