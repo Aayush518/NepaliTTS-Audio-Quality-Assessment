@@ -1,0 +1,127 @@
+/* 
+  Global Gradient Effects for NepaliTTS
+  This file contains reusable gradient effects for consistent styling across the application
+*/
+
+/* Gradient Text Effect */
+.gradient-text {
+  background-image: var(--mixed-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-primary {
+  background-image: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-secondary {
+  background-image: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gradient Borders */
+.gradient-border-top {
+  border-top: 3px solid transparent;
+  border-image: var(--mixed-gradient);
+  border-image-slice: 1;
+}
+
+.gradient-border-left {
+  border-left: 4px solid transparent;
+  border-image: var(--mixed-gradient);
+  border-image-slice: 1;
+}
+
+/* Gradient Backgrounds */
+.gradient-bg {
+  background: var(--mixed-gradient);
+}
+
+.gradient-bg-primary {
+  background: var(--primary-gradient);
+}
+
+.gradient-bg-secondary {
+  background: var(--secondary-gradient);
+}
+
+/* Gradient Button */
+.gradient-button {
+  background: var(--mixed-gradient);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gradient-button:active {
+  transform: translateY(1px);
+}
+
+/* Gradient SVG Fill */
+.gradient-svg-fill {
+  fill: url(#gradient);
+}
+
+.gradient-svg-stroke {
+  stroke: url(#gradient);
+}
+
+/* Animation for gradient background shift */
+.gradient-animate {
+  background-size: 200% auto;
+  animation: gradient-shift 3s ease infinite;
+  background-image: var(--mixed-gradient);
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Helper to add gradient overlay on images */
+.gradient-overlay {
+  position: relative;
+}
+
+.gradient-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--mixed-gradient);
+  opacity: 0.2;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* SVG Filter for Gradient Application */
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}

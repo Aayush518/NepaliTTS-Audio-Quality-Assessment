@@ -7,7 +7,6 @@ export default function Form() {
     name: '',
     email: '',
     message: '',
-    // Add other fields as needed
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,17 +26,12 @@ export default function Form() {
     setSubmitStatus(null);
     
     try {
-      // Submit to Google Sheet
       await submitToGoogleSheet(formData);
-      
-      // Reset form after successful submission
       setFormData({
         name: '',
         email: '',
         message: '',
-        // Reset other fields as needed
       });
-      
       setSubmitStatus({ type: 'success', message: 'Thank you! Your response has been recorded.' });
     } catch (error) {
       console.error('Submission error:', error);
@@ -48,10 +42,9 @@ export default function Form() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Form fields */}
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+    <form onSubmit={handleSubmit} className="form-section p-6 space-y-6">
+      <div className="form-field-group">
+        <label htmlFor="name" className="form-field-label text-survey-primary-dark">Full Name</label>
         <input
           type="text"
           id="name"
@@ -59,12 +52,12 @@ export default function Form() {
           value={formData.name}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="form-field-input"
         />
       </div>
       
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+      <div className="form-field-group">
+        <label htmlFor="email" className="form-field-label text-survey-primary-dark">Email</label>
         <input
           type="email"
           id="email"
@@ -72,12 +65,12 @@ export default function Form() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="form-field-input"
         />
       </div>
       
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+      <div className="form-field-group">
+        <label htmlFor="message" className="form-field-label text-survey-primary-dark">Message</label>
         <textarea
           id="message"
           name="message"
@@ -85,24 +78,24 @@ export default function Form() {
           onChange={handleChange}
           rows="4"
           required
-          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+          className="form-field-input min-h-[120px] resize-y"
         ></textarea>
       </div>
       
-      {/* Submit button */}
-      <div>
+      <div className="form-actions">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+          className="form-submit-button"
         >
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
       
-      {/* Status message */}
       {submitStatus && (
-        <div className={`mt-4 p-3 rounded ${submitStatus.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+        <div 
+          className={`form-status ${submitStatus.type === 'success' ? 'success' : 'error'}`}
+        >
           {submitStatus.message}
         </div>
       )}

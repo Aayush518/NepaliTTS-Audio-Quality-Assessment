@@ -1,0 +1,141 @@
+/* Global Colors - Comprehensive Nepali-inspired Color Palette */
+
+:root {
+  /* Primary Colors */
+  --nepali-red: #dc2626; /* Vibrant Nepali flag red */
+  --nepali-red-light: rgba(220, 38, 38, 0.1); /* Light red for backgrounds */
+  --nepali-red-dark: #b91c1c; /* Dark red for active states */
+  --nepali-blue: #1d4ed8; /* Rich Nepali flag blue */
+  --nepali-blue-light: rgba(29, 78, 216, 0.1); /* Light blue for backgrounds */
+  --nepali-blue-dark: #1e40af; /* Dark blue for active states */
+  
+  /* Red Palette - Enhanced for Survey Page */
+  --nepali-crimson: #990f23; /* Darker red variant for headers */
+  --nepali-ruby: #ab1429; /* Mid-tone red for important elements */
+  --nepali-coral: #e63946; /* Brighter red for alerts/errors */
+  --nepali-maroon: #800000; /* Dark red for hover states */
+  --nepali-cherry: #d81b60; /* Accent red for special elements */
+  --nepali-burgundy: #6a0f16; /* Very dark red for text contrast */
+  --nepali-salmon: #ff5e62; /* Light red for subtle highlights */
+  --nepali-red-light: rgba(200, 16, 46, 0.1); /* Light red for backgrounds */
+  --nepali-red-dark: #900c20; /* Dark red for active states */
+
+  /* Blue Palette */
+  --nepali-navy: #002766; /* Darker blue */
+  --nepali-azure: #0074d9; /* Brighter blue */
+  --nepali-sky: #4a9ff5; /* Light blue */
+  --nepali-royal: #1a237e; /* Deep royal blue */
+  --nepali-teal: #008080; /* Teal/blue-green */
+  --nepali-indigo: #3f51b5; /* Indigo blue */
+  --nepali-blue-light: rgba(0, 56, 147, 0.1); /* Light blue for backgrounds */
+  --nepali-blue-dark: #002d76; /* Dark blue for active states */
+  
+  /* Earth/Mountain Tones */
+  --nepali-slate: #708090; /* Mountain slate */
+  --nepali-stone: #a39a92; /* Stone color */
+  --nepali-moss: #606c38; /* Forest moss */
+  --nepali-earth: #bb9457; /* Earth tone */
+  --nepali-sand: #f2d2a9; /* Light sand/beige */
+  
+  /* Gold/Warm Accents */
+  --nepali-saffron: #ff9933; /* Saffron/orange */
+  --nepali-gold: #d4af37; /* Gold accent */
+  --nepali-mustard: #e4b429; /* Mustard yellow */
+  --nepali-amber: #ffbf00; /* Amber yellow-orange */
+  
+  /* Neutral Grays */
+  --gray-lightest: #f9f9f9;
+  --gray-light: #eaeaea;
+  --gray-medium: #c4c4c4;
+  --gray-dark: #707070;
+  --gray-darkest: #333333;
+  
+  /* Semantic Colors */
+  --text-primary: #303030;
+  --text-secondary: #6c757d;
+  --success-color: #198754;
+  --warning-color: var(--nepali-amber);
+  --error-color: var(--nepali-coral);
+  --background-color: var(--gray-lightest);
+  --card-color: #ffffff;
+  
+  /* Application Colors */
+  --primary-color: var(--nepali-red);
+  --primary-color-light: var(--nepali-red-light);
+  --primary-color-dark: var(--nepali-red-dark);
+  
+  --secondary-color: var(--nepali-red);
+  --secondary-color-light: var(--nepali-red-light);
+  --secondary-color-dark: var(--nepali-red-dark);
+  
+  /* UI Elements */
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  
+  /* Gradients */
+  --primary-gradient: linear-gradient(90deg, var(--nepali-red), var(--nepali-red-dark));
+  --secondary-gradient: linear-gradient(90deg, var(--nepali-red), var(--nepali-red-dark));
+  --mixed-gradient: linear-gradient(90deg, var(--nepali-red-light), var(--nepali-red));
+}
+
+/* Utility Classes */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--nepali-ruby), var(--nepali-crimson));
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, var(--nepali-blue), var(--nepali-navy));
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--nepali-saffron), var(--nepali-gold));
+}
+
+.gradient-earth {
+  background: linear-gradient(135deg, var(--nepali-earth), var(--nepali-sand));
+}
+
+/* Card Styles */
+.card-primary {
+  border-top: 3px solid var(--nepali-blue);
+}
+
+.card-secondary {
+  border-top: 3px solid var(--nepali-ruby);
+}
+
+.card-accent {
+  border-top: 3px solid var(--nepali-saffron);
+}
+
+/* Text Utilities */
+.gradient-text {
+  background-image: var(--mixed-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Background Utilities */
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+
+.bg-light {
+  background-color: var(--background-color);
+}

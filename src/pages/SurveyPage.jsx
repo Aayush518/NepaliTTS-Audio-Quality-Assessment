@@ -267,13 +267,13 @@ function SurveyPage() {
       </div>
 
       <footer className="footer">
-      <p className="copyright">© {new Date().getFullYear()} Nepali TTS Project</p>
+        <p className="copyright">© {new Date().getFullYear()} Nepali TTS Project</p>
       </footer>
     </div>
   );
 }
 
-// Update RatingForm component for improved visual design
+// Update RatingForm component - REMOVE ALL INLINE STYLES
 function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay }) {
   const handleAudioEnded = () => {
     onListen();
@@ -283,7 +283,7 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
     { animationDelay: `${animationDelay}s` } : {};
 
   return (
-    <div className="audio-sample" style={cardStyle}>
+    <div className={`audio-sample ${sample.isDistortionCheck ? 'distortion-sample' : ''}`} style={cardStyle}>
       <div className="sample-header">
         <div className="sample-title">{sample.title}</div>
         <div className="sample-status">
@@ -291,7 +291,6 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
         </div>
       </div>
 
-      {/* Add the Nepali transcription here */}
       {sample.transcription && (
         <div className="transcription-container">
           <p className="transcription-text">{sample.transcription}</p>
@@ -299,43 +298,40 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
       )}
 
       <div className="audio-player">
-        <audio controls id={`audio${sample.id}`} onEnded={handleAudioEnded}>
+        <audio 
+          controls 
+          id={`audio${sample.id}`} 
+          onEnded={handleAudioEnded}
+        >
           <source src={sample.file} type="audio/wav" />
           Your browser does not support the audio element.
         </audio>
       </div>
 
       <div className="rating-container">
-      {
-        sample.isDistortionCheck? // for fun test
-        <h3 className="rating-question">Do you hear any distortions or artifacts? If yes, select how many words sounded incorrect or unclear?</h3>
-        :
-        <h3 className="rating-question"> How natural and human-like does this audio sound to you?</h3>
-      }
+        {
+          sample.isDistortionCheck ?
+          <h3 className="rating-question">Do you hear any distortions or artifacts? If yes, select how many words sounded incorrect or unclear?</h3>
+          :
+          <h3 className="rating-question">How natural and human-like does this audio sound to you?</h3>
+        }
 
-        {/* <h3 className="rating-question"> How natural and human-like does this audio sound to you?</h3> */}
-
-          {
-            sample.isDistortionCheck? // for fun test
-            <div className="rating-label">
-              <span>No Distortions</span>
-              <span>10+ Distortions</span>
-            </div>
-            :
-            <div className="rating-label">
-              <span>Robotic</span>
-              <span>Natural</span>
-            </div>
-          }
-
-        {/* <div className="rating-label">
-          <span>Robotic</span>
-          <span>Natural</span>
-        </div> */}
+        {
+          sample.isDistortionCheck ?
+          <div className="rating-label">
+            <span>No Distortions</span>
+            <span>10+ Distortions</span>
+          </div>
+          :
+          <div className="rating-label">
+            <span>Robotic</span>
+            <span>Natural</span>
+          </div>
+        }
 
         <div className="rating-buttons">
           {
-            sample.isDistortionCheck? // for fun test
+            sample.isDistortionCheck ?
             [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
               <button
                 key={value}
@@ -358,24 +354,13 @@ function RatingForm({ sample, rating, listened, onRate, onListen, animationDelay
               </button>
             ))
           }
-
-          {/* {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-            <button
-              key={value}
-              type="button"
-              className={`rating-btn ${rating === value ? 'selected' : ''}`}
-              onClick={() => onRate(value)}
-            >
-              {value}
-            </button>
-          ))} */}
         </div>
       </div>
     </div>
   );
 }
 
-// New component for the comparison rating
+// New component for the comparison rating - REMOVE ALL INLINE STYLES
 function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, groundTruthListened, generatedListened, animationDelay }) {
   const handleGroundTruthEnded = () => {
     onListen('groundTruth');
@@ -397,7 +382,6 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
         </div>
       </div>
 
-      {/* Add the transcription if available */}
       {sample.transcription && (
         <div className="transcription-container">
           <p className="transcription-text">{sample.transcription}</p>
@@ -453,6 +437,7 @@ function ComparisonRatingForm({ sample, rating, listened, onRate, onListen, grou
   );
 }
 
+// Update UserInfoForm - REMOVE INLINE STYLES
 function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
   // Handler for name field - allow only letters and spaces
   const handleNameChange = (e) => {
@@ -502,13 +487,13 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
 
   return (
     <div className="user-info">
-      <h2>Personal Information</h2>
-      <p>Please provide your details to help us with our research.</p>
-      <p>*Your details won't be shared with anyone!</p>
+      <h2 className="user-info-title">Personal Information</h2>
+      <p className="user-info-description">Please provide your details to help us with our research.</p>
+      <p className="user-info-note">*Your details won't be shared with anyone!</p>
 
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="name">Full Name</label>
+          <label htmlFor="name" className="form-label">Full Name</label>
           <input
             type="text"
             id="name"
@@ -525,7 +510,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="age">Age</label>
+          <label htmlFor="age" className="form-label">Age</label>
           <input
             type="number"
             id="age"
@@ -545,7 +530,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
 
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="gender">Gender</label>
+          <label htmlFor="gender" className="form-label">Gender</label>
           <select
             id="gender"
             name="gender"
@@ -558,13 +543,11 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
             <option value="" disabled>Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            {/* <option value="other">Other</option>
-            <option value="prefer-not-to-say">Prefer not to say</option> */}
           </select>
         </div>
 
         <div className="form-group">
-          <label htmlFor="district">District</label>
+          <label htmlFor="district" className="form-label">District</label>
           <select
             id="district"
             name="district"
@@ -587,6 +570,7 @@ function UserInfoForm({ userInfo, onChange, touchedFields, setTouchedFields }) {
   );
 }
 
+// Update ProgressBar - REMOVE INLINE STYLES
 function ProgressBar({ progress }) {
   return (
     <div className="progress-bar">
@@ -595,11 +579,16 @@ function ProgressBar({ progress }) {
   );
 }
 
+// Update SubmitSection - Enhanced red submit button
 function SubmitSection({ isLoading, error }) {
   return (
     <div className="submit-container">
-      <button type="submit" className="btn btn-primary" disabled={isLoading}>
-        {isLoading ? 'Submitting...' : 'Submit Feedback'}
+      <button 
+        type="submit" 
+        className="btn btn-primary red-button" 
+        disabled={isLoading}
+      >
+        {isLoading ? 'Submitting...' : 'Submit Evaluation'}
       </button>
 
       {error && <div className="form-status error">{error}</div>}
@@ -607,31 +596,32 @@ function SubmitSection({ isLoading, error }) {
   );
 }
 
+// Update ThankYou - Enhanced thank you page with proper gradient definitions for SVG
 function ThankYou() {
   return (
-   
-
     <div className="container thank-you-container">
       <div className="thank-you-card">
         <h1 className="thank-you-title">Thank You!</h1>
         
-        {/* Animated SVG checkmark */}
         <div className="thank-you-svg">
           <svg className="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="var(--nepali-blue)" />
+                <stop offset="100%" stopColor="var(--nepali-red)" />
+              </linearGradient>
+            </defs>
             <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
             <path className="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
           </svg>
         </div>
         
-       
-        
-        <div className="">
+        <div className="thank-you-message">
           <p className="message-text">Your feedback has been successfully recorded.</p>
           <p className="message-text">Your participation helps us improve our Nepali text-to-speech technology.</p>
           <p className="message-text nepali-thanks">धन्यवाद!</p>
         </div>
         
-        {/* Decorative elements */}
         <div className="decorative-elements">
           <div className="decoration decoration-1"></div>
           <div className="decoration decoration-2"></div>

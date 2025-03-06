@@ -1,34 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-:root {
-  --primary-color: #4361ee;
-  --primary-light: rgba(67, 97, 238, 0.1);
-  --secondary-color: #3f37c9;
-  --accent-color: #4cc9f0;
-  --success-color: #4ecdc4;
-  --error-color: #ef476f;
-  --background-color: #f8f9fa;
-  --card-color: #ffffff;
-  --text-primary: #252422;
-  --text-secondary: #6c757d;
-  --border-radius: 12px;
-  --transition-speed: 0.3s;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+@import './styles/global-colors.css';
 
 /* Text Selection Styling */
 ::selection {
-  background-color: #4cc9f0;
-  color: white;
+  background-color: var(--primary-color-light);
+  color: var(--card-color);
   text-shadow: none;
 }
 
 /* For Firefox */
 ::-moz-selection {
-  background-color: #4cc9f0;
-  color: white;
+  background-color: var(--primary-color-light);
+  color: var(--card-color);
   text-shadow: none;
 }
 
@@ -63,31 +46,13 @@ body {
   margin-bottom: 30px;
   transition: box-shadow var(--transition-speed);
   animation: fadeIn 0.8s ease-out;
-  color: black;
-}
-
-/* Remove hover transform effect */
-.header:hover {
-  box-shadow: var(--shadow-md);
-}
-
-h1 {
-  color: var(--primary-color);
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.intro {
-  max-width: 700px;
-  margin: 0 auto 20px;
-  text-align: center;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 /* Progress Bar */
 .progress-bar {
   height: 8px;
-  background-color: var(--primary-light);
+  background-color: var(--primary-color-light);
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 30px;
@@ -111,11 +76,6 @@ h1 {
   animation: slideUp 0.5s ease-out;
 }
 
-/* Remove hover transform effect */
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
 /* Audio Sample Card */
 .audio-sample {
   display: flex;
@@ -127,11 +87,6 @@ h1 {
   padding: 25px;
   transition: box-shadow var(--transition-speed);
   animation: fadeIn 0.5s ease-out;
-}
-
-/* Remove hover transform effect */
-.audio-sample:hover {
-  box-shadow: var(--shadow-md);
 }
 
 .sample-header {
@@ -171,18 +126,15 @@ h1 {
 .audio-player audio {
   width: 100%;
   border-radius: var(--border-radius);
-  background-color: var(--primary-light);
-  
+  background-color: var(--primary-color-light);
 }
-
-
 
 /* Rating Area */
 .rating-container {
   display: flex;
   flex-direction: column;
   padding: 0px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid var(--gray-light);
   margin-top: 0px;
 }
 
@@ -201,7 +153,7 @@ h1 {
 
 .rating-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
   gap: 8px;
@@ -219,50 +171,79 @@ h1 {
   justify-content: center;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  transition: all var(--transition-speed);
   flex-grow: 1;
   max-width: 45px;
 }
 
 .rating-btn:hover {
-  background-color: var(--primary-light);
+  background-color: var(--primary-color-light);
 }
 
 .rating-btn.selected {
   background-color: var(--primary-color);
-  color: white;
-  box-shadow: 0 2px 10px rgba(67, 97, 238, 0.4);
+  color: var(--card-color);
+  box-shadow: 0 2px 10px var(--primary-color-light);
 }
 
 /* User Info Form */
 .user-info {
   margin-top: 40px;
-  background-color: var(--card-color);
+  background-color: white;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
   padding: 25px;
   transition: box-shadow var(--transition-speed);
   animation: slideUp 0.7s ease-out;
-  color: var(--text-primary);
-}
-
-/* Remove hover transform effect */
-.user-info:hover {
-  box-shadow: var(--shadow-md);
+  color: var(--nepali-dark);
+  border: 1px solid var(--nepali-red-light);
 }
 
 .user-info h2 {
-  color: var(--primary-color);
-  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--nepali-red);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .user-info p {
-  color: var(--text-secondary);
-  margin-bottom: 20px;
+  color: var(--nepali-dark);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-.user-info input {
-  color: #000000;
+.user-info .form-group select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--nepali-red-light);
+  border-radius: 12px;
+  font-size: 1.05rem;
+  background-color: var(--gray-lightest);
+  color: var(--text-primary);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+}
+
+.user-info .form-group select:hover {
+  border-color: var(--survey-primary);
+  background-color: var(--survey-bg-primary-light);
+}
+
+.user-info .form-group select:focus {
+  outline: none;
+  border-color: var(--survey-primary);
+  box-shadow: 0 0 0 4px var(--survey-focus-ring);
+}
+
+.user-info .form-group select.selected {
+  border-color: var(--survey-primary);
+  background-color: white;
 }
 
 .form-group {
@@ -285,73 +266,28 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--text-primary);
-  font-size: 0.95rem;
+  color: var(--nepali-red);
+  font-size: 1rem;
+  letter-spacing: 0.01em;
 }
 
 input, select {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--nepali-red-light);
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+  transition: all var(--transition-speed);
   background-color: white;
+  color: var(--nepali-dark);
+  background-color: var(--card-color);
   box-sizing: border-box;
 }
 
 input:focus, select:focus {
   border-color: var(--primary-color);
   outline: none;
-  box-shadow: 0 0 0 3px var(--primary-light);
-}
-
-/* Form Elements Improvements */
-.user-info small {
-  display: block;
-  color: var(--text-secondary);
-  font-size: 0.8rem;
-  margin-top: 5px;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  opacity: 1;
-  height: 30px;
-}
-
-select.selected {
-  color: var(--text-primary);
-}
-
-select:not(.selected) {
-  color: var(--text-secondary);
-}
-
-input::placeholder {
-  color: var(--text-secondary);
-  opacity: 0.7;
-}
-
-/* Styles for invalid inputs */
-input:required:invalid,
-select:required:invalid {
-  border-color: var(--error-color);
-}
-
-input:required:valid,
-select:required:valid {
-  border-color: var(--success-color);
-}
-
-/* Custom dropdown arrow */
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-  background-repeat: no-repeat, repeat;
-  background-position: right 0.7em top 50%, 0 0;
-  background-size: 0.65em auto, 100%;
-  padding-right: 2.5em;
+  box-shadow: 0 0 0 3px var(--primary-color-light);
 }
 
 /* Submit Button */
@@ -368,22 +304,22 @@ select {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+  transition: all var(--transition-speed);
 }
 
 .btn-primary {
   background-color: var(--primary-color);
-  color: white;
-  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+  color: var(--card-color);
+  box-shadow: 0 4px 10px var(--primary-color-light);
 }
 
 .btn-primary:hover {
-  background-color: var(--secondary-color);
-  box-shadow: 0 6px 15px rgba(67, 97, 238, 0.4);
+  background-color: var(--primary-color-dark);
+  box-shadow: 0 6px 15px var(--primary-color-light);
 }
 
 .btn-primary:disabled {
-  background-color: #a5a5a5;
+  background-color: var(--gray-medium);
   cursor: not-allowed;
   box-shadow: none;
 }
@@ -397,9 +333,9 @@ select {
 }
 
 .form-status.error {
-  background-color: rgba(239, 71, 111, 0.1);
-  color: var(--error-color);
-  border-left: 4px solid var(--error-color);
+  background-color: var(--error-color);
+  color: var(--card-color);
+  border-left: 4px solid var(--nepali-burgundy);
 }
 
 /* Thank You Card */
@@ -458,39 +394,21 @@ select {
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
 
 @keyframes bounceIn {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 @keyframes shakeX {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-5px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateX(5px);
-  }
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
 
 /* Responsive Adjustments */
@@ -534,7 +452,8 @@ select {
 
 @media (max-width: 480px) {
   .rating-buttons {
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
   }
   
   .rating-btn {
@@ -543,6 +462,8 @@ select {
     height: 28px;
     font-size: 0.8rem;
     max-width: 28px;
+    justify-content: center;
+    align-items: center;
   }
   
   .sample-header {

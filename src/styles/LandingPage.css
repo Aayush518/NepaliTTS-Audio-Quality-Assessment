@@ -1,6 +1,44 @@
 /* Landing Page Styles - Enhanced Modern Design */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--nepali-red);
+}
+
+/* Nepali Theme Color Palette */
+:root {
+  /* Primary Nepali colors */
+  --nepali-red: #c8102e; /* Nepali flag red */
+  --nepali-blue: #003893; /* Nepali flag blue */
+  
+  /* Extended Nepali cultural palette */
+  --nepali-saffron: #ff9933; /* Saffron/orange from regional textiles */
+  --nepali-crimson: #dc143c; /* Deep red from traditional clothing */
+  --nepali-maroon: #800000; /* Dark red from Nepali temples */
+  --nepali-gold: #d4af37; /* Gold from temple decorations */
+  --nepali-yellow: #ffdb58; /* Yellow from marigold flowers */
+  --nepali-mountain: #6c757d; /* Himalayan mountain gray */
+  --nepali-sky: #87ceeb; /* Clear mountain sky */
+  --nepali-forest: #228b22; /* Nepal's forested regions */
+  --nepali-earth: #cd853f; /* Clay/earth tones of rural Nepal */
+  
+  /* Accent and neutral colors */
+  --nepali-accent: #c8102e; /* Default accent using Nepali red */
+  --nepali-light: #f8f9fa; /* Light background */
+  --nepali-dark: #212529; /* Dark text color */
+  
+  /* Original system colors - keep for reference */
+  --primary-color: var(--nepali-blue);
+  --primary-light: rgba(0, 56, 147, 0.1);
+  --secondary-color: var(--nepali-red);
+  --accent-color: var(--nepali-saffron);
+  --success-color: var(--nepali-forest);
+  --error-color: var(--nepali-crimson);
+}
+
 /* Base Styles */
 .landing-container {
   font-family: 'Inter', sans-serif;
@@ -30,7 +68,7 @@
 }
 
 .shape1 {
-  background: linear-gradient(135deg, #4361ee, #4cc9f0);
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-red-light));
   width: 600px;
   height: 600px;
   top: -100px;
@@ -39,7 +77,7 @@
 }
 
 .shape2 {
-  background: linear-gradient(135deg, #3a0ca3, #4361ee);
+  background: linear-gradient(135deg, var(--nepali-maroon), var(--nepali-red));
   width: 500px;
   height: 500px;
   top: 50%;
@@ -48,7 +86,7 @@
 }
 
 .shape3 {
-  background: linear-gradient(135deg, #4cc9f0, #4361ee);
+  background: linear-gradient(135deg, var(--nepali-saffron), var(--nepali-gold));
   width: 400px;
   height: 400px;
   bottom: -100px;
@@ -85,12 +123,12 @@
   gap: 8px;
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .nav-logo svg {
   border-radius: 8px;
-  background-color: rgba(67, 97, 238, 0.1);
+  background-color: rgba(200, 16, 46, 0.1);
   padding: 5px;
 }
 
@@ -108,7 +146,7 @@
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .nav-links a::after {
@@ -118,7 +156,7 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: var(--primary-color);
+  background-color: var(--nepali-red);
   transition: width 0.3s;
 }
 
@@ -127,21 +165,21 @@
 }
 
 .nav-cta {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  color: white;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  color: white !important; /* Important to override any other color settings */
   padding: 10px 20px;
   border-radius: 50px;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .nav-cta:hover {
-  /* transform: translateY(-2px); */
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
-  color: white;
+  box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
+  color: white !important; /* Ensure text stays white on hover */
+  text-decoration: none !important; /* Remove underline on hover */
 }
 
 /* Hero Section */
@@ -163,49 +201,50 @@
 
 .glowing-badge {
   display: inline-block;
-  background: linear-gradient(90deg, #4361ee, #4cc9f0);
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-crimson));
   color: white;
   padding: 8px 16px;
   border-radius: 30px;
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 24px;
-  box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0.4);
+    box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.4);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(67, 97, 238, 0);
+    box-shadow: 0 0 0 10px rgba(200, 16, 46, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(67, 97, 238, 0);
+    box-shadow: 0 0 0 0 rgba(200, 16, 46, 0);
   }
 }
 
 .hero-title {
   font-size: 3.5rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 24px;
-  font-weight: 800;
   color: var(--text-primary);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-saffron));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   display: inline-block;
 }
 
 .tagline {
   font-size: 1.5rem;
   color: var(--text-primary);
-  margin-bottom: 20px;
   font-weight: 500;
+  margin-bottom: 20px;
 }
 
 .hero-description {
@@ -231,36 +270,48 @@
   text-decoration: none;
   transition: all 0.3s;
   font-size: 1.1rem;
-
+  color: white !important;  /* For primary buttons */
+  text-decoration: none !important;
 }
 
 .primary-gradient {
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
   color: white;
-  box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
 }
 
 .primary-gradient:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
-  color: white;
-
+  box-shadow: 0 8px 25px rgba(200, 16, 46, 0.4);
+  color: white !important;
 }
 
 .secondary {
   background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+  color: var(--nepali-red) !important; /* Force red color */
+  border: 2px solid var(--nepali-red);
 }
 
 .secondary:hover {
-  background-color: var(--primary-light);
+  background-color: rgba(200, 16, 46, 0.1);
   transform: translateY(-3px);
+  color: var(--nepali-red) !important; /* Keep text red on hover */
+}
+
+.cta-button.secondary {
+  color: var(--nepali-red) !important; /* Override any white color setting */
+}
+
+.cta-button.secondary:hover {
+  color: var(--nepali-red) !important; /* Maintain red color on hover */
+  text-decoration: none !important;
 }
 
 .large {
   padding: 18px 36px;
   font-size: 1.2rem;
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .hero-stats {
@@ -275,7 +326,7 @@
 .stat-number {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   margin-bottom: 5px;
 }
 
@@ -332,13 +383,13 @@
 .floating-element {
   position: absolute;
   font-size: 2.5rem;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   opacity: 0.8;
   font-weight: bold;
   padding: 10px;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(67, 97, 238, 0.2);
+  box-shadow: 0 4px 20px rgba(200, 16, 46, 0.2);
 }
 
 .f1 {
@@ -390,7 +441,7 @@
 
 .wave {
   position: absolute;
-  border: 2px solid rgba(67, 97, 238, 0.3);
+  border: 2px solid rgba(200, 16, 46, 0.3);
   border-radius: 50%;
   opacity: 0;
   top: 50%;
@@ -505,7 +556,7 @@
 .feature-icon {
   width: 50px;
   height: 50px;
-  background-color: var(--primary-light);
+  background-color: rgba(200, 16, 46, 0.1);
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -517,7 +568,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 8px;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .feature-item p {
@@ -559,11 +610,13 @@
   position: absolute;
   width: 80%;
   height: 80%;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(40px);
   opacity: 0.15;
-  z-index: 0;
+  z-index: -1;
+  transform: translateZ(0);
+  will-change: opacity;
 }
 
 /* How it Works Section */
@@ -602,7 +655,7 @@
   right: -15px;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   color: white;
   border-radius: 50%;
   display: flex;
@@ -610,7 +663,7 @@
   align-items: center;
   font-weight: 700;
   font-size: 1.1rem;
-  box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 10px rgba(200, 16, 46, 0.3);
 }
 
 .step-icon {
@@ -627,7 +680,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: var(--primary-light);
+  background: rgba(200, 16, 46, 0.1);
   border-radius: 20px;
   transform: rotate(10deg);
   transition: transform 0.3s;
@@ -642,12 +695,14 @@
   width: 60%;
   height: auto;
   z-index: 1;
+  fill: var(--nepali-red);
+  color: var(--nepali-red);
 }
 
 .step h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   margin-bottom: 15px;
 }
 
@@ -662,6 +717,10 @@
   margin-top: -20px;
   display: flex;
   align-items: center;
+}
+
+.step-connector svg line {
+  stroke: var(--nepali-red);
 }
 
 .steps-cta {
@@ -704,7 +763,7 @@
 
 .benefit-icon {
   margin-bottom: 20px;
-  background: var(--primary-light);
+  background: rgba(200, 16, 46, 0.1);
   width: 70px;
   height: 70px;
   border-radius: 15px;
@@ -716,7 +775,7 @@
 .benefit-card h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   margin-bottom: 15px;
 }
 
@@ -740,7 +799,7 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  background-image: radial-gradient(circle, var(--primary-color) 2px, transparent 2px);
+  background-image: radial-gradient(circle, var(--nepali-red) 2px, transparent 2px);
   background-size: 15px 15px;
   transform: rotate(30deg);
 }
@@ -781,7 +840,7 @@
   left: 20px;
   font-size: 4rem;
   font-family: Georgia, serif;
-  color: var(--primary-light);
+  color: rgba(200, 16, 46, 0.1);
   line-height: 1;
   opacity: 0.5;
 }
@@ -806,7 +865,7 @@
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--primary-light);
+  background: rgba(200, 16, 46, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -814,7 +873,7 @@
 
 .avatar-placeholder {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .testimonial-author {
@@ -824,7 +883,7 @@
 
 .testimonial-author strong {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .testimonial-author span {
@@ -838,7 +897,7 @@
 }
 
 .cta-card {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   border-radius: 30px;
   padding: 60px 40px;
   color: white;
@@ -859,26 +918,37 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: white;
+  color: white !important; /* Force white color with !important */
 }
 
 .cta-card p {
   font-size: 1.2rem;
   margin-bottom: 30px;
   opacity: 0.9;
+  color: white; /* Ensure text is white */
 }
 
+/* Fix for the Begin Assessment button */
 .cta-card .cta-button {
   background-color: white;
-  color: var(--primary-color);
+  color: var(--nepali-red) !important; /* Force red text with !important */
   border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cta-card .cta-button span {
+  color: var(--nepali-red) !important; /* Ensure the text inside the span is red */
+}
+
+.cta-card .cta-button svg {
+  stroke: var(--nepali-red) !important; /* Make the SVG icon red too */
 }
 
 .cta-card .cta-button:hover {
   background-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: var(--nepali-red) !important; /* Keep the text red on hover */
 }
 
 .cta-decoration {
@@ -952,7 +1022,7 @@
 .footer-logo span {
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .footer-nav {
@@ -980,13 +1050,11 @@
 }
 
 .footer-links a:hover {
-  color: var(--primary-color);
+  color: var(--nepali-red);
 }
 
 .footer-bottom {
   text-align: center;
-  /* padding-top: 20px; */
-  /* border-top: 1px solid rgba(0, 0, 0, 0.1); */
 }
 
 .copyright {
@@ -1196,19 +1264,19 @@
 
 /* Optimize color variations - reduce number of classes */
 .nepali-char:nth-child(even) {
-  color: #4361ee;
-  background: rgba(67, 97, 238, 0.1);
+  color: var(--nepali-red);
+  background: rgba(200, 16, 46, 0.1);
 }
 
 .nepali-char:nth-child(odd) {
-  color: #4cc9f0;
-  background: rgba(76, 201, 240, 0.1);
+  color: var(--nepali-red);
+  background: rgba(200, 16, 46, 0.1);
 }
 
 .nepali-char:hover {
   transform: translate(-50%, -50%) scale(1.3) !important;
   z-index: 1000 !important;
-  box-shadow: 0 4px 16px rgba(67, 97, 238, 0.3);
+  box-shadow: 0 4px 16px rgba(200, 16, 46, 0.3);
 }
 
 /* Optimize glow effect */
@@ -1216,7 +1284,7 @@
   position: absolute;
   width: 80%;
   height: 80%;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
   border-radius: 50%;
   filter: blur(40px); /* Reduced blur for better performance */
   opacity: 0.15;
@@ -1256,31 +1324,33 @@
 .rating-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
   margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rating-btn {
-  flex: 0 0 calc(10% - 10px);
-  aspect-ratio: 1/1;
+  flex: 0 0 48px;
+  height: 48px;
   border-radius: 50%;
   font-weight: bold;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--nepali-red);
   background-color: white;
-  color: var(--primary-color);
+  color: var(--nepali-red);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  min-width: 36px;
-  min-height: 36px;
+  margin: 0 4px;
 }
 
 .rating-btn.selected {
-  background-color: var(--primary-color);
+  background-color: var(--nepali-red);
   color: white;
   transform: scale(1.1);
 }
@@ -1299,25 +1369,44 @@ audio {
   .rating-buttons {
     gap: 8px;
     justify-content: center;
+    padding: 0.5rem;
   }
-  
+
   .rating-btn {
-    flex: 0 0 calc(18% - 8px);
-    min-width: 40px;
-    min-height: 40px;
+    flex: 0 0 calc(16% - 8px);
+    min-width: 42px;
+    min-height: 42px;
     font-size: 1rem;
   }
-  
-  audio {
-    min-height: 50px;
-  }
-  
+
   .rating-label {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.9rem 1.1rem;
+    font-size: 1rem;
+  }
+
+  .audio-player {
+    margin: 1rem 0;
+  }
+
+  audio {
+    height: 44px;
   }
 }
 
@@ -1325,16 +1414,23 @@ audio {
   .rating-buttons {
     gap: 6px;
   }
-  
+
   .rating-btn {
     flex: 0 0 calc(18% - 6px);
-    min-width: 44px;
-    min-height: 44px;
-    font-size: 1.1rem;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 0.9rem;
   }
-  
-  audio {
-    min-height: 55px;
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .rating-label {
+    font-size: 0.9rem;
   }
 }
 
@@ -1405,3 +1501,234 @@ audio {
     font-size: 0.9rem;
   }
 }
+
+/* Project Description Section */
+.project-description {
+  /* Project Section Styles */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.project-card {
+  background: linear-gradient(145deg, white, var(--nepali-light));
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(200, 16, 46, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.project-card-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--nepali-dark);
+}
+
+/* Timeline Styles */
+.project-timeline {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 4rem 0;
+  flex-wrap: wrap;
+}
+
+.timeline-card {
+  flex: 1;
+  min-width: 250px;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(200, 16, 46, 0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--nepali-red), var(--nepali-maroon));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(200, 16, 46, 0.2);
+}
+
+.timeline-number {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.timeline-card h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 0.8rem;
+}
+
+.timeline-card p {
+  color: var(--nepali-dark);
+  line-height: 1.6;
+}
+
+/* Team Section Styles */
+.team-section {
+  margin-top: 5rem;
+}
+
+.team-section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--nepali-maroon);
+  position: relative;
+}
+
+.team-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  border-radius: 2px;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(200, 16, 46, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-member-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+}
+
+.team-member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.member-info {
+  position: relative;
+  z-index: 1;
+}
+
+.member-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--nepali-maroon);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--nepali-red), var(--nepali-maroon));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.member-role {
+  font-size: 1rem;
+  color: var(--nepali-dark);
+  opacity: 0.8;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .project-description {
+    padding: 20px;
+  }
+
+  .project-timeline {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline-card {
+    min-width: 100%;
+  }
+
+  .team-members {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .team-member-card {
+    padding: 1.5rem;
+  }
+
+  .member-name {
+    font-size: 1.2rem;
+  }
+
+  .member-role {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card-title {
+    font-size: 1.5rem;
+  }
+
+  .project-card-text {
+    font-size: 1rem;
+  }
+
+  .team-members {
+    grid-template-columns: 1fr;
+  }
+}
+
+

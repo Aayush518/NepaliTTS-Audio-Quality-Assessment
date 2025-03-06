@@ -1,168 +1,133 @@
-/* Styles for the Thank You page */
+/* Thank You Page Styles */
+
 .thank-you-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   min-height: 80vh;
-  padding: 2rem;
+  padding: 2rem 0;
 }
 
 .thank-you-card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  padding: 3rem 2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 3rem;
   text-align: center;
-  position: relative;
-  overflow: hidden;
   max-width: 600px;
   width: 100%;
-  animation: cardAppear 0.7s ease-out forwards;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
-.thank-you-title {
-  color: var(--primary-color);
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  /* opacity: 0; */
-  transform: translateY(-20px);
-  transition: all 0.6s ease;
-}
-
-.thank-you-title.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.thank-you-svg {
-  width: 100px;
-  height: 100px;
-  margin: 1.5rem auto;
-}
-
-.checkmark {
-  width: 100%;
-  height: 100%;
-}
-
-.checkmark-circle {
-  stroke-dasharray: 166;
-  stroke-dashoffset: 166;
-  stroke-width: 2;
-  stroke-miterlimit: 10;
-  stroke: #4bb71b;
-  fill: none;
-  transition: stroke-dashoffset 0.6s cubic-bezier(0.65, 0, 0.45, 1);
-}
-
-.checkmark-circle.animate {
-  stroke-dashoffset: 0;
-}
-
-.checkmark-check {
-  transform-origin: 50% 50%;
-  stroke-dasharray: 48;
-  stroke-dashoffset: 48;
-  stroke: #4bb71b;
-  stroke-width: 3;
-  stroke-linecap: round;
-  animation: checkmark 0.5s cubic-bezier(0.65, 0, 0.45, 1) 0.7s forwards;
-}
-
-.thank-you-messages {
-  margin: 2rem 0;
-  color: var(--primary-color);
-}
-
-.message-text {
-  font-size: 1.1rem;
-  margin: 0.8rem 0;
-  /* opacity: 0; */
-  transform: translateY(15px);
-  transition: all 0.5s ease;
-}
-
-.message-text.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.nepali-thanks {
-  font-size: 1.8rem;
-  color: #3498db;
-  font-weight: 600;
-  margin-top: 1.5rem;
-}
-
-.decorative-elements {
+.thank-you-card::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
+  right: 0;
+  height: 5px;
+  background-image: var(--mixed-gradient);
 }
 
-.decoration {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
+.thank-you-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  background-image: var(--mixed-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.decoration-1 {
-  background-color: #3498db;
-  width: 150px;
-  height: 150px;
-  top: -50px;
-  right: -50px;
-  animation: float 8s ease-in-out infinite;
-}
-
-.decoration-2 {
-  background-color: #2ecc71;
+/* Checkmark animation */
+.thank-you-svg {
   width: 100px;
   height: 100px;
-  bottom: -30px;
-  left: -30px;
-  animation: float 6s ease-in-out infinite 1s;
+  margin: 0 auto 2rem;
+  position: relative;
 }
 
-.decoration-3 {
-  background-color: #f39c12;
-  width: 70px;
-  height: 70px;
-  bottom: 40px;
-  right: 40px;
-  animation: float 7s ease-in-out infinite 0.5s;
+.thank-you-svg svg {
+  overflow: visible;
 }
 
-@keyframes cardAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Define the gradient for the SVG */
+.thank-you-svg svg defs {
+  position: absolute;
 }
 
-@keyframes checkmark {
-  0% {
-    stroke-dashoffset: 48;
-  }
+.checkmark-circle {
+  stroke: url(#gradient);
+  stroke-width: 3;
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  fill: none;
+}
+
+.checkmark-check {
+  stroke: url(#gradient);
+  stroke-width: 3;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+  fill: none;
+}
+
+@keyframes stroke {
   100% {
     stroke-dashoffset: 0;
   }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+.thank-you-message {
+  margin: 2rem 0;
+}
+
+.message-text {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.nepali-thanks {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  background-image: var(--mixed-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.decorative-elements {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.decoration {
+  height: 6px;
+  width: 40px;
+  border-radius: 3px;
+}
+
+.decoration-1 {
+  background-color: var(--primary-color);
+  transform: translateY(-4px);
+}
+
+.decoration-2 {
+  background-image: var(--mixed-gradient);
+  opacity: 0.7;
+}
+
+.decoration-3 {
+  background-color: var(--secondary-color);
+  transform: translateY(4px);
 }
