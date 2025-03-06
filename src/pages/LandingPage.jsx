@@ -151,9 +151,10 @@ function LandingPage() {
           </h1>
           <p className="tagline">Help us improve the future of Nepali voice synthesis!</p>
           <p className="hero-description">
-            We are developing an advanced Nepali Text-to-Speech system and need your feedback 
-            to improve the quality and naturalness of the voice. Your input will shape the 
-            next generation of AI-powered voice technology for Nepal.
+            We are developing a comprehensive Nepali Text-to-Speech pipeline that leverages both existing and custom-built Grapheme-to-Phoneme (G2P) systems. 
+            Our research includes training and evaluating multiple TTS models, ranging from traditional concatenative approaches to modern neural architectures. 
+            By combining these techniques with minimal training data optimization strategies, we aim to create a robust TTS system that can serve as a foundation 
+            for other low-resource languages while maintaining high-quality Nepali voice synthesis.
           </p>
           <div className="hero-cta-group">
             <Link to="/survey" className="cta-button primary-gradient">
