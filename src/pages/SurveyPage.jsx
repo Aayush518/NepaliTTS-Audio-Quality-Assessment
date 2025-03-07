@@ -163,7 +163,7 @@ function SurveyPage() {
       console.log('Submitting data to Google Sheets:', formData);
       
       // Make a POST request to Google Sheets API or App Script endpoint
-      await fetch(`${process.env.SHEET_URL}`, {
+      await fetch(`${import.meta.env.VITE_SHEET_URL}`, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
