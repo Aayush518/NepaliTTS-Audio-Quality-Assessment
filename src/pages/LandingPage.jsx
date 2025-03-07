@@ -151,9 +151,10 @@ function LandingPage() {
           </h1>
           <p className="tagline">Help us improve the future of Nepali voice synthesis!</p>
           <p className="hero-description">
-            We are developing an advanced Nepali Text-to-Speech system and need your feedback 
-            to improve the quality and naturalness of the voice. Your input will shape the 
-            next generation of AI-powered voice technology for Nepal.
+            We are developing a comprehensive Nepali Text-to-Speech pipeline that leverages both existing and custom-built Grapheme-to-Phoneme (G2P) systems. 
+            Our research includes training and evaluating multiple TTS models, ranging from traditional concatenative approaches to modern neural architectures. 
+            By combining these techniques with minimal training data optimization strategies, we aim to create a robust TTS system that can serve as a foundation 
+            for other low-resource languages while maintaining high-quality Nepali voice synthesis.
           </p>
           <div className="hero-cta-group">
             <Link to="/survey" className="cta-button primary-gradient">
@@ -238,7 +239,7 @@ function LandingPage() {
               <div className="team-member-card glass-effect">
                 <div className="member-info">
                   <h4 className="member-name">Aayush Adhikari</h4>
-                  <a href="https://linkedin.com/in/aayushadhikari" target="_blank" rel="noopener noreferrer" className="member-social">
+                  <a href="https://linkedin.com/in/aayush518" target="_blank" rel="noopener noreferrer" className="member-social">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--nepali-red)">
                       <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                     </svg>
