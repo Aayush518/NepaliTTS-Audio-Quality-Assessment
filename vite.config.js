@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    allowedHosts: ['nepali-tts-audio-quality-assessment.vercel.app']
+    allowedHosts: [ 'nepali-tts-audio-quality-assessment.vercel.app/survey', 'nepali-tts-audio-quality-assessment.vercel.app','nepali-tts-audio-quality-assessment-shishirrijals-projects.vercel.app', 'nepali-tts-audio-quality-assessment-shishirrijals-projects.vercel.app/survey']
   }
 })

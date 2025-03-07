@@ -770,7 +770,6 @@ textarea:focus {
   }
 }
 } /* End of media query */
-} /* End of stylesheet */
 
 .rating-buttons {
   display: flex;
@@ -840,5 +839,3 @@ textarea:focus {
     justify-content: center;
   }
 }
-} /* End of media query */
-} /* End of stylesheet */
